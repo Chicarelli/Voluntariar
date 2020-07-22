@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "84367640730",
+    "firebase_url": "https://voluntariar-50f20.firebaseio.com",
+    "project_id": "voluntariar-50f20",
+    "storage_bucket": "voluntariar-50f20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84367640730:android:7d0a76536ce98a3a14b723",
+        "android_client_info": {
+          "package_name": "com.example.voluntariado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84367640730-8tl6r3c7af22be9gpiuu669t9qo79ted.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.voluntariado",
+            "certificate_hash": "b8bde3fbc3409093d7d08e110cd853914aebe8a1"
+          }
+        },
+        {
+          "client_id": "84367640730-p00m29n82tnhduiiv7uie28apod0noj3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.voluntariado",
+            "certificate_hash": "5b3fb31aa610cedc104b2fc2424f922a17858214"
+          }
+        },
+        {
+          "client_id": "84367640730-bdprh5i42tdrsgprn52pkjj0qn4nl23v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb9klN9gOMywf_GsAJbTUNwsHPwwozEqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84367640730-bdprh5i42tdrsgprn52pkjj0qn4nl23v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

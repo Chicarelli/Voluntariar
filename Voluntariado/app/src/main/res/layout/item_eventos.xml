@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/evento_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-medium"
+        android:hint="There will be a title"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/evento_endereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="?android:textAppearance"
+        android:textColor="#000000"
+        android:hint="There will be exp"/>
+
+    <TextView
+        android:id="@+id/evento_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="?android:textAppearance"
+        android:textColor="#000000"
+        android:hint="There will be a date"/>
+
+    <TextView
+        android:id="@+id/evento_hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="?android:textAppearance"
+        android:textColor="#000000"
+        android:hint="There will be a description"/>
+
+</LinearLayout>
