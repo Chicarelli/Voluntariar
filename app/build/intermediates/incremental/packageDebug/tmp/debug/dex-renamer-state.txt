@@ -1,10 +1,10 @@
-#Tue Jul 21 21:18:22 BRT 2020
+#Fri Jul 24 22:23:34 BRT 2020
 path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=C\:\\Android Projetos\\Voluntariado-20200601T190344Z-001\\Voluntariado\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.1=C\:\\Android Projetos\\Voluntariado-20200601T190344Z-001\\Voluntariado\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
-base.0=C\:\\Android Projetos\\Voluntariado-20200601T190344Z-001\\Voluntariado\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.2=C\:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.1=C\:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+base.0=C\:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex

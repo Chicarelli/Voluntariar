@@ -13,84 +13,121 @@
         android:id="@+id/imageView3"
         android:layout_width="371dp"
         android:layout_height="203dp"
-        android:layout_marginTop="64dp"
         android:background="@drawable/fundo_imagem"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/voluntariar_de_vez" />
+        app:srcCompat="@drawable/voluntariar_de_vez"
+        app:layout_constraintVertical_bias="0.06"/>
 
-    <EditText
-        android:id="@+id/loginUsuario"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/caixa_de_texto"
-        android:ems="10"
-        android:textColorHint="#A9A9A9"
-        android:textColor="#000000"
-        android:hint="Digite seu usuário"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <EditText
-        android:id="@+id/loginSenha"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:background="@drawable/caixa_de_texto"
-        android:textColorHint="#A9A9A9	"
-        android:textColor="#000000"
-        android:hint="Digite sua senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginUsuario" />
-
-    <Button
-        android:id="@+id/btLogar"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/login_cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/botao"
-        android:onClick="logar"
-        android:text="Logar"
-        android:textColor="#B22222"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#CECA0000"
+        app:cardCornerRadius="20px"
+        app:layout_constraintBottom_toTopOf="@id/criarConta"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView3"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/loginUsuario"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/caixa_de_texto"
+                android:hint="Email"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#A9A9A9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/loginSenha"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/caixa_de_texto"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#A9A9A9	"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginUsuario" />
+
+            <Button
+                android:id="@+id/btLogar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/botao_login"
+                android:onClick="logar"
+                android:text="Logar"
+                android:textColor="#FFFBFB"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginSenha" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/texto_antes_criarConta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginTop="20dp"
+        android:onClick="criarConta"
+        android:text="Não possui uma conta? Clique"
+        android:textColor="#A9A9A9"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginSenha" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_cardView"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0.4"/>
 
     <TextView
         android:id="@+id/criarConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:clickable="true"
+        android:layout_marginTop="20dp"
         android:onClick="criarConta"
-        android:text="Não possui uma conta? Clique aqui para criar!"
-        android:textColor="#A9A9A9"
-        android:textSize="14dp"
+        android:text="AQUI!"
+        android:textColor="#CA0000"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLogar" />
+        app:layout_constraintLeft_toRightOf="@+id/texto_antes_criarConta"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_cardView"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.08"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1370,6 +1370,9 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable background
 drawable botao
+drawable botao_login
+drawable botao_login_normal
+drawable botao_login_selecionado
 drawable botaonormal
 drawable botaoselecionado
 drawable btn_checkbox_checked_mtrl
@@ -1631,6 +1634,7 @@ id listMode
 id list_item
 id loginSenha
 id loginUsuario
+id login_cardView
 id masked
 id message
 id middle
@@ -1769,6 +1773,7 @@ id text_input_start_icon
 id textinput_counter
 id textinput_error
 id textinput_helper_text
+id texto_antes_criarConta
 id textview_first
 id textview_second
 id time

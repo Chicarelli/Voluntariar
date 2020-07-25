@@ -1,6 +1,7 @@
 package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {   //ACTIVITY RESPONSÁVEL
         setContentView(R.layout.activity_login);
         email = findViewById(R.id.loginUsuario);
         senha = findViewById(R.id.loginSenha);
+        getSupportActionBar().hide();
     }
 
     //Pegando instancia Firebase Autentication ao startar
