@@ -83,7 +83,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/botao_login"
-                android:onClick="logar"
+                android:onClick="validarCampo"
                 android:text="Logar"
                 android:textColor="#FFFBFB"
                 android:textSize="20sp"

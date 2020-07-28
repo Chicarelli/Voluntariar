@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {   //ACTIVITY RESPONSÁVEL
     }
 
     //Usuário tentando logar, Recuperando conteúdo das activitys e fazendo a validação, para então confirmar usuário existente no firebase
-    public void logar(View view) {
+    public void validarCampo(View view) {
         //Recuperar o conteúdo das editsviews presentes na activity
         String verEmail = email.getText().toString();
         String verSenha = senha.getText().toString();
@@ -60,20 +60,25 @@ public class LoginActivity extends AppCompatActivity {   //ACTIVITY RESPONSÁVEL
             Toast.makeText(getApplicationContext(), "Preencha os campos!", Toast.LENGTH_SHORT).show();
 
         } else {
+            fazerSignIn(verEmail, verSenha);
             //Tudo certo, tentando autenticar direto no firebase
-            mAuth.signInWithEmailAndPassword(verEmail, verSenha)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                telaPrincipal();
-                            } else {
-                                Toast.makeText(LoginActivity.this, "Erro", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+
         }
+    }
+
+    private void fazerSignIn(String email, String senha) {
+        mAuth.signInWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            telaPrincipal();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Erro", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     //Metodo que levará o usuário à tela de listagem de eventos após autenticação bem-sucedida.

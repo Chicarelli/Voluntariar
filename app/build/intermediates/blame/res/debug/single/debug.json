@@ -1,190 +1,190 @@
 [
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao_login_selecionado.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\botao_login_selecionado.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_cadastro.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\activity_cadastro.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_button_fab.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable-xhdpi\\ic_button_fab.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_first.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\fragment_first.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_button_fab.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_button_fab.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\botao.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_first.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\fragment_first.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_button_fab.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable-xxhdpi\\ic_button_fab.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\menu_mainmenu.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\menu\\mainmenu.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_button_fab.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_button_fab.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao_login_normal.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\botao_login_normal.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_voluntariar_de_vez.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\voluntariar_de_vez.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\navigation_nav_graph.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\navigation\\nav_graph.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_criar_evento_fisico.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\activity_criar_evento_fisico.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_button_fab.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable-mdpi\\ic_button_fab.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_button_fab.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable-xxhdpi\\ic_button_fab.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_fundo_imagem.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\fundo_imagem.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_button_fab.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_button_fab.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\botao.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_second.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\fragment_second.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_caixa_de_texto.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\caixa_de_texto.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_voluntariar_de_vez.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\voluntariar_de_vez.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_fundo_imagem.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\fundo_imagem.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao_login_selecionado.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\botao_login_selecionado.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\navigation\\nav_graph.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao_login_normal.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\botao_login_normal.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_button_fab.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_button_fab.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_second.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\fragment_second.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_button_fab.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable-hdpi\\ic_button_fab.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\background.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botaonormal.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\botaonormal.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_button_fab.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_button_fab.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botaonormal.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\botaonormal.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\menu_mainmenu.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\menu\\mainmenu.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botaoselecionado.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\botaoselecionado.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_criar_evento_fisico.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\activity_criar_evento_fisico.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_button_fab.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable-xhdpi\\ic_button_fab.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_cadastro.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\activity_cadastro.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_main.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\content_main.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao_login.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\botao_login.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao_login.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\botao_login.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_button_fab.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable-mdpi\\ic_button_fab.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_button_fab.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable-hdpi\\ic_button_fab.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_caixa_de_texto.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\caixa_de_texto.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botaoselecionado.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\drawable\\botaoselecionado.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\background.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_main.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\content_main.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_button_fab.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_button_fab.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_eventos.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\item_eventos.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_eventos.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariar\\Voluntariar\\app\\src\\main\\res\\layout\\item_eventos.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     }
 ]
