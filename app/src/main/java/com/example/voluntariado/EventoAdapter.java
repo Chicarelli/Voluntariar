@@ -42,5 +42,8 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
         horatxt.setText(evento.getHora());
 
         return convertView;
+
+
     }
+
 }

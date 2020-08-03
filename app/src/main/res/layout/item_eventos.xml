@@ -14,7 +14,8 @@
         android:fontFamily="sans-serif-medium"
         android:hint="There will be a title"
         android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/evento_endereco"

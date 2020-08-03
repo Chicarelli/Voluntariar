@@ -100,6 +100,7 @@ public class CriarEventoFisico extends AppCompatActivity {
         dataToSave.put("data", data);
         dataToSave.put("descricao", descricao);
         dataToSave.put("hora", hora);
+        dataToSave.put("proprietario", mAuth.getUid());
 
         firestoreEvento.collection("eventos")
                 .add(dataToSave)
