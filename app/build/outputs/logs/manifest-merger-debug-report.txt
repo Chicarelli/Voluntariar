@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\f569d3e09b7821d0e1dcb9add05f4280\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui:2.1.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\ea2bbcb1619801cb0d154a04d9df42cc\navigation-ui-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\f64d6fad12aa3cff27bbf6b4e7023d68\material-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -13,6 +13,7 @@ MERGED from [com.google.firebase:firebase-core:17.0.0] C:\Users\Rafael Chicarell
 MERGED from [com.google.firebase:firebase-auth:19.3.2] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\49093be83ac9d2487601cba2f123a627\jetified-firebase-auth-19.3.2\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:2:1-26:12
 MERGED from [androidx.navigation:navigation-fragment:2.1.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\bee472d616fb5e0c5ed6ade23280de0a\navigation-fragment-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\46ee88f10163a5f7e01a8309ca93dddf\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-analytics:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\d7665f1774137402ec94845fd28d45aa\jetified-firebase-analytics-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:17:1-36:12
@@ -64,25 +65,25 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\Rafael Chicarelli\.gradle\cach
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\7cc82116b786624cbab1353d697c93f8\jetified-firebase-database-collection-17.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\25b110580b746d210ab326eb301d11b6\jetified-protolite-well-known-types-17.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\b163c9fdbbeec26a6e74cf25f8760162\jetified-grpc-android-1.21.0\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:5:5-22:19
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:5:5-23:19
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\f64d6fad12aa3cff27bbf6b4e7023d68\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\f64d6fad12aa3cff27bbf6b4e7023d68\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\ed2e7565d6c3314fe0aa868e313e324e\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
@@ -93,6 +94,8 @@ MERGED from [com.google.firebase:firebase-auth:19.3.2] C:\Users\Rafael Chicarell
 MERGED from [com.google.firebase:firebase-auth:19.3.2] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\49093be83ac9d2487601cba2f123a627\jetified-firebase-auth-19.3.2\AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:16:5-24:19
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:29:5-37:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\46ee88f10163a5f7e01a8309ca93dddf\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\46ee88f10163a5f7e01a8309ca93dddf\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-analytics:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\d7665f1774137402ec94845fd28d45aa\jetified-firebase-analytics-17.0.0\AndroidManifest.xml:7:5-20
@@ -145,32 +148,36 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Ra
 		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.example.voluntariado.telaDoEvento
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:12:9-59
+	android:name
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:12:19-47
 activity#com.example.voluntariado.CriarEventoFisico
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:12:9-55
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:13:9-55
 	android:name
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:12:19-52
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:13:19-52
 activity#com.example.voluntariado.CadastroActivity
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:13:9-54
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:14:9-54
 	android:name
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:13:19-51
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:14:19-51
 activity#com.example.voluntariado.LoginActivity
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:14:9-51
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:15:9-51
 	android:name
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:14:19-48
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:15:19-48
 activity#com.example.voluntariado.MainActivity
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:15:9-21:20
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:16:9-22:20
 	android:name
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:15:19-47
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:16:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:16:13-20:29
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:17:17-69
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:17:25-66
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:19:17-77
+ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:19:27-74
+		ADDED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml:20:27-74
 uses-sdk
 INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Android Projetos\Voluntariar\app\src\main\AndroidManifest.xml
@@ -193,6 +200,8 @@ MERGED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chic
 MERGED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.navigation:navigation-fragment:2.1.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\bee472d616fb5e0c5ed6ade23280de0a\navigation-fragment-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-fragment:2.1.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\bee472d616fb5e0c5ed6ade23280de0a\navigation-fragment-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\46ee88f10163a5f7e01a8309ca93dddf\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\46ee88f10163a5f7e01a8309ca93dddf\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\d7665f1774137402ec94845fd28d45aa\jetified-firebase-analytics-17.0.0\AndroidManifest.xml:5:5-44
@@ -325,6 +334,8 @@ service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-auth:19.3.2] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\49093be83ac9d2487601cba2f123a627\jetified-firebase-auth-19.3.2\AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:17:9-23:19
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:30:9-36:19
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\c99f0123cc4b606f1912791fd1789253\jetified-firebase-iid-19.0.0\AndroidManifest.xml:29:9-35:19
@@ -347,6 +358,8 @@ ADDED from [com.google.firebase:firebase-auth:19.3.2] C:\Users\Rafael Chicarelli
 		ADDED from [com.google.firebase:firebase-auth:19.3.2] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\49093be83ac9d2487601cba2f123a627\jetified-firebase-auth-19.3.2\AndroidManifest.xml:37:17-109
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:26:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\c99f0123cc4b606f1912791fd1789253\jetified-firebase-iid-19.0.0\AndroidManifest.xml:22:5-79
@@ -363,6 +376,8 @@ MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\Rafael Chicarelli\.gradle\cac
 		ADDED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:13:22-76
 uses-permission#android.permission.INTERNET
 ADDED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:27:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\c99f0123cc4b606f1912791fd1789253\jetified-firebase-iid-19.0.0\AndroidManifest.xml:23:5-67
@@ -381,6 +396,12 @@ ADDED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chica
 		ADDED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:22:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-firestore:21.2.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\9351f2a05a5cbd1708cb010f8530e603\jetified-firebase-firestore-21.2.1\AndroidManifest.xml:21:17-111
+meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
+ADDED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:33:13-35:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:35:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:19.1.1] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\cd2a88c6476cbcb41ef8687e498c90a9\jetified-firebase-storage-19.1.1\AndroidManifest.xml:34:17-107
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\795e667bcd2203f83b8d5ebe03822007\jetified-play-services-measurement-api-17.0.0\AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\c99f0123cc4b606f1912791fd1789253\jetified-firebase-iid-19.0.0\AndroidManifest.xml:24:5-68

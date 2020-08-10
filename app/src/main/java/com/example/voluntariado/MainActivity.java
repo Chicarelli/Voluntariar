@@ -65,27 +65,28 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
                 List<Eventos> mEventosList = new ArrayList<>();
                 if(task.isSuccessful()) {
                     for(QueryDocumentSnapshot document: task.getResult()) {
-
                         //instanciando Eventos, convertendo para objeto e passando para a classe.
                         Eventos evento = document.toObject(Eventos.class);
+
                         //adicionando a instancia à lista
                         mEventosList.add(evento);
-                    }
 
-                    // nomeando o ListView da activity
+                    }
 
                     //instanciando o Adapter
                     final EventoAdapter mEventoAdapter = new EventoAdapter(MainActivity.this, mEventosList);
                     //Setando o Adapter com os eventos.
                     mEventosListView.setAdapter(mEventoAdapter);
 
-
                     //CONSEGUI CARALHO, AQUI VAI INICIAR A INTENT ENVIANDO OS DADOS DO ITEM CLICADO, É NOI? FLW!
                     mEventosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                            Toast.makeText(MainActivity.this, mEventoAdapter.getItem(position).getTitulo(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
+                        intent.putExtra("id", mEventoAdapter.getItem(position).getId());
+                        startActivity(intent);
+
                         }
                     });
                 }
@@ -94,12 +95,7 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
                 }
             }
         });
-
-
-
-
     }
-
 
     //INFLANDO MENU
     @Override

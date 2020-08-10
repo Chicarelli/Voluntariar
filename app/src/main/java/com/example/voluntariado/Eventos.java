@@ -6,16 +6,20 @@ public class Eventos {
     private String endereco;
     private String data;
     private String hora;
+    private String descricao;
+    private String id;
 
     public Eventos(){}
     //Classe para definir os eventos
 
     //construtor
-    public Eventos(String titulo, String descricao, String data, String hora) {
+    public Eventos(String titulo, String endereco, String data, String hora, String descricao, String id) {
         this.titulo = titulo;
-        this.endereco = descricao;
+        this.endereco = endereco;
         this.data = data;
         this.hora = hora;
+        this.descricao = descricao;
+        this.id = id;
     }
 
 
@@ -33,8 +37,8 @@ public class Eventos {
         return endereco;
     }
 
-    public void setDescricao(String descricao) {
-        this.endereco = descricao;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getData() {
@@ -51,5 +55,17 @@ public class Eventos {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    public String getDescricao(){ return descricao;}
+
+    public void setDescricao(String desc) { this.descricao = desc;}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

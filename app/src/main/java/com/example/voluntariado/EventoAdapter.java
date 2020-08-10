@@ -24,23 +24,22 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
             convertView = ((Activity)getContext()).getLayoutInflater().inflate(R.layout.item_eventos, parent, false); //inflando layout do item de eventos
         }
 
-
         //nomeando componentes do activity
         TextView titulotxt = (TextView) convertView.findViewById(R.id.evento_titulo);
         TextView enderecotxt = (TextView) convertView.findViewById(R.id.evento_endereco);
         TextView datatxt = (TextView) convertView.findViewById(R.id.evento_data);
         TextView horatxt = (TextView) convertView.findViewById(R.id.evento_hora);
+        TextView desctxt = (TextView) convertView.findViewById(R.id.evento_desc);
 
         //pegando posição do item na classe Evento
         Eventos evento = getItem(position);
-
 
         //setando os elementos da view com os documentos que pega na classe evento.
         titulotxt.setText(evento.getTitulo());
         enderecotxt.setText(evento.getEndereco());
         datatxt.setText(evento.getData());
         horatxt.setText(evento.getHora());
-
+        desctxt.setText(evento.getDescricao());
         return convertView;
 
 

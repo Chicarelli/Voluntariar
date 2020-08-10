@@ -1384,6 +1384,7 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable caixa_de_texto
+drawable caixa_de_texto_descricao_tela_do_evento
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1458,6 +1459,7 @@ id BOTTOM_START
 id CTRL
 id FUNCTION
 id FirstFragment
+id Hora
 id META
 id SHIFT
 id SYM
@@ -1561,6 +1563,7 @@ id custom
 id customPanel
 id cut
 id dark
+id data
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
@@ -1587,9 +1590,11 @@ id edit_query
 id edtEmail
 id edtSenha
 id end
+id endereco
 id enterAlways
 id enterAlwaysCollapsed
 id evento_data
+id evento_desc
 id evento_endereco
 id evento_hora
 id evento_titulo
@@ -1748,6 +1753,12 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tela_evento_data
+id tela_evento_descricao
+id tela_evento_endereco
+id tela_evento_hora
+id tela_evento_numero
+id tela_evento_titulo
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id text
@@ -1792,6 +1803,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id uploadFoto
 id useLogo
 id view_offset_helper
 id visible
@@ -1865,6 +1877,7 @@ layout activity_cadastro
 layout activity_criar_evento_fisico
 layout activity_login
 layout activity_main
+layout activity_tela_do_evento
 layout content_main
 layout custom_dialog
 layout design_bottom_navigation_item

@@ -44,4 +44,13 @@
         android:textColor="#000000"
         android:hint="There will be a description"/>
 
+    <TextView
+        android:id="@+id/evento_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="?android:textAppearance"
+        android:textColor="#000000"
+        android:hint="There will be a description"/>
+
 </LinearLayout>
