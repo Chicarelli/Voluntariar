@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Console;
 import java.util.concurrent.Executor;
@@ -20,18 +21,47 @@ public class User {
     private String uuid;
     private String nome;
     private String email;
-    private String password;
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private String sexo;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    public User() { }
+    public User() {    }
 
-    public String getUuid() {
-        return uuid;
+    public User (String uuid, String nome, String email, String sexo){
+      this.uuid = uuid;
+      this.nome = nome;
+      this.email = email;
+      this.sexo = sexo;
     }
 
-    public String getNome() {
-        return nome;
-    }
+  public String getUuid() {
+    return uuid;
+  }
 
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
 
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getSexo() {
+    return sexo;
+  }
+
+  public void setSexo(String sexo) {
+    this.sexo = sexo;
+  }
 }

@@ -59,14 +59,17 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
 
         //Logo pegando todos os eventos criados na coleção EVENTOS do Database Firestore do Firebase.
 
+
         db.collection("eventos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 List<Eventos> mEventosList = new ArrayList<>();
                 if(task.isSuccessful()) {
+
                     for(QueryDocumentSnapshot document: task.getResult()) {
                         //instanciando Eventos, convertendo para objeto e passando para a classe.
                         Eventos evento = document.toObject(Eventos.class);
+                        
 
                         //adicionando a instancia à lista
                         mEventosList.add(evento);
@@ -91,7 +94,8 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
                     });
                 }
                 else {
-                    Log.d("TAG", "algo deu errado");
+                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
+                    Log.d("TAG", task.toString());
                 }
             }
         });

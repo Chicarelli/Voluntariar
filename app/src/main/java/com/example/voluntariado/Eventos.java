@@ -1,5 +1,16 @@
 package com.example.voluntariado;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 public class Eventos {
 
     private String titulo;
@@ -8,22 +19,44 @@ public class Eventos {
     private String hora;
     private String descricao;
     private String id;
+    private String imagem;
+    private String proprietario;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public Eventos(){}
     //Classe para definir os eventos
 
     //construtor
-    public Eventos(String titulo, String endereco, String data, String hora, String descricao, String id) {
+    public Eventos(String titulo, String endereco, String data, String hora, String descricao, String id, String imagem, String proprietario) {
         this.titulo = titulo;
         this.endereco = endereco;
         this.data = data;
         this.hora = hora;
         this.descricao = descricao;
         this.id = id;
+        this.imagem = imagem;
+        this.proprietario = proprietario;
     }
 
 
     //getters and setters :
+
+
+    public String getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(String proprietario) {
+        this.proprietario = proprietario;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
     public String getTitulo() {
         return titulo;

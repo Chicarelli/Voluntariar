@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".telaDoEvento"
-    android:background="#91A3E8"
+    android:background="#4169e1"
     >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="#AE4E71EF"
+        android:layout_marginTop="150dp"
+        app:cardBackgroundColor="#FAF7F7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -33,14 +33,28 @@
                 android:padding="10dp"
                 android:text="Título"
                 android:textAlignment="center"
-                android:textColor="#ffffff"
+                android:textColor="#FF000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.08" />
+                app:layout_constraintVertical_bias="0.02" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+
+                app:layout_constraintTop_toBottomOf="@id/tela_evento_titulo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/imagemEvento"
+                app:layout_constraintVertical_bias="0.02" />
 
             <TextView
                 android:id="@+id/data"
@@ -54,14 +68,14 @@
                 android:paddingBottom="10dp"
                 android:text="Data: "
                 android:textAlignment="center"
-                android:textColor="#ffffff"
+                android:textColor="#FF000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tela_evento_titulo"
+                app:layout_constraintTop_toBottomOf="@+id/imagemEvento"
                 app:layout_constraintVertical_bias="0.04" />
 
             <TextView
@@ -73,15 +87,15 @@
                 android:paddingLeft="2dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
+                android:textColor="#FF000000"
+                android:textColorHint="#FF000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintLeft_toRightOf="@id/data"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tela_evento_titulo"
+                app:layout_constraintTop_toBottomOf="@+id/imagemEvento"
                 app:layout_constraintVertical_bias="0.04" />
 
             <TextView
@@ -93,14 +107,14 @@
                 android:paddingRight="2dp"
                 android:paddingBottom="10dp"
                 android:text="Hora:"
-                android:textColor="#ffffff"
+                android:textColor="#FF000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintLeft_toRightOf="@id/tela_evento_data"
                 app:layout_constraintRight_toLeftOf="@id/tela_evento_hora"
-                app:layout_constraintTop_toBottomOf="@id/tela_evento_titulo"
+                app:layout_constraintTop_toBottomOf="@id/imagemEvento"
                 app:layout_constraintVertical_bias="0.04" />
 
             <TextView
@@ -113,15 +127,15 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
+                android:textColor="#FF000000"
+                android:textColorHint="#FF000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tela_evento_titulo"
+                app:layout_constraintTop_toBottomOf="@id/imagemEvento"
                 app:layout_constraintVertical_bias="0.04" />
 
             <TextView
@@ -134,7 +148,7 @@
                 android:paddingRight="2dp"
                 android:paddingBottom="10dp"
                 android:text="Endereco:"
-                android:textColor="#ffffff"
+                android:textColor="#FF000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -154,8 +168,8 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
+                android:textColor="#FF000000"
+                android:textColorHint="#FF000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -175,8 +189,8 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
+                android:textColor="#FF000000"
+                android:textColorHint="#FF000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -198,7 +212,7 @@
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 android:padding="10px"
-                android:textColor="#ffffff"
+                android:textColor="#FF000000"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0"

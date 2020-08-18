@@ -111,7 +111,7 @@
         android:layout_marginRight="15dp"
         android:background="@drawable/caixa_de_texto"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editComplemento"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -136,7 +136,7 @@
         android:layout_marginLeft="15dp"
         android:background="@drawable/caixa_de_texto"
         android:ems="10"
-        android:inputType="text|date"
+        android:inputType="time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -219,7 +219,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/botao"
+        android:background="@drawable/botao_login"
+        android:textColor="#FFFFFF"
         android:onClick="criarEvento"
         android:text="Criar Evento"
         app:layout_constraintEnd_toEndOf="parent"

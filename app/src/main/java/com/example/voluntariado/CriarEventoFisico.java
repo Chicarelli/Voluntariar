@@ -46,8 +46,6 @@ public class CriarEventoFisico extends AppCompatActivity {
     Uri downloadUri;
     private int PICK_IMAGE = 1234;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,7 +104,7 @@ public class CriarEventoFisico extends AppCompatActivity {
     }
 
     public void registrarEvento(String titulo, String endereco, String numero, final String data, String descricao, String complemento, String hora){
-        salvarFoto();
+        String imagem = salvarFoto(titulo);
         final Map<String, Object> dataToSave = new HashMap<String, Object>();
         dataToSave.put("titulo", titulo);
         dataToSave.put("endereco", endereco);
@@ -116,8 +114,8 @@ public class CriarEventoFisico extends AppCompatActivity {
         dataToSave.put("descricao", descricao);
         dataToSave.put("hora", hora);
         dataToSave.put("proprietario", mAuth.getUid());
-        if (bitmap != null){
-            dataToSave.put("imagem", bitmap.toString());
+        if (imagem != null){
+            dataToSave.put("imagem", imagem);
         }
 
         firestoreEvento.collection("eventos")
@@ -178,23 +176,37 @@ public class CriarEventoFisico extends AppCompatActivity {
         }
     }
 
-    protected void salvarFoto(){
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] dados = baos.toByteArray();
+    protected String salvarFoto(String titulo){
 
-        final UploadTask uploadTask = imagesRef.child(bitmap.toString()).putBytes(dados);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle unsuccessful uploads
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                downloadUri = taskSnapshot.getUploadSessionUri();
-            }
-        });
+        if(bitmap != null) {
+            CriarEventoFisicoUtil criarEventoFisicoUtil = new CriarEventoFisicoUtil(mAuth.getUid(), titulo);
+            String nameCreated = criarEventoFisicoUtil.getCreatedName();
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] dados = baos.toByteArray();
+
+            final UploadTask uploadTask = imagesRef.child(nameCreated).putBytes(dados);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle unsuccessful uploads
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                    downloadUri = taskSnapshot.getUploadSessionUri();
+                }
+            });
+
+
+            return nameCreated;
+        }else {
+            return "teste.jpeg";
+        }
     }
+
+
+
 }

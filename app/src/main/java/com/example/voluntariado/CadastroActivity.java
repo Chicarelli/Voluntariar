@@ -138,6 +138,7 @@ public class CadastroActivity extends AppCompatActivity {
         dataToSave.put("nome", nome);
         dataToSave.put("DataNasc", dataDeNascimento);
         dataToSave.put("sexo", "M");
+        dataToSave.put("uuid", mAuth.getUid());
 
         //Colocando no Collection Firestor. Coleção: Users1, com o mesmo nome do uuid dele criado pelo firebase autentication
         firestore.collection("users1").document(uuid)

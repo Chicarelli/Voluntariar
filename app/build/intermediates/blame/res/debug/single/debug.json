@@ -80,6 +80,10 @@
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\font_allerta.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\font\\allerta.xml"
+    },
+    {
         "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
