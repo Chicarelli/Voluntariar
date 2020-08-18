@@ -12,7 +12,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,7 +29,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.gson.internal.$Gson$Types;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,38 +55,51 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Lista de eventos");
-
+        final ListView mEventosListView = (ListView) findViewById(R.id.eventosList);
 
         //Logo pegando todos os eventos criados na coleção EVENTOS do Database Firestore do Firebase.
+
 
         db.collection("eventos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 List<Eventos> mEventosList = new ArrayList<>();
                 if(task.isSuccessful()) {
-                    for(QueryDocumentSnapshot document: task.getResult()) {
 
+                    for(QueryDocumentSnapshot document: task.getResult()) {
                         //instanciando Eventos, convertendo para objeto e passando para a classe.
                         Eventos evento = document.toObject(Eventos.class);
+                        
+
                         //adicionando a instancia à lista
                         mEventosList.add(evento);
+
                     }
 
-                    // nomeando o ListView da activity
-                    ListView mEventosListView = (ListView) findViewById(R.id.eventosList);
                     //instanciando o Adapter
-                    EventoAdapter mEventoAdapter = new EventoAdapter(MainActivity.this, mEventosList);
+                    final EventoAdapter mEventoAdapter = new EventoAdapter(MainActivity.this, mEventosList);
                     //Setando o Adapter com os eventos.
                     mEventosListView.setAdapter(mEventoAdapter);
+
+                    //CONSEGUI CARALHO, AQUI VAI INICIAR A INTENT ENVIANDO OS DADOS DO ITEM CLICADO, É NOI? FLW!
+                    mEventosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
+                        intent.putExtra("id", mEventoAdapter.getItem(position).getId());
+                        startActivity(intent);
+
+                        }
+                    });
                 }
                 else {
-                    Log.d("TAG", "algo deu errado");
+                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
+                    Log.d("TAG", task.toString());
                 }
             }
         });
-
     }
-
 
     //INFLANDO MENU
     @Override
