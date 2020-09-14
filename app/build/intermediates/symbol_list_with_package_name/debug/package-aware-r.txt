@@ -1542,6 +1542,7 @@ id auto
 id barrier
 id beginning
 id blocking
+id botaoParticiparEditar
 id bottom
 id btCriar
 id btCriarConta

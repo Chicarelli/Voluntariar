@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         return true;
     }
 
+
     //Setando comportamento nas opções do MENU
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
