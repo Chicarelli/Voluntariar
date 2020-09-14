@@ -76,6 +76,10 @@
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable-xhdpi\\ic_button_fab.png"
     },
     {
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\menu_excluirmenu.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\menu\\excluirmenu.xml"
+    },
+    {
         "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },

@@ -1610,6 +1610,7 @@ id enterAlways
 id enterAlwaysCollapsed
 id evento_titulo
 id eventosList
+id excluirEvento
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1976,6 +1977,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu excluirmenu
 menu mainmenu
 mipmap ic_launcher
 mipmap ic_launcher_round

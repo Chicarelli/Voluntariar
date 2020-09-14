@@ -10,6 +10,9 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -244,6 +247,30 @@ public class telaDoEvento extends AppCompatActivity {
 
         }
 
+    public boolean onPrepareOptionsMenu(Menu menu){
+        invalidateOptionsMenu();
+        botaoPouE = findViewById(R.id.botaoParticiparEditar);
+        if(botaoPouE.getText().equals("Editar")) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.excluirmenu, menu);
+            return true;
+        } else{
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.mainmenu, menu);
+            return true;
+        }
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.excluirEvento: excluirEvento(); //PRIMEIRA OPÇÃO VAI PARA A TELA DE CRIAÇÃO DE UM NOVO EVENTO
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void deletingParticipation() {
         String currentUser = mAuth.getUid();
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
@@ -258,6 +285,26 @@ public class telaDoEvento extends AppCompatActivity {
                     }
                 });
 
+    }
+    private void excluirEvento() {
+        if (getIntent().hasExtra("id")) {
+            id = getIntent().getStringExtra("id");
+            db.collection("eventos").document(id)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(telaDoEvento.this, "Evento Deletado", LENGTH_SHORT).show();
+                            finish();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(telaDoEvento.this, "Falhou", LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     private void participatingMembers() {
