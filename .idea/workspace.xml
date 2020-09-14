@@ -11,6 +11,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="155033a9-3196-4833-b2e7-b71632e57ad2" name="Default Changelist" comment="" />
+=======
     <list default="true" id="155033a9-3196-4833-b2e7-b71632e57ad2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -77,6 +80,7 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/voluntariado/telaDoEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/voluntariado/telaDoEvento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_tela_do_evento.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_tela_do_evento.xml" afterDir="false" />
     </list>
+>>>>>>> mexendoNotebook
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,11 +305,23 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824@0.0.1536.824" timestamp="1594927933885" />
+<<<<<<< HEAD
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1600103748290">
+=======
+<<<<<<< HEAD
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1596022516683">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1596022516683" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1595247499709">
+=======
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1597750112839">
+>>>>>>> master
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1600103748290" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1596110508540">
+>>>>>>> mexendoNotebook
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596110508540" />
