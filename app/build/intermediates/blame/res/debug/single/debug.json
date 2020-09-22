@@ -100,6 +100,10 @@
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_lista_de_participantes.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\activity_lista_de_participantes.xml"
+    },
+    {
         "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background.xml.flat",
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\drawable\\background.xml"
     },
@@ -152,6 +156,10 @@
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_tela_participantes.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\activity_tela_participantes.xml"
+    },
+    {
         "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
@@ -174,6 +182,10 @@
     {
         "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\layout_lista_participantes.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar\\app\\src\\main\\res\\layout\\lista_participantes.xml"
     },
     {
         "merged": "C:\\Android Projetos\\Voluntariar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botao_login.xml.flat",
