@@ -1553,6 +1553,7 @@ id button_second
 id cancel_action
 id cancel_button
 id cardViewEventos
+id cardViewParticipantes
 id center
 id center_horizontal
 id center_vertical
@@ -1645,6 +1646,7 @@ id info
 id invisible
 id italic
 id item_nome_proprietario
+id item_nome_proprietario_lista
 id item_tipo_servico
 id item_touch_helper_previous_elevation
 id labeled
@@ -1708,6 +1710,9 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id participantes
+id participantesList
+id participantesListView
 id password_toggle
 id peekHeight
 id percent
@@ -1895,9 +1900,11 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_cadastro
 layout activity_criar_evento_fisico
+layout activity_lista_de_participantes
 layout activity_login
 layout activity_main
 layout activity_tela_do_evento
+layout activity_tela_participantes
 layout content_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1918,6 +1925,7 @@ layout design_text_input_start_icon
 layout fragment_first
 layout fragment_second
 layout item_eventos
+layout lista_participantes
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

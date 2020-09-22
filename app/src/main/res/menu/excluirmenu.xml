@@ -3,4 +3,7 @@
 
     <item android:id="@+id/excluirEvento"
         android:title="Excluir" />
+    <item android:id="@+id/participantes"
+        android:title="Participantes"/>
+    
 </menu>
