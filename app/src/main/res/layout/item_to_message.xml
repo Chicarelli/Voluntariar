@@ -6,13 +6,14 @@
 
     <TextView
         android:id="@+id/txt_message"
-        android:layout_width="250dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/caixa_de_texto"
-        android:padding="5dp"
-        android:text="Texto TEXTE TEXT TXT TXT TXT TXT TXT TXT TXT TXT TXT TXT TXT TXT TXT TXT TXT TXT"
+        android:padding="10dp"
+        android:text="Text"
+        android:maxWidth="240dp"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

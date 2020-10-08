@@ -77,7 +77,7 @@ public class PerfilMembros extends AppCompatActivity {
 
     public void sendMessage(View view){
         Intent intent = new Intent(PerfilMembros.this, ChatActivity.class);
-        intent.putExtra("idMembro", id);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 

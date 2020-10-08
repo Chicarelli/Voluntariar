@@ -1,6 +1,7 @@
 package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,12 +19,19 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.GroupieViewHolder;
 import com.xwray.groupie.Item;
+
+import java.util.List;
 
 import static androidx.recyclerview.widget.RecyclerView.*;
 
@@ -34,6 +42,7 @@ public class ChatActivity extends AppCompatActivity {
   EditText edtChat;
   String idMembro;
   FirebaseFirestore db = FirebaseFirestore.getInstance();
+  private User me;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +66,45 @@ public class ChatActivity extends AppCompatActivity {
     rv.setLayoutManager(new LinearLayoutManager(this));
     rv.setAdapter(adapter);
 
+    db.collection("users1")
+            .document(FirebaseAuth.getInstance().getUid())
+            .get()
+            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+              @Override
+              public void onSuccess(DocumentSnapshot documentSnapshot) {
+                me = documentSnapshot.toObject(User.class);
+                fetchMessages();
+              }
+            });
+
+  }
+
+  private void fetchMessages() {
+    if (me!= null) {
+
+      String fromId = me.getUuid();
+      String toId = idMembro;
+
+      db.collection("conversations")
+              .document(fromId)
+              .collection(toId)
+              .orderBy("timestamp", Query.Direction.ASCENDING)
+              .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                  List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
+
+                  if (documentChanges != null) {
+                    for (DocumentChange doc: documentChanges) {
+                      if (doc.getType() == DocumentChange.Type.ADDED) {
+                        Message message = doc.getDocument().toObject(Message.class);
+                        adapter.add(new MessageItem(message));
+                      }
+                    }
+                  }
+                }
+              });
+    }
   }
 
   private void pegarId() {
@@ -112,8 +160,9 @@ public class ChatActivity extends AppCompatActivity {
           Log.e("Teste", e.getMessage(), e);
         }
       });
+
     }
-    Toast.makeText(ChatActivity.this, idMembro, Toast.LENGTH_SHORT ).show();
+
   }
 
   private class MessageItem extends Item<GroupieViewHolder> {
@@ -135,7 +184,7 @@ public class ChatActivity extends AppCompatActivity {
 
     @Override
     public int getLayout() {
-      return message.getFromId() == FirebaseAuth.getInstance().getUid() ? R.layout.item_from_message : R.layout.item_to_message;
+      return message.getFromId().equals(FirebaseAuth.getInstance().getUid()) ? R.layout.item_from_message : R.layout.item_to_message;
     }
   }
 }
