@@ -68,6 +68,7 @@ public class ParticipantesAdapter extends ArrayAdapter<ParticipacaoEvento> {
             });
 
     return convertView;
-
   }
+
+
 }
