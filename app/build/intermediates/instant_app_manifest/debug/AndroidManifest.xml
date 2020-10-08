@@ -28,8 +28,27 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.voluntariado.telaDoEvento" />
-        <activity android:name="com.example.voluntariado.CriarEventoFisico" />
+        <activity android:name="com.example.voluntariado.ChatActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PerfilMembros" />
+        </activity>
+        <activity android:name="com.example.voluntariado.PerfilMembros" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListaDeParticipantes" />
+        </activity>
+        <activity android:name="com.example.voluntariado.ListaDeParticipantes" />
+        <activity android:name="com.example.voluntariado.telaDoEvento" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name="com.example.voluntariado.CriarEventoFisico" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name="com.example.voluntariado.CadastroActivity" />
         <activity android:name="com.example.voluntariado.LoginActivity" />
         <activity android:name="com.example.voluntariado.MainActivity" >

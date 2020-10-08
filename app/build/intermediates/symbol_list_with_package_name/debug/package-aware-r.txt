@@ -1542,17 +1542,20 @@ id auto
 id barrier
 id beginning
 id blocking
+id botaoConversar
 id botaoParticiparEditar
 id bottom
 id btCriar
 id btCriarConta
 id btLogar
+id bt_enviar_mensagem
 id buttonPanel
 id button_first
 id button_second
 id cancel_action
 id cancel_button
 id cardViewEventos
+id cardViewParticipantes
 id center
 id center_horizontal
 id center_vertical
@@ -1602,7 +1605,12 @@ id editNumero
 id editTitulo
 id edit_query
 id edtEmail
+id edtEmail_perfil_membros
+id edtIdade_perfil_membros
+id edtNome_perfil_membros
 id edtSenha
+id edt_chat_Conversa
+id email_perfil_membros
 id end
 id end_padder
 id endereco
@@ -1611,6 +1619,7 @@ id enterAlwaysCollapsed
 id evento_titulo
 id eventosList
 id excluirEvento
+id excluirParticipante
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1635,6 +1644,7 @@ id homeAsUp
 id icon
 id icon_group
 id icon_only
+id idade_perfil_membros
 id ifRoom
 id image
 id imageView3
@@ -1645,6 +1655,7 @@ id info
 id invisible
 id italic
 id item_nome_proprietario
+id item_nome_proprietario_lista
 id item_tipo_servico
 id item_touch_helper_previous_elevation
 id labeled
@@ -1695,6 +1706,7 @@ id nav_graph
 id navigation_header_container
 id never
 id noScroll
+id nome_perfil_membros
 id none
 id normal
 id notification_background
@@ -1708,6 +1720,9 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id participantes
+id participantesList
+id participantesListView
 id password_toggle
 id peekHeight
 id percent
@@ -1715,6 +1730,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recycler_chat
 id right
 id right_icon
 id right_side
@@ -1819,6 +1835,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txt_message
 id unchecked
 id uniform
 id unlabeled
@@ -1894,10 +1911,14 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_cadastro
+layout activity_chat
 layout activity_criar_evento_fisico
+layout activity_lista_de_participantes
 layout activity_login
 layout activity_main
+layout activity_perfil_membros
 layout activity_tela_do_evento
+layout activity_tela_participantes
 layout content_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1918,6 +1939,9 @@ layout design_text_input_start_icon
 layout fragment_first
 layout fragment_second
 layout item_eventos
+layout item_from_message
+layout item_to_message
+layout lista_participantes
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1978,6 +2002,7 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu excluirmenu
+menu listadeparticipantes
 menu mainmenu
 mipmap ic_launcher
 mipmap ic_launcher_round

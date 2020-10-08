@@ -9,8 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".telaDoEvento"></activity>
-        <activity android:name=".CriarEventoFisico" />
+        <activity android:name=".ChatActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PerfilMembros"/>
+        </activity>
+        <activity android:name=".PerfilMembros">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListaDeParticipantes" />
+        </activity>
+        <activity android:name=".ListaDeParticipantes" />
+        <activity android:name=".telaDoEvento">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".CriarEventoFisico">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".CadastroActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

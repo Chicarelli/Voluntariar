@@ -36,7 +36,9 @@ import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.widget.Toast.LENGTH_SHORT;
@@ -131,6 +133,7 @@ public class telaDoEvento extends AppCompatActivity {
             }
         });
     }
+
     private void compararUsuario(String id) {
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
         db.collection("eventos")
@@ -266,9 +269,22 @@ public class telaDoEvento extends AppCompatActivity {
             case R.id.excluirEvento: excluirEvento(); //PRIMEIRA OPÇÃO VAI PARA A TELA DE CRIAÇÃO DE UM NOVO EVENTO
                 return true;
 
+            case R.id.participantes: participantes();
+            return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void participantes(){
+
+
+        Intent intent = new Intent(this, ListaDeParticipantes.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+
+
     }
 
     private void deletingParticipation() {
@@ -286,6 +302,7 @@ public class telaDoEvento extends AppCompatActivity {
                 });
 
     }
+
     private void excluirEvento() {
         if (getIntent().hasExtra("id")) {
             id = getIntent().getStringExtra("id");

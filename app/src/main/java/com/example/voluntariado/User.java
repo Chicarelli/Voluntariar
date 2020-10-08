@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Console;
+import java.util.Date;
 import java.util.concurrent.Executor;
 
 public class User {
@@ -22,15 +23,18 @@ public class User {
     private String nome;
     private String email;
     private String sexo;
+    //private Date DataNasc;
+    //private String idade;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public User() {    }
 
-    public User (String uuid, String nome, String email, String sexo){
+    public User (String uuid, String nome, String email, String sexo, Date DataNasc){
       this.uuid = uuid;
       this.nome = nome;
       this.email = email;
       this.sexo = sexo;
+      //this.DataNasc = DataNasc;
     }
 
   public String getUuid() {
@@ -64,4 +68,6 @@ public class User {
   public void setSexo(String sexo) {
     this.sexo = sexo;
   }
+
+
 }
