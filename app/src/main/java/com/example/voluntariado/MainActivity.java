@@ -120,10 +120,18 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
             case R.id.info: deslogar(); //SEGUNDA OPÇÃO, DESLOGA O USUÁRIO E VAI PARA A TELA DE LOGIN NOVAMENTE.
             return true;
 
+            case R.id.meusEventos: meusEventos();
+            return true;
+
             default:
             return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    private void meusEventos() {
+        Intent intent = new Intent(MainActivity.this, MeusEventos.class);
+        startActivity(intent);
     }
 
     protected void onStart() {

@@ -5,5 +5,7 @@
     <item android:id="@+id/criarEvento"
         android:title="Criar Evento" />
     <item android:id="@id/info"
-        android:title="avaliar"/>
+        android:title="Sair"/>
+    <item android:id="@+id/meusEventos"
+        android:title="Meus Eventos"/>
 </menu>

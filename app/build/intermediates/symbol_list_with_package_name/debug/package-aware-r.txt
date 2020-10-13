@@ -1672,6 +1672,12 @@ id login_cardView
 id masked
 id media_actions
 id message
+id meusEventos
+id meus_eventos_edt_data
+id meus_eventos_edt_hora
+id meus_eventos_edt_titulo
+id meus_eventos_txt_data
+id meus_eventos_txt_hora
 id middle
 id mini
 id month_grid
@@ -1735,6 +1741,7 @@ id right
 id right_icon
 id right_side
 id rounded
+id rv_meus_eventos_lista
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -1916,6 +1923,7 @@ layout activity_criar_evento_fisico
 layout activity_lista_de_participantes
 layout activity_login
 layout activity_main
+layout activity_meus_eventos
 layout activity_perfil_membros
 layout activity_tela_do_evento
 layout activity_tela_participantes
@@ -1940,6 +1948,7 @@ layout fragment_first
 layout fragment_second
 layout item_eventos
 layout item_from_message
+layout item_meus_eventos
 layout item_to_message
 layout lista_participantes
 layout mtrl_alert_dialog
