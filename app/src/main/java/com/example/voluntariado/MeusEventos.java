@@ -2,11 +2,17 @@ package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +41,8 @@ public class MeusEventos extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     //private Eventos mi;
 
+    DrawerLayout dl;
+
     private GroupAdapter adapter;
 
     @Override
@@ -42,6 +50,8 @@ public class MeusEventos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meus_eventos);
 
+        //drawerLayout.findViewById(R.id.drawer_layout);
+        this.dl = findViewById(R.id.drawer_layout);
         RecyclerView rv = findViewById(R.id.rv_meus_eventos_lista);
 
         adapter = new GroupAdapter();
@@ -99,5 +109,60 @@ public class MeusEventos extends AppCompatActivity {
             return R.layout.item_meus_eventos;
         }
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        MainActivity.closeDrawer(dl);
+    }
+
+    public void ClickMenu(View view){
+        MainActivity.openDrawer(dl);
+    }
+
+    public void ClickLogo(View view){
+        //Close
+        MainActivity.closeDrawer(dl);
+    }
+
+    public void ClickHome(View view){
+        //Redirecting to MainActivity
+        Intent intent = new Intent(MeusEventos.this, MainActivity.class);
+        startActivity(intent);
+        finishAffinity();
+    }
+
+    public void myEvents(View view) {
+        recreate();
+        MainActivity.closeDrawer(dl);
+    }
+
+    public void Logout(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MeusEventos.this);
+
+        builder.setTitle("Logout");
+
+        builder.setMessage("Tem certeza que deseja sair?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAffinity();
+
+                System.exit(0);
+            }
+        });
+
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.show();
+    }
+
 
 }

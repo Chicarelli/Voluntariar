@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/criarEvento"
-        android:title="Criar Evento" />
+        android:title="Criar Evento"/>
     <item android:id="@id/info"
         android:title="Sair"/>
-    <item android:id="@+id/meusEventos"
-        android:title="Meus Eventos"/>
+
 </menu>

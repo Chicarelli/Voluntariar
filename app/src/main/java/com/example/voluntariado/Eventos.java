@@ -21,13 +21,15 @@ public class Eventos {
     private String id;
     private String imagem;
     private String proprietario;
+    private String complemento;
+    private String numero;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public Eventos(){}
     //Classe para definir os eventos
 
     //construtor
-    public Eventos(String titulo, String endereco, String data, String hora, String descricao, String id, String imagem, String proprietario) {
+    public Eventos(String titulo, String endereco, String data, String hora, String descricao, String id, String imagem, String proprietario, String complemento, String numero) {
         this.titulo = titulo;
         this.endereco = endereco;
         this.data = data;
@@ -36,11 +38,26 @@ public class Eventos {
         this.id = id;
         this.imagem = imagem;
         this.proprietario = proprietario;
+        this.complemento = complemento;
+        this.numero = numero;
     }
-
-
     //getters and setters :
 
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
     public String getProprietario() {
         return proprietario;

@@ -75,7 +75,6 @@ public class telaDoEvento extends AppCompatActivity {
             id = getIntent().getStringExtra("id");
             compararUsuario(id);
             settingElementsOnScreen(id);
-
         }
 
     }
@@ -190,62 +189,23 @@ public class telaDoEvento extends AppCompatActivity {
    }
 
     public void botaoTelaEvento(View view){
-        titulo = findViewById(R.id.tela_evento_titulo);
-        descricao = findViewById(R.id.tela_evento_descricao);
-        endereco = findViewById(R.id.tela_evento_endereco);
-        data = findViewById(R.id.tela_evento_data);
-        hora = findViewById(R.id.tela_evento_hora);
-        numero = findViewById(R.id.tela_evento_numero);
+
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
         if (botaoPouE.getText().equals("Participar")){
-
-            Toast.makeText(telaDoEvento.this, "Participar", LENGTH_SHORT).show();
-            participatingMembers();
-
+            participatingMembers();//Participando no Evento
 
         } else if(botaoPouE.getText().equals("Editar")){
 
-            Toast.makeText(telaDoEvento.this, "Editar", LENGTH_SHORT).show();
+            Intent intent = new Intent(telaDoEvento.this, TelaEventoParticipante.class);
+            intent.putExtra("id", this.id);
+            startActivity(intent);
 
-            titulo.setEnabled(true);
-            descricao.setEnabled(true);
-            endereco.setEnabled(true);
-            data.setEnabled(true);
-            hora.setEnabled(true);
-            numero.setEnabled(true);
-            titulo.setBackgroundResource(R.drawable.caixa_de_texto);
-            descricao.setBackgroundResource(R.drawable.caixa_de_texto_descricao_tela_do_evento);
-            endereco.setBackgroundResource(R.drawable.caixa_de_texto);
-            data.setBackgroundResource(R.drawable.caixa_de_texto);
-            hora.setBackgroundResource(R.drawable.caixa_de_texto);
-            numero.setBackgroundResource(R.drawable.caixa_de_texto);
+            //data.addTextChangedListener(MaskEditUtil.mask(data, MaskEditUtil.FORMAT_DATE));
+            //hora.addTextChangedListener(MaskEditUtil.mask(hora, MaskEditUtil.FORMAT_HOUR));
 
-
-            data.addTextChangedListener(MaskEditUtil.mask(data, MaskEditUtil.FORMAT_DATE));
-            hora.addTextChangedListener(MaskEditUtil.mask(hora, MaskEditUtil.FORMAT_HOUR));
-
-            botaoPouE.setText("Salvar");
         }
-        else if (botaoPouE.getText().equals("Salvar")){
-
-            savingDataToFirestore(titulo, descricao, endereco, data, hora, numero);
-            titulo.setEnabled(false);
-            descricao.setEnabled(false);
-            endereco.setEnabled(false);
-            data.setEnabled(false);
-            hora.setEnabled(false);
-            numero.setEnabled(false);
-            titulo.setBackgroundResource(0);
-            descricao.setBackgroundResource(0);
-            endereco.setBackgroundResource(0);
-            data.setBackgroundResource(0);
-            hora.setBackgroundResource(0);
-            numero.setBackgroundResource(0);
-
-            botaoPouE.setText("Editar");
-
-        } else if (botaoPouE.getText().equals("Deixar de Participar")) {
-            deletingParticipation();
+        else if (botaoPouE.getText().equals("Deixar de Participar")) {
+            deletingParticipation(); //Remover usuário da participação do Evento
         }
 
         }

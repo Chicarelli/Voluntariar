@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".TelaEventoParticipante">
+
+    <EditText
+        android:id="@+id/editing_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtview_endereco_participating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Endereço: "
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editing_title" />
+
+    <EditText
+        android:id="@+id/editing_endereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Endereço"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_endereco_participating"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtview_endereco_participating" />
+
+    <TextView
+        android:id="@+id/txtview_numero_participating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Número: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_endereco_participating"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editing_endereco" />
+
+    <EditText
+        android:id="@+id/editing_numero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_endereco_participating"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtview_numero_participating" />
+
+    <TextView
+        android:id="@+id/txtview_complemento_participating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complemento:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintLeft_toRightOf="@id/txtview_numero_participating"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtview_numero_participating" />
+
+    <EditText
+        android:id="@+id/editing_complemento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Complemento aqui"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_complemento_participating"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editing_numero" />
+
+    <TextView
+        android:id="@+id/txtview_hora_participating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Hora: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_numero_participating"
+        app:layout_constraintTop_toBottomOf="@id/editing_numero" />
+
+    <EditText
+        android:id="@+id/editing_hora"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="12:00"
+        android:textSize="16dp"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_hora_participating"
+        app:layout_constraintTop_toBottomOf="@id/txtview_hora_participating" />
+
+    <TextView
+        android:id="@+id/txtview_descricao_participating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Descrição:"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_hora_participating"
+        app:layout_constraintTop_toBottomOf="@id/editing_hora" />
+
+    <EditText
+        android:id="@+id/editing_descricao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:maxHeight="150dp"
+        android:text="Descrição aqui!! "
+        android:textSize="15dp"
+        app:layout_constraintLeft_toLeftOf="@id/txtview_descricao_participating"
+        app:layout_constraintTop_toBottomOf="@id/txtview_descricao_participating" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintVertical_bias="0.9"
+        android:src="@drawable/ic_save"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
