@@ -12,11 +12,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Title"
-        android:textSize="25sp"
+        android:textSize="30sp"
+        android:padding="5dp"
         android:textStyle="bold"
+        android:background="@drawable/background_caixa_editing_notfocusable"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_evento_participating"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/editing_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+         android:layout_marginTop="15dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_upload_foto"
+        android:id="@+id/img_upload_foto"
+        android:onClick="changePhoto"
+        app:layout_constraintTop_toBottomOf="@id/img_evento_participating"
+        app:layout_constraintLeft_toLeftOf="@id/img_evento_participating"
+        app:layout_constraintRight_toRightOf="@id/img_evento_participating"
+        app:layout_constraintHorizontal_bias="0.9"/>
+
 
     <TextView
         android:id="@+id/txtview_endereco_participating"
@@ -29,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editing_title" />
+        app:layout_constraintTop_toBottomOf="@id/img_evento_participating" />
 
     <EditText
         android:id="@+id/editing_endereco"
@@ -37,7 +63,9 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:text="Endereço"
-        android:textSize="16sp"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:background="@drawable/background_caixa_editing_notfocusable"
         app:layout_constraintLeft_toLeftOf="@id/txtview_endereco_participating"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtview_endereco_participating" />
@@ -60,7 +88,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1000"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:background="@drawable/background_caixa_editing_notfocusable"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintLeft_toLeftOf="@id/txtview_endereco_participating"
         app:layout_constraintRight_toRightOf="parent"
@@ -84,7 +114,9 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:text="Complemento aqui"
-        android:textSize="16sp"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:background="@drawable/background_caixa_editing_notfocusable"
         app:layout_constraintLeft_toLeftOf="@id/txtview_complemento_participating"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/editing_numero" />
@@ -102,10 +134,12 @@
 
     <EditText
         android:id="@+id/editing_hora"
-        android:layout_width="60dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="12:00"
-        android:textSize="16dp"
+        android:padding="5dp"
+        android:background="@drawable/background_caixa_editing_notfocusable"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/txtview_hora_participating"
         app:layout_constraintTop_toBottomOf="@id/txtview_hora_participating" />
 
@@ -126,16 +160,19 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
+        android:background="@drawable/background_caixa_editing_notfocusable"
         android:inputType="textMultiLine"
+        android:padding="5dp"
         android:maxHeight="150dp"
         android:text="Descrição aqui!! "
-        android:textSize="15dp"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/txtview_descricao_participating"
         app:layout_constraintTop_toBottomOf="@id/txtview_descricao_participating" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/fab_button_save_edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

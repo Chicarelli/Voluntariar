@@ -2,6 +2,7 @@ package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
@@ -40,9 +42,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
 
 import static android.widget.Toast.LENGTH_SHORT;
 import static com.example.voluntariado.R.drawable.background;
+import static com.example.voluntariado.R.drawable.fundo_imagem;
 
 public class telaDoEvento extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -56,6 +60,12 @@ public class telaDoEvento extends AppCompatActivity {
     EditText hora;
     EditText numero;
     String id;
+    String imagem;
+    ImageView imgView;
+    private int conta = 0;
+    private int conta1 = 0;
+
+    DrawerLayout drawerLayout;
 
     String imgPadrao;
     //StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imgPadrao);
@@ -64,6 +74,10 @@ public class telaDoEvento extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_do_evento);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+
 
         /*if(getIntent().hasExtra("imagem")){
             this.imgPadrao = getIntent().getStringExtra("imagem");
@@ -74,10 +88,12 @@ public class telaDoEvento extends AppCompatActivity {
         if(getIntent().hasExtra("id")){
             id = getIntent().getStringExtra("id");
             compararUsuario(id);
-            settingElementsOnScreen(id);
+
         }
 
     }
+
+
 
     private void settingElementsOnScreen(String id){
         DocumentReference docRef = db.collection("eventos").document(id);
@@ -87,7 +103,7 @@ public class telaDoEvento extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        Eventos evento = new Eventos();
+                        Eventos evento;
                         evento = document.toObject(Eventos.class);
                         setarElementos(evento);
                     } else {
@@ -97,43 +113,47 @@ public class telaDoEvento extends AppCompatActivity {
                     Log.d("OPS", "Falhou", task.getException());
                 }
             }
-
-
-            private void setarElementos(Eventos evento) {
-                titulo = findViewById(R.id.tela_evento_titulo);
-                descricao = findViewById(R.id.tela_evento_descricao);
-                endereco = findViewById(R.id.tela_evento_endereco);
-                data = findViewById(R.id.tela_evento_data);
-                hora = findViewById(R.id.tela_evento_hora);
-                numero = findViewById(R.id.tela_evento_numero);
-
-                titulo.setText(evento.getTitulo());
-                descricao.setText(evento.getDescricao());
-                endereco.setText(evento.getEndereco());
-                data.setText(evento.getData());
-                hora.setText(evento.getHora());
-
-
-                StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(evento.getImagem());
-                final ImageView imgView = findViewById(R.id.imagemEvento);
-                refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Glide.with(telaDoEvento.this)
-                                .load(uri)
-                                .into(imgView);
-                    }
-                }). addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-            }
         });
     }
 
-    private void compararUsuario(String id) {
+  private void setarElementos(Eventos evento) {
+      titulo = findViewById(R.id.tela_evento_titulo);
+      descricao = findViewById(R.id.tela_evento_descricao);
+      endereco = findViewById(R.id.tela_evento_endereco);
+      data = findViewById(R.id.tela_evento_data);
+      hora = findViewById(R.id.tela_evento_hora);
+      numero = findViewById(R.id.tela_evento_numero);
+      Toast.makeText(telaDoEvento.this, evento.getImagem(), LENGTH_SHORT).show();
+
+      titulo.setText(evento.getTitulo());
+      descricao.setText(evento.getDescricao());
+      endereco.setText(evento.getEndereco());
+      data.setText(evento.getData());
+      hora.setText(evento.getHora());
+      imagem = evento.getImagem();
+      setImage(imagem);
+
+    }
+
+  private void setImage(String imagem) {
+    StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imagem);
+    imgView = findViewById(R.id.imagemEvento);
+    refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+      @Override
+      public void onSuccess(Uri uri) {
+        Glide.with(telaDoEvento.this)
+                .load(uri)
+                .into(imgView);
+      }
+    }). addOnFailureListener(new OnFailureListener() {
+      @Override
+      public void onFailure(@NonNull Exception e) {
+
+      }
+    });
+  }
+
+  private void compararUsuario(String id) {
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
         db.collection("eventos")
                 .whereEqualTo("id", id)
@@ -198,6 +218,7 @@ public class telaDoEvento extends AppCompatActivity {
 
             Intent intent = new Intent(telaDoEvento.this, TelaEventoParticipante.class);
             intent.putExtra("id", this.id);
+            imgView.setImageBitmap(null);
             startActivity(intent);
 
             //data.addTextChangedListener(MaskEditUtil.mask(data, MaskEditUtil.FORMAT_DATE));
@@ -260,7 +281,6 @@ public class telaDoEvento extends AppCompatActivity {
                         botaoPouE.setText("Participar");
                     }
                 });
-
     }
 
     private void excluirEvento() {
@@ -308,32 +328,13 @@ public class telaDoEvento extends AppCompatActivity {
                 });
     }
 
-    private void savingDataToFirestore(EditText titulo, EditText descricao, EditText endereco, EditText data, EditText hora, EditText numero) {
-        Map<String, Object> evento = new HashMap<>();
-        evento.put("titulo", titulo.getText().toString());
-        evento.put("descricao", descricao.getText().toString());
-        evento.put("endereco", endereco.getText().toString());
-        evento.put("data", data.getText().toString());
-        evento.put("hora", hora.getText().toString());
-        evento.put("numero", numero.getText().toString());
-
-
-        db.collection("eventos").document(id)
-                .set(evento, SetOptions.merge())
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(telaDoEvento.this, "Evento editado", LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(telaDoEvento.this, "Deu erro!", LENGTH_SHORT).show();
-                    }
-                });
-
+  @Override
+  protected void onResume() {
+    super.onResume();
+    settingElementsOnScreen(id);
     }
+
+
 }
 
 

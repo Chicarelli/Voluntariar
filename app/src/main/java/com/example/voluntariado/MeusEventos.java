@@ -73,7 +73,6 @@ public class MeusEventos extends AppCompatActivity {
                     for (DocumentChange doc : documentChanges) {
                            Eventos evento = doc.getDocument().toObject(Eventos.class);
                             adapter.add(new EventoItem(evento));
-
                     }
                 }
             }
@@ -164,5 +163,16 @@ public class MeusEventos extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(MeusEventos.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

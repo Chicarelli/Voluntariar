@@ -1450,6 +1450,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_proprietario
 drawable ic_save
+drawable ic_upload_foto
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1641,6 +1642,7 @@ id excluirParticipante
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab_button_save_edit
 id fade
 id fill
 id fill_horizontal
@@ -1669,6 +1671,8 @@ id imageView3
 id imagemEvento
 id imagemProprietario
 id imagemServico
+id img_evento_participating
+id img_upload_foto
 id info
 id invisible
 id italic
@@ -1853,6 +1857,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar_main
 id top
 id topPanel
 id touch_outside

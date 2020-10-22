@@ -8,6 +8,8 @@
     tools:context=".MainActivity">
 
 
+
+
     <ListView
         android:id="@+id/eventosList"
         android:layout_width="409dp"
@@ -25,10 +27,11 @@
         android:id="@+id/linearlayoutz">
 
         <include
-            layout="@layout/main_toolbar"/>
+            layout="@layout/main_toolbar"
+            android:id="@+id/toolbar_main"/>
 
     </LinearLayout>
-    
+
     <RelativeLayout
         android:layout_width="300dp"
         android:layout_height="match_parent"
@@ -36,6 +39,8 @@
         android:background="@android:color/white">
 
         <include
-        layout="@layout/main_nav_drawer"/>
+            layout="@layout/main_nav_drawer"/>
     </RelativeLayout>
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

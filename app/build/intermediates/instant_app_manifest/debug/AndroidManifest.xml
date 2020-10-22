@@ -36,7 +36,6 @@
         <activity android:name="com.example.voluntariado.telaDoEvento" />
         <activity android:name="com.example.voluntariado.CriarEventoFisico" />
         <activity android:name="com.example.voluntariado.CadastroActivity" />
-        <activity android:name="com.example.voluntariado.LoginActivity" />
         <activity android:name="com.example.voluntariado.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,6 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.voluntariado.LoginActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -77,51 +77,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         optionButton = findViewById(R.id.more_options_imgv);
 
         registerForContextMenu(optionButton);
-
-
-
-
-        final ListView mEventosListView = (ListView) findViewById(R.id.eventosList);
-
-
-        db.collection("eventos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                List<Eventos> mEventosList = new ArrayList<>();
-                if (task.isSuccessful()) {
-
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        //instanciando Eventos, convertendo para objeto e passando para a classe.
-                        Eventos evento = document.toObject(Eventos.class);
-
-
-                        //adicionando a instancia à lista
-                        mEventosList.add(evento);
-
-                    }
-
-                    //instanciando o Adapter
-                    final EventoAdapter mEventoAdapter = new EventoAdapter(MainActivity.this, mEventosList);
-                    //Setando o Adapter com os eventos.
-                    mEventosListView.setAdapter(mEventoAdapter);
-
-                    //INICIAR A INTENT ENVIANDO OS DADOS DO ITEM CLICADO,
-                    mEventosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                            Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
-                            intent.putExtra("id", mEventoAdapter.getItem(position).getId());
-                            startActivity(intent);
-
-                        }
-                    });
-                } else {
-                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
-                    Log.d("TAG", task.toString());
-                }
-            }
-        });
     }
 
     public void moreOptions(View view){
@@ -182,6 +137,7 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     public void myEvents(View view) {
         Intent intent = new Intent(MainActivity.this, MeusEventos.class);
         startActivity(intent);
+        finish();
     }
 
     public void Logout(View view){
@@ -217,7 +173,50 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         closeDrawer(drawerLayout);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        final ListView mEventosListView = findViewById(R.id.eventosList);
+        db.collection("eventos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                List<Eventos> mEventosList = new ArrayList<>();
+                if (task.isSuccessful()) {
+
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        //instanciando Eventos, convertendo para objeto e passando para a classe.
+                        Eventos evento = document.toObject(Eventos.class);
+
+
+                        //adicionando a instancia à lista
+                        mEventosList.add(evento);
+
+                    }
+
+                    //instanciando o Adapter
+                    final EventoAdapter mEventoAdapter = new EventoAdapter(MainActivity.this, mEventosList);
+                    //Setando o Adapter com os eventos.
+                    mEventosListView.setAdapter(mEventoAdapter);
+
+                    //INICIAR A INTENT ENVIANDO OS DADOS DO ITEM CLICADO,
+                    mEventosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
+                            intent.putExtra("id", mEventoAdapter.getItem(position).getId());
+                            startActivity(intent);
+
+                        }
+                    });
+                } else {
+                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
+                    Log.d("TAG", task.toString());
+                }
+            }
+        });
+    }
 
     //Setando comportamento nas opções do MENU
     @Override

@@ -29,7 +29,7 @@
 17-->[com.google.android.gms:play-services-measurement:17.0.0] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\a6c0d83dfa9ad4159ac5d06565f349aa\jetified-play-services-measurement-17.0.0\AndroidManifest.xml:26:22-107
 18
 19    <application
-19-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:5:5-32:19
+19-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:5:5-34:19
 20        android:name="androidx.multidex.MultiDexApplication"
 21        android:allowBackup="true"
 21-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:6:9-35
@@ -71,30 +71,30 @@
 37        <activity android:name="com.example.voluntariado.CadastroActivity" />
 37-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:19:9-54
 37-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:19:19-51
-38        <activity android:name="com.example.voluntariado.LoginActivity" />
-38-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:20:9-51
-38-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:20:19-48
-39        <activity android:name="com.example.voluntariado.MainActivity" >
-39-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:21:9-27:20
-39-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:21:19-47
-40            <intent-filter>
-40-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:22:13-26:29
-41                <action android:name="android.intent.action.MAIN" />
-41-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:23:17-69
-41-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:23:25-66
-42
-43                <category android:name="android.intent.category.LAUNCHER" />
-43-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:25:17-77
-43-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:25:27-74
-44            </intent-filter>
-45        </activity>
+38        <activity android:name="com.example.voluntariado.MainActivity" >
+38-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:20:9-26:20
+38-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:20:19-47
+39            <intent-filter>
+39-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:21:13-25:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:22:17-69
+40-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:22:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:24:17-77
+42-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:24:27-74
+43            </intent-filter>
+44        </activity>
+45        <activity android:name="com.example.voluntariado.LoginActivity" />
+45-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:28:9-50
+45-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:28:19-48
 46
 47        <meta-data
-47-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:29:9-31:57
+47-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:31:9-33:57
 48            android:name="preloaded_fonts"
-48-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:30:13-43
+48-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:32:13-43
 49            android:resource="@array/preloaded_fonts" />
-49-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:31:13-54
+49-->C:\Android Projetos\Voluntariar2\app\src\main\AndroidManifest.xml:33:13-54
 50
 51        <activity
 51-->[com.google.firebase:firebase-auth:19.3.2] C:\Users\Rafael Chicarelli\.gradle\caches\transforms-2\files-2.1\49093be83ac9d2487601cba2f123a627\jetified-firebase-auth-19.3.2\AndroidManifest.xml:24:9-31:50
