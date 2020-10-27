@@ -1568,6 +1568,7 @@ id cancel_action
 id cancel_button
 id cardViewEventos
 id cardViewParticipantes
+id cardView_contacts
 id center
 id center_horizontal
 id center_vertical
@@ -1582,6 +1583,7 @@ id clip_horizontal
 id clip_vertical
 id collapseActionView
 id confirm_button
+id contact_main
 id container
 id content
 id contentPanel
@@ -1682,6 +1684,7 @@ id item_tipo_servico
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
+id last_message
 id left
 id light
 id line1
@@ -1764,6 +1767,7 @@ id right
 id right_icon
 id right_side
 id rounded
+id rv_contacts
 id rv_meus_eventos_lista
 id save_non_transition_alpha
 id save_overlay_view
@@ -1857,6 +1861,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar_contatcs
 id toolbar_main
 id top
 id topPanel
@@ -1866,6 +1871,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtView_contacts
 id txt_message
 id txtview_complemento_participating
 id txtview_descricao_participating
@@ -1878,6 +1884,7 @@ id unlabeled
 id up
 id uploadFoto
 id useLogo
+id username
 id view_offset_helper
 id visible
 id wide
@@ -1952,11 +1959,13 @@ layout activity_criar_evento_fisico
 layout activity_lista_de_participantes
 layout activity_login
 layout activity_main
+layout activity_message
 layout activity_meus_eventos
 layout activity_perfil_membros
 layout activity_tela_do_evento
 layout activity_tela_evento_participante
 layout activity_tela_participantes
+layout contacts_toolbar
 layout content_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1976,6 +1985,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_first
 layout fragment_second
+layout item_contacts_messages
 layout item_eventos
 layout item_from_message
 layout item_meus_eventos

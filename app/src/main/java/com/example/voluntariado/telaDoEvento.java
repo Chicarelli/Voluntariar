@@ -1,9 +1,12 @@
 package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -62,10 +66,9 @@ public class telaDoEvento extends AppCompatActivity {
     String id;
     String imagem;
     ImageView imgView;
-    private int conta = 0;
-    private int conta1 = 0;
 
     DrawerLayout drawerLayout;
+    ImageView optionButton;
 
     String imgPadrao;
     //StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imgPadrao);
@@ -76,6 +79,9 @@ public class telaDoEvento extends AppCompatActivity {
         setContentView(R.layout.activity_tela_do_evento);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        optionButton = findViewById(R.id.more_options_imgv);
+
+        registerForContextMenu(optionButton);
 
 
 
@@ -93,9 +99,96 @@ public class telaDoEvento extends AppCompatActivity {
 
     }
 
+    public void moreOptions(View view){
+      PopupMenu popup = new PopupMenu(telaDoEvento.this, view);
 
+      popup.getMenuInflater().inflate(R.menu.excluirmenu, popup.getMenu());
 
-    private void settingElementsOnScreen(String id){
+      popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+          switch (item.getItemId()){
+            case R.id.participantes: participantes();
+            return true;
+
+            case R.id.excluirEvento: excluirEvento();
+            return true;
+
+            default: return true;
+          }
+        }
+      });
+
+      popup.show();
+    }
+
+    public void ClickMenu(View view){
+      openDrawer(drawerLayout);
+    }
+
+    public void messagesScreen(View view){
+    Intent intent = new Intent(telaDoEvento.this, MessageActivity.class);
+    startActivity(intent);
+    finish();
+  }
+
+  private void openDrawer(DrawerLayout drawerLayout) {
+      drawerLayout.openDrawer(GravityCompat.START);
+  }
+
+  public void ClickLogo(View view){
+      closeDrawer(drawerLayout);
+  }
+
+  private void closeDrawer(DrawerLayout drawerLayout) {
+    MainActivity.closeDrawer(drawerLayout);
+  }
+
+  public void ClickHome(View view){
+      Intent intent = new Intent(telaDoEvento.this, MainActivity.class);
+      startActivity(intent);
+      finish();
+  }
+
+  public void myEvents(View view){
+      Intent intent = new Intent(telaDoEvento.this, MeusEventos.class);
+      startActivity(intent);
+      finish();
+  }
+
+  public void Logout(View view){
+      AlertDialog.Builder builder = new AlertDialog.Builder(telaDoEvento.this);
+
+      builder.setTitle("Logout");
+
+      builder.setMessage("Tem certeza que deseja sair?");
+
+      builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+          finishAffinity();
+          System.exit(0);
+        }
+      });
+
+      builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+          dialog.dismiss();
+        }
+      });
+
+      builder.show();
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+
+    closeDrawer(drawerLayout);
+  }
+
+  private void settingElementsOnScreen(String id){
         DocumentReference docRef = db.collection("eventos").document(id);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

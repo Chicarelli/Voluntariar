@@ -126,6 +126,12 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         }
     }
 
+    public void messagesScreen(View view){
+        Intent intent = new Intent(MainActivity.this, MessageActivity.class);
+        startActivity(intent);
+
+    }
+
 
     public void ClickHome(View view){
         //Recreate

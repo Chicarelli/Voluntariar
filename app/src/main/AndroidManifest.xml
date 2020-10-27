@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TelaEventoParticipante"></activity>
-        <activity android:name=".MeusEventos"></activity>
-        <activity android:name=".ChatActivity"></activity>
-        <activity android:name=".PerfilMembros"></activity>
+        <activity android:name=".MessageActivity"></activity>
+        <activity android:name=".TelaEventoParticipante" />
+        <activity android:name=".MeusEventos" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".PerfilMembros" />
         <activity android:name=".ListaDeParticipantes" />
-        <activity android:name=".telaDoEvento"></activity>
-        <activity android:name=".CriarEventoFisico"></activity>
+        <activity android:name=".telaDoEvento" />
+        <activity android:name=".CriarEventoFisico" />
         <activity android:name=".CadastroActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,9 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".LoginActivity"/>
-
+        <activity android:name=".LoginActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

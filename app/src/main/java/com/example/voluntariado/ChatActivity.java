@@ -119,11 +119,11 @@ public class ChatActivity extends AppCompatActivity {
 
     edtChat.setText(null);
 
-    String fromId = FirebaseAuth.getInstance().getUid();
-    String toId = this.idMembro;
+    final String fromId = FirebaseAuth.getInstance().getUid();
+    final String toId = this.idMembro;
     long timestamp = System.currentTimeMillis();
 
-    Message message = new Message();
+    final Message message = new Message();
     message.setFromId(fromId);
     message.setToId(toId);
     message.setTimestamp(timestamp);
@@ -138,6 +138,19 @@ public class ChatActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                   Log.d("Teste", documentReference.getId());
+
+                  Contact contact = new Contact();
+                  contact.setUuid(toId);
+                  contact.setTimestamp(message.getTimestamp());
+                  contact.setNome(me.getNome());
+                  contact.setLastMessage(message.getText());
+
+                  FirebaseFirestore.getInstance().collection("/last-messages")
+                          .document(fromId)
+                          .collection("contacts")
+                          .document(toId)
+                          .set(contact);
+
                 }
               }).addOnFailureListener(new OnFailureListener() {
         @Override
@@ -153,6 +166,19 @@ public class ChatActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                   Log.d("Teste", documentReference.getId());
+
+                  Contact contact = new Contact();
+                  contact.setUuid(toId);
+                  contact.setTimestamp(message.getTimestamp());
+                  contact.setNome(me.getNome());
+                  contact.setLastMessage(message.getText());
+
+                  FirebaseFirestore.getInstance().collection("/last-messages")
+                          .document(toId)
+                          .collection("contacts")
+                          .document(fromId)
+                          .set(contact);
+
                 }
               }).addOnFailureListener(new OnFailureListener() {
         @Override

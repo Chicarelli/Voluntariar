@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:id="@+id/toolbar_contatcs"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/backToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_voltar"
+        android:onClick="backToMain"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="Voluntariar"
+        android:textColor="#FFFFFF"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contatos"
+        android:onClick="screenContacts"
+        android:id="@+id/txtView_contacts"
+        android:textColor="#000000"
+        android:padding="5dp"
+        android:background="@drawable/background"/>
+
+
+</LinearLayout>
