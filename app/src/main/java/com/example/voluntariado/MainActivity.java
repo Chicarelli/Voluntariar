@@ -65,8 +65,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     DrawerLayout drawerLayout;
     ImageView optionButton;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,11 +125,18 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     }
 
     public void messagesScreen(View view){
-        Intent intent = new Intent(MainActivity.this, MessageActivity.class);
-        startActivity(intent);
-
+        MainActivity.redirectActivity(this, MessageActivity.class);
     }
 
+    public void meuPerfil(View view){
+        redirectActivity(this, MyProfileActivity.class);
+    }
+
+    public static void redirectActivity(Activity activity, Class aclass){
+        Intent intent = new Intent(activity, aclass);
+        activity.startActivity(intent);
+        activity.finish();
+    }
 
     public void ClickHome(View view){
         //Recreate
@@ -141,9 +146,7 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     }
 
     public void myEvents(View view) {
-        Intent intent = new Intent(MainActivity.this, MeusEventos.class);
-        startActivity(intent);
-        finish();
+        redirectActivity(this, MeusEventos.class);
     }
 
     public void Logout(View view){

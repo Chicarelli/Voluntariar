@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
@@ -21,6 +23,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.GroupieViewHolder;
 import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
 
 import java.util.List;
 
@@ -28,35 +31,26 @@ public class MessageActivity extends AppCompatActivity {
 
 
   private GroupAdapter adapter;
-  TextView txt_contacts;
   ImageView botaoVoltar;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_message);
 
-    txt_contacts = findViewById(R.id.txtView_contacts);
     botaoVoltar = findViewById(R.id.backToMain);
-
     RecyclerView rv = findViewById(R.id.rv_contacts);
     rv.setLayoutManager(new LinearLayoutManager(this));
 
     adapter = new GroupAdapter<>();
     rv.setAdapter(adapter);
 
-    fetchLastMessage();
   }
 
   public void backToMain(View view){
     Intent intent = new Intent(MessageActivity.this, MainActivity.class);
     startActivity(intent);
     finishAffinity();
-  }
-
-  public void screenContacts(View view){
-
-    Intent intent = new Intent(MessageActivity.this, MainActivity.class);
-    startActivity(intent);
   }
 
   private void fetchLastMessage() {
@@ -80,6 +74,9 @@ public class MessageActivity extends AppCompatActivity {
 
                         adapter.add(new ContactItem(contact));
 
+                        adapter.notifyDataSetChanged();
+
+
                     }
 
                   }
@@ -98,12 +95,22 @@ public class MessageActivity extends AppCompatActivity {
 
 
     @Override
-    public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
-      TextView txtuser = viewHolder.itemView.findViewById(R.id.username);
+    public void bind(@NonNull GroupieViewHolder viewHolder, final int position) {
+      final TextView txtuser = viewHolder.itemView.findViewById(R.id.username);
       TextView lastMessage = viewHolder.itemView.findViewById(R.id.last_message);
 
       txtuser.setText(contact.getNome());
       lastMessage.setText(contact.getLastMessage());
+      final String username = contact.getUuid();
+
+      viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          Intent intent = new Intent(MessageActivity.this, ChatActivity.class);
+          intent.putExtra("id", username);
+          startActivity(intent);
+        }
+      });
 
     }
 
@@ -111,5 +118,12 @@ public class MessageActivity extends AppCompatActivity {
     public int getLayout() {
       return R.layout.item_contacts_messages;
     }
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    adapter.clear();
+    fetchLastMessage();
   }
 }

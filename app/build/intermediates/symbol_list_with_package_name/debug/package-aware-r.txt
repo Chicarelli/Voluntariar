@@ -1380,6 +1380,7 @@ drawable avd_show_password
 drawable background
 drawable background_caixa_editing_notfocusable
 drawable background_caixa_editing_telaeventoparticipating
+drawable background_contacts_list
 drawable botao
 drawable botao_login
 drawable botao_login_normal
@@ -1448,9 +1449,11 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_myprofile_photo
 drawable ic_proprietario
 drawable ic_save
 drawable ic_upload_foto
+drawable ic_voltar
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1551,6 +1554,7 @@ id all
 id always
 id async
 id auto
+id backToMain
 id barrier
 id beginning
 id blocking
@@ -1560,6 +1564,7 @@ id bottom
 id btCriar
 id btCriarConta
 id btLogar
+id bt_edit_my_profile
 id bt_enviar_mensagem
 id buttonPanel
 id button_first
@@ -1734,6 +1739,10 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
+id my_profile_email
+id my_profile_idade
+id my_profile_img
+id my_profile_name
 id nav_controller_view_tag
 id navigation_header_container
 id never
@@ -1871,7 +1880,6 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
-id txtView_contacts
 id txt_message
 id txtview_complemento_participating
 id txtview_descricao_participating
@@ -1961,6 +1969,7 @@ layout activity_login
 layout activity_main
 layout activity_message
 layout activity_meus_eventos
+layout activity_my_profile
 layout activity_perfil_membros
 layout activity_tela_do_evento
 layout activity_tela_evento_participante

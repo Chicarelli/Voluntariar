@@ -127,13 +127,15 @@ public class telaDoEvento extends AppCompatActivity {
     }
 
     public void messagesScreen(View view){
-    Intent intent = new Intent(telaDoEvento.this, MessageActivity.class);
-    startActivity(intent);
-    finish();
+    MainActivity.redirectActivity(this, MessageActivity.class);
   }
 
   private void openDrawer(DrawerLayout drawerLayout) {
       drawerLayout.openDrawer(GravityCompat.START);
+  }
+
+  public void meuPerfil(View view){
+      MainActivity.redirectActivity(this, MyProfileActivity.class);
   }
 
   public void ClickLogo(View view){
@@ -145,15 +147,11 @@ public class telaDoEvento extends AppCompatActivity {
   }
 
   public void ClickHome(View view){
-      Intent intent = new Intent(telaDoEvento.this, MainActivity.class);
-      startActivity(intent);
-      finish();
+      MainActivity.redirectActivity(this, MainActivity.class);
   }
 
   public void myEvents(View view){
-      Intent intent = new Intent(telaDoEvento.this, MeusEventos.class);
-      startActivity(intent);
-      finish();
+      MainActivity.redirectActivity(this, MeusEventos.class);
   }
 
   public void Logout(View view){

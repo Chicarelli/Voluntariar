@@ -100,6 +100,15 @@ public class MeusEventos extends AppCompatActivity {
             titulo.setText(eventos.getTitulo());
             data.setText(eventos.getData());
             hora.setText(eventos.getHora());
+
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MeusEventos.this, telaDoEvento.class);
+                    intent.putExtra("id", eventos.getId());
+                    startActivity(intent);
+                }
+            });
         }
 
         @Override
@@ -116,6 +125,10 @@ public class MeusEventos extends AppCompatActivity {
         MainActivity.closeDrawer(dl);
     }
 
+    public void messagesScreen(View view){
+        MainActivity.redirectActivity(this, MessageActivity.class);
+    }
+
     public void ClickMenu(View view){
         MainActivity.openDrawer(dl);
     }
@@ -127,9 +140,11 @@ public class MeusEventos extends AppCompatActivity {
 
     public void ClickHome(View view){
         //Redirecting to MainActivity
-        Intent intent = new Intent(MeusEventos.this, MainActivity.class);
-        startActivity(intent);
-        finishAffinity();
+        MainActivity.redirectActivity(this, MainActivity.class);
+    }
+
+    public void meuPerfil(View view){
+        MainActivity.redirectActivity(this, MyProfileActivity.class);
     }
 
     public void myEvents(View view) {
@@ -165,8 +180,7 @@ public class MeusEventos extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-        finish();
+        super.onDestroy();;
     }
 
     @Override

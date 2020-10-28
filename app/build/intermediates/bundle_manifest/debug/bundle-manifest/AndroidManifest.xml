@@ -27,6 +27,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.voluntariado.MyProfileActivity" />
         <activity android:name="com.example.voluntariado.MessageActivity" />
         <activity android:name="com.example.voluntariado.TelaEventoParticipante" />
         <activity android:name="com.example.voluntariado.MeusEventos" />

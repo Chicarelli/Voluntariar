@@ -17,25 +17,17 @@
         android:onClick="backToMain"/>
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:text="Voluntariar"
+        android:textAlignment="center"
+        android:layout_marginRight="30dp"
         android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contatos"
-        android:onClick="screenContacts"
-        android:id="@+id/txtView_contacts"
-        android:textColor="#000000"
-        android:padding="5dp"
-        android:background="@drawable/background"/>
 
 
 </LinearLayout>
