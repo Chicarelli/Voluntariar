@@ -41,6 +41,8 @@ public class ChatActivity extends AppCompatActivity {
   private  boolean isLeft;
   EditText edtChat;
   String idMembro;
+  TextView chatTitle;
+  RecyclerView rv;
   FirebaseFirestore db = FirebaseFirestore.getInstance();
   private User me;
 
@@ -50,8 +52,10 @@ public class ChatActivity extends AppCompatActivity {
     setContentView(R.layout.activity_chat);
 
     pegarId();
+    chatTitle = findViewById(R.id.chat_username_title);
+    setarTitulo();
 
-    RecyclerView rv = findViewById(R.id.recycler_chat);
+    rv = findViewById(R.id.recycler_chat);
     edtChat = findViewById(R.id.edt_chat_Conversa);
     Button btnChat = findViewById(R.id.bt_enviar_mensagem);
     btnChat.setOnClickListener(new View.OnClickListener(){
@@ -66,6 +70,7 @@ public class ChatActivity extends AppCompatActivity {
     rv.setLayoutManager(new LinearLayoutManager(this));
     rv.setAdapter(adapter);
 
+
     db.collection("users1")
             .document(FirebaseAuth.getInstance().getUid())
             .get()
@@ -77,9 +82,25 @@ public class ChatActivity extends AppCompatActivity {
               }
             });
 
+
+    Toast.makeText(this,"" +rv.getAdapter().getItemCount() , Toast.LENGTH_SHORT).show();
+
+  }
+
+  private void setarTitulo() {
+    db.collection("users1")
+            .document(idMembro)
+            .get()
+            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+              @Override
+              public void onSuccess(DocumentSnapshot documentSnapshot) {
+                chatTitle.setText(documentSnapshot.get("nome").toString());
+              }
+            });
   }
 
   private void fetchMessages() {
+    adapter.clear();
     if (me!= null) {
 
       String fromId = me.getUuid();
@@ -99,12 +120,14 @@ public class ChatActivity extends AppCompatActivity {
                       if (doc.getType() == DocumentChange.Type.ADDED) {
                         Message message = doc.getDocument().toObject(Message.class);
                         adapter.add(new MessageItem(message));
+                        rv.scrollToPosition(rv.getAdapter().getItemCount()-1);
                       }
                     }
                   }
                 }
               });
     }
+
   }
 
   private void pegarId() {
@@ -168,7 +191,7 @@ public class ChatActivity extends AppCompatActivity {
                   Log.d("Teste", documentReference.getId());
 
                   Contact contact = new Contact();
-                  contact.setUuid(toId);
+                  contact.setUuid(fromId);
                   contact.setTimestamp(message.getTimestamp());
                   contact.setNome(me.getNome());
                   contact.setLastMessage(message.getText());
@@ -188,7 +211,9 @@ public class ChatActivity extends AppCompatActivity {
       });
 
     }
-
+    int qtd = rv.getAdapter().getItemCount();
+    rv.scrollToPosition(qtd);
+    Toast.makeText(this, "" + qtd , Toast.LENGTH_SHORT).show();
   }
 
   private class MessageItem extends Item<GroupieViewHolder> {
@@ -206,6 +231,7 @@ public class ChatActivity extends AppCompatActivity {
       TextView txtMsg = viewHolder.itemView.findViewById(R.id.txt_message);
 
       txtMsg.setText(message.getText());
+
     }
 
     @Override

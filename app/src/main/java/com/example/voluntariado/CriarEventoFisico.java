@@ -147,6 +147,7 @@ public class CriarEventoFisico extends AppCompatActivity {
                     }
                 });
     }
+
     public void telaLista(){
         Intent intent = new Intent(CriarEventoFisico.this, MainActivity.class);
         startActivity(intent);
@@ -206,7 +207,5 @@ public class CriarEventoFisico extends AppCompatActivity {
             return "teste.jpeg";
         }
     }
-
-
 
 }

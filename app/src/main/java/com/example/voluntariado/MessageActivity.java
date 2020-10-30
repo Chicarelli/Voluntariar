@@ -29,7 +29,6 @@ import java.util.List;
 
 public class MessageActivity extends AppCompatActivity {
 
-
   private GroupAdapter adapter;
   ImageView botaoVoltar;
 
@@ -71,11 +70,9 @@ public class MessageActivity extends AppCompatActivity {
                     if (doc.getType() == DocumentChange.Type.ADDED){
 
                         Contact contact = doc.getDocument().toObject(Contact.class);
-
                         adapter.add(new ContactItem(contact));
 
                         adapter.notifyDataSetChanged();
-
 
                     }
 
@@ -109,6 +106,8 @@ public class MessageActivity extends AppCompatActivity {
           Intent intent = new Intent(MessageActivity.this, ChatActivity.class);
           intent.putExtra("id", username);
           startActivity(intent);
+
+          //Toast.makeText(MessageActivity.this, username + " " +FirebaseAuth.getInstance().getUid(), Toast.LENGTH_SHORT).show();
         }
       });
 
@@ -125,5 +124,13 @@ public class MessageActivity extends AppCompatActivity {
     super.onResume();
     adapter.clear();
     fetchLastMessage();
+  }
+
+  @Override
+  public void onBackPressed() {
+    super.onBackPressed();
+    Intent intent = new Intent(MessageActivity.this, MainActivity.class);
+    startActivity(intent);
+    finish();
   }
 }

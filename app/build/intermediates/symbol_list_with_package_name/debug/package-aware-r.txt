@@ -1452,6 +1452,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_myprofile_photo
 drawable ic_proprietario
 drawable ic_save
+drawable ic_save_black
 drawable ic_upload_foto
 drawable ic_voltar
 drawable mtrl_dialog_background
@@ -1566,6 +1567,7 @@ id btCriarConta
 id btLogar
 id bt_edit_my_profile
 id bt_enviar_mensagem
+id bt_save
 id buttonPanel
 id button_first
 id button_second
@@ -1578,6 +1580,8 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id chatActivity_main
+id chat_username_title
 id checkbox
 id checked
 id chip
@@ -1623,6 +1627,7 @@ id editNasc
 id editNomeC
 id editNumero
 id editTitulo
+id edit_profile_img
 id edit_query
 id editing_complemento
 id editing_descricao
@@ -1636,6 +1641,9 @@ id edtIdade_perfil_membros
 id edtNome_perfil_membros
 id edtSenha
 id edt_chat_Conversa
+id edt_profile_data
+id edt_profile_email
+id edt_profile_nome
 id email_perfil_membros
 id end
 id end_padder
@@ -1778,6 +1786,7 @@ id right_side
 id rounded
 id rv_contacts
 id rv_meus_eventos_lista
+id rv_myProfile
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -1870,6 +1879,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toChangePhoto
 id toolbar_contatcs
 id toolbar_main
 id top
@@ -1880,6 +1890,9 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtData
+id txtEmail
+id txtNome
 id txt_message
 id txtview_complemento_participating
 id txtview_descricao_participating
@@ -1970,10 +1983,12 @@ layout activity_main
 layout activity_message
 layout activity_meus_eventos
 layout activity_my_profile
+layout activity_my_profile_edit
 layout activity_perfil_membros
 layout activity_tela_do_evento
 layout activity_tela_evento_participante
 layout activity_tela_participantes
+layout chat_activity_toolbar
 layout contacts_toolbar
 layout content_main
 layout custom_dialog

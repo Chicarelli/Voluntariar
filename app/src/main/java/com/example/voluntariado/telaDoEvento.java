@@ -83,14 +83,6 @@ public class telaDoEvento extends AppCompatActivity {
 
         registerForContextMenu(optionButton);
 
-
-
-        /*if(getIntent().hasExtra("imagem")){
-            this.imgPadrao = getIntent().getStringExtra("imagem");
-        } else {
-            this.imgPadrao = "teste.jpeg";
-        }*/
-
         if(getIntent().hasExtra("id")){
             id = getIntent().getStringExtra("id");
             compararUsuario(id);

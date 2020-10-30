@@ -25,17 +25,27 @@ public class User {
     private String sexo;
     //private Date DataNasc;
     //private String idade;
+  private String image;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public User() {    }
 
-    public User (String uuid, String nome, String email, String sexo, Date DataNasc){
+    public User (String uuid, String nome, String email, String sexo, String image, Date DataNasc){
       this.uuid = uuid;
       this.nome = nome;
       this.email = email;
       this.sexo = sexo;
+      this.image = image;
       //this.DataNasc = DataNasc;
     }
+
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
+  }
 
   public String getUuid() {
     return uuid;
