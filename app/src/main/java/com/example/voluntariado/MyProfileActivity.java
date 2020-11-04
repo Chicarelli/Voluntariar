@@ -64,8 +64,6 @@ public class MyProfileActivity extends AppCompatActivity {
     editProfile = findViewById(R.id.bt_edit_my_profile);
     img = findViewById(R.id.my_profile_img);
     img.setBackground(null);
-    Bitmap bitmap;
-
 
     RecyclerView rv = findViewById(R.id.rv_myProfile);
     rv.setLayoutManager(new LinearLayoutManager(this));
@@ -109,7 +107,7 @@ public class MyProfileActivity extends AppCompatActivity {
 
   private void settingData() {
     db.collection("users1")
-            .document(id)
+            .document(mAuth.getUid())
             .get()
             .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
               @Override
@@ -141,16 +139,20 @@ public class MyProfileActivity extends AppCompatActivity {
   }
 
   private void setImage(String imagem) {
-    final ImageView userPhoto = findViewById(R.id.my_profile_img);
-    StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imagem);
-    refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-      @Override
-      public void onSuccess(Uri uri) {
-        Glide.with(MyProfileActivity.this)
-                .load(uri)
-                .into(userPhoto);
-      }
-    }); 
+    if(imagem.trim().isEmpty()){
+
+    } else {
+      final ImageView userPhoto = findViewById(R.id.my_profile_img);
+      StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imagem);
+      refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        @Override
+        public void onSuccess(Uri uri) {
+          Glide.with(MyProfileActivity.this)
+                  .load(uri)
+                  .into(userPhoto);
+        }
+      });
+    }
   }
 
   public void toEditProfile(View view) {

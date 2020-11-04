@@ -29,14 +29,12 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
         if(convertView == null) {
             convertView = ((Activity)getContext()).getLayoutInflater().inflate(R.layout.item_eventos, parent, false); //inflando layout do item de eventos
         }
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         //nomeando componentes do activity
         TextView titulotxt = (TextView) convertView.findViewById(R.id.evento_titulo);
         final TextView proprietariotxt = (TextView) convertView.findViewById(R.id.item_nome_proprietario);
         TextView servicotxt = (TextView) convertView.findViewById(R.id.item_tipo_servico);
-
 
         //pegando posição do item na classe Evento
         Eventos evento = getItem(position);
@@ -45,9 +43,6 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
         titulotxt.setText(evento.getTitulo());
         //proprietariotxt.setText(evento.getProprietario());
         servicotxt.setText(evento.getTitulo());
-
-
-        //BUSCANDO O NOME DO PROPRIETÁRIO UTILIZANDO O UUID DO MESMO NO FIREBASE FIRESTORE COLEÇÃO USERS1 PARA SETAR NO PROPRIETARIO.TXT
 
         db.collection("users1")
                 .whereEqualTo("uuid", evento.getProprietario())
@@ -65,8 +60,6 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
                         }
                     }
                 });
-
-
 
         return convertView;
 

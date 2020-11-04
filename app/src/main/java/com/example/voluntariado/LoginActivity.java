@@ -20,9 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {   //ACTIVITY RESPONSÁVEL PARA VERIFICAR TENTATIVAS DE LOGIN
 
     //instanciando firebase
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-    //nomeando o conteúdo da activity
     protected EditText email;
     protected EditText senha;
 
@@ -34,35 +33,22 @@ public class LoginActivity extends AppCompatActivity {   //ACTIVITY RESPONSÁVEL
         senha = findViewById(R.id.loginSenha);
     }
 
-    //Pegando instancia Firebase Autentication ao startar
-    protected void onStart() {
-        super.onStart();
-        mAuth = FirebaseAuth.getInstance();
-    }
-
-    //Indo para a tela de cadastro, após clicar no botão para de Cadastrar
-    public void criarConta(View view) {
+    public void criarConta(View view) {//indo para cadastro
         Intent intent = new Intent (this, CadastroActivity.class);
         startActivity(intent);
         finishAffinity();
     }
 
-    //Usuário tentando logar, Recuperando conteúdo das activitys e fazendo a validação, para então confirmar usuário existente no firebase
     public void validarCampo(View view) {
-        //Recuperar o conteúdo das editsviews presentes na activity
         String verEmail = email.getText().toString();
         String verSenha = senha.getText().toString();
 
-        //Validar Campos
         if (verEmail.trim().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Preencha os Campos!", Toast.LENGTH_SHORT).show();
         } else if(verSenha.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Preencha os campos!", Toast.LENGTH_SHORT).show();
-
         } else {
-            fazerSignIn(verEmail, verSenha);
-            //Tudo certo, tentando autenticar direto no firebase
-
+            fazerSignIn(verEmail, verSenha); //Tudo certo, tentando autenticar direto no firebase
         }
     }
 
@@ -72,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {   //ACTIVITY RESPONSÁVEL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
                             telaPrincipal();
                         } else {
                             Toast.makeText(LoginActivity.this, "Erro", Toast.LENGTH_SHORT).show();
@@ -81,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {   //ACTIVITY RESPONSÁVEL
                 });
     }
 
-    //Metodo que levará o usuário à tela de listagem de eventos após autenticação bem-sucedida.
     public void telaPrincipal(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

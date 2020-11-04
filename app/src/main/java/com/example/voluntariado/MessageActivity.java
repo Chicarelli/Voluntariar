@@ -43,7 +43,6 @@ public class MessageActivity extends AppCompatActivity {
 
     adapter = new GroupAdapter<>();
     rv.setAdapter(adapter);
-
   }
 
   public void backToMain(View view){
@@ -53,7 +52,6 @@ public class MessageActivity extends AppCompatActivity {
   }
 
   private void fetchLastMessage() {
-
     String uid = FirebaseAuth.getInstance().getUid();
 
     FirebaseFirestore.getInstance().collection("last-messages")
@@ -63,19 +61,13 @@ public class MessageActivity extends AppCompatActivity {
               @Override
               public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
-
                 if(documentChanges != null) {
                   for (DocumentChange doc: documentChanges) {
-
                     if (doc.getType() == DocumentChange.Type.ADDED){
-
                         Contact contact = doc.getDocument().toObject(Contact.class);
                         adapter.add(new ContactItem(contact));
-
                         adapter.notifyDataSetChanged();
-
                     }
-
                   }
                 }
               }
@@ -107,7 +99,6 @@ public class MessageActivity extends AppCompatActivity {
           intent.putExtra("id", username);
           startActivity(intent);
 
-          //Toast.makeText(MessageActivity.this, username + " " +FirebaseAuth.getInstance().getUid(), Toast.LENGTH_SHORT).show();
         }
       });
 

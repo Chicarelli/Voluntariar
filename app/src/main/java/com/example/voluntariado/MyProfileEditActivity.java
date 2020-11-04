@@ -64,7 +64,7 @@ public class MyProfileEditActivity extends AppCompatActivity {
 
     nascimento.addTextChangedListener(MaskEditUtil.mask(nascimento, MaskEditUtil.FORMAT_DATE));
 
-    settingData();
+
   }
 
   private void settingData() {
@@ -210,4 +210,12 @@ public class MyProfileEditActivity extends AppCompatActivity {
     }
   }
 
+  @Override
+  protected void onResume() {
+    super.onResume();
+    if (bitmap != null) {
+      bitmap = null;
+    }
+    settingData();
+  }
 }

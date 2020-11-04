@@ -80,6 +80,7 @@ public class telaDoEvento extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         optionButton = findViewById(R.id.more_options_imgv);
+        imgView = findViewById(R.id.imagemEvento);
 
         registerForContextMenu(optionButton);
 
@@ -206,7 +207,6 @@ public class telaDoEvento extends AppCompatActivity {
       data = findViewById(R.id.tela_evento_data);
       hora = findViewById(R.id.tela_evento_hora);
       numero = findViewById(R.id.tela_evento_numero);
-      Toast.makeText(telaDoEvento.this, evento.getImagem(), LENGTH_SHORT).show();
 
       titulo.setText(evento.getTitulo());
       descricao.setText(evento.getDescricao());
@@ -214,13 +214,24 @@ public class telaDoEvento extends AppCompatActivity {
       data.setText(evento.getData());
       hora.setText(evento.getHora());
       imagem = evento.getImagem();
-      setImage(imagem);
+      if(getIntent().hasExtra("imagem")){
+          Bundle bundle = getIntent().getExtras();
+          if(bundle != null){
+              try{
+                  byte[] imageInByte = bundle.getByteArray("imagem");
+                  Bitmap bmp = BitmapFactory.decodeByteArray(imageInByte, 0, imageInByte.length);
+                  imgView.setImageBitmap(bmp);
+              } catch(Exception e){}
+          }
+      } else {
+          setImage(imagem);
+      }
+
 
     }
 
   private void setImage(String imagem) {
     StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imagem);
-    imgView = findViewById(R.id.imagemEvento);
     refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
       @Override
       public void onSuccess(Uri uri) {

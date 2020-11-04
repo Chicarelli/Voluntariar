@@ -50,7 +50,6 @@ public class MeusEventos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meus_eventos);
 
-        //drawerLayout.findViewById(R.id.drawer_layout);
         this.dl = findViewById(R.id.drawer_layout);
         RecyclerView rv = findViewById(R.id.rv_meus_eventos_lista);
 
@@ -84,11 +83,9 @@ public class MeusEventos extends AppCompatActivity {
 
         private final Eventos eventos;
 
-
         private EventoItem (Eventos eventos) {
             this.eventos = eventos;
         }
-
 
         @Override
         public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
@@ -113,7 +110,6 @@ public class MeusEventos extends AppCompatActivity {
 
         @Override
         public int getLayout() {
-
             return R.layout.item_meus_eventos;
         }
     }
@@ -121,7 +117,6 @@ public class MeusEventos extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
         MainActivity.closeDrawer(dl);
     }
 
@@ -156,25 +151,20 @@ public class MeusEventos extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(MeusEventos.this);
 
         builder.setTitle("Logout");
-
         builder.setMessage("Tem certeza que deseja sair?");
-
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finishAffinity();
-
                 System.exit(0);
             }
         });
-
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-
         builder.show();
     }
 

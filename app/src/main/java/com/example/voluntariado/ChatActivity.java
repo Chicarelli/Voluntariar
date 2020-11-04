@@ -51,26 +51,27 @@ public class ChatActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chat);
 
-    pegarId();
     chatTitle = findViewById(R.id.chat_username_title);
-    setarTitulo();
-
     rv = findViewById(R.id.recycler_chat);
     edtChat = findViewById(R.id.edt_chat_Conversa);
     Button btnChat = findViewById(R.id.bt_enviar_mensagem);
-    btnChat.setOnClickListener(new View.OnClickListener(){
-
-      @Override
-      public void onClick(View v) {
-        sendMessage();
-      }
-    });
 
     adapter = new GroupAdapter();
     rv.setLayoutManager(new LinearLayoutManager(this));
     rv.setAdapter(adapter);
 
+    pegarId();
+    setarTitulo();
+    btnChat.setOnClickListener(new View.OnClickListener(){
+      @Override
+      public void onClick(View v) {
+        sendMessage();
+      }
+    });
+    definindoUsuario();
+  }
 
+  private void definindoUsuario() {
     db.collection("users1")
             .document(FirebaseAuth.getInstance().getUid())
             .get()
@@ -81,13 +82,9 @@ public class ChatActivity extends AppCompatActivity {
                 fetchMessages();
               }
             });
-
-
-    Toast.makeText(this,"" +rv.getAdapter().getItemCount() , Toast.LENGTH_SHORT).show();
-
   }
 
-  private void setarTitulo() {
+  private void setarTitulo() { //Setando toolbar com nome do usuário com o qual se está falando
     db.collection("users1")
             .document(idMembro)
             .get()
@@ -102,7 +99,6 @@ public class ChatActivity extends AppCompatActivity {
   private void fetchMessages() {
     adapter.clear();
     if (me!= null) {
-
       String fromId = me.getUuid();
       String toId = idMembro;
 
@@ -139,7 +135,6 @@ public class ChatActivity extends AppCompatActivity {
 
   private void sendMessage() {
     String text = edtChat.getText().toString();
-
     edtChat.setText(null);
 
     final String fromId = FirebaseAuth.getInstance().getUid();
@@ -153,85 +148,87 @@ public class ChatActivity extends AppCompatActivity {
     message.setText(text);
 
     if(!message.getText().isEmpty()){
-      db.collection("/conversations")
-              .document(fromId)
-              .collection(toId)
-              .add(message)
-              .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                  Log.d("Teste", documentReference.getId());
-
-                  Contact contact = new Contact();
-                  contact.setUuid(toId);
-                  contact.setTimestamp(message.getTimestamp());
-                  contact.setNome(me.getNome());
-                  contact.setLastMessage(message.getText());
-
-                  FirebaseFirestore.getInstance().collection("/last-messages")
-                          .document(fromId)
-                          .collection("contacts")
-                          .document(toId)
-                          .set(contact);
-
-                }
-              }).addOnFailureListener(new OnFailureListener() {
-        @Override
-        public void onFailure(@NonNull Exception e) {
-          Log.e("Teste", e.getMessage(), e);
-        }
-      });
-      db.collection("/conversations")
-              .document(toId)
-              .collection(fromId)
-              .add(message)
-              .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                  Log.d("Teste", documentReference.getId());
-
-                  Contact contact = new Contact();
-                  contact.setUuid(fromId);
-                  contact.setTimestamp(message.getTimestamp());
-                  contact.setNome(me.getNome());
-                  contact.setLastMessage(message.getText());
-
-                  FirebaseFirestore.getInstance().collection("/last-messages")
-                          .document(toId)
-                          .collection("contacts")
-                          .document(fromId)
-                          .set(contact);
-
-                }
-              }).addOnFailureListener(new OnFailureListener() {
-        @Override
-        public void onFailure(@NonNull Exception e) {
-          Log.e("Teste", e.getMessage(), e);
-        }
-      });
-
+      savingMessageFromId(fromId, toId, message);
+      savingMessageToId(toId, fromId, message);
     }
     int qtd = rv.getAdapter().getItemCount();
     rv.scrollToPosition(qtd);
-    Toast.makeText(this, "" + qtd , Toast.LENGTH_SHORT).show();
+  }
+
+  private void savingMessageToId(final String toId, final String fromId, final Message message) {
+    db.collection("/conversations")
+            .document(toId)
+            .collection(fromId)
+            .add(message)
+            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+              @Override
+              public void onSuccess(DocumentReference documentReference) {
+                Log.d("Teste", documentReference.getId());
+
+                Contact contact = new Contact();
+                contact.setUuid(fromId);
+                contact.setTimestamp(message.getTimestamp());
+                contact.setNome(me.getNome());
+                contact.setLastMessage(message.getText());
+
+                FirebaseFirestore.getInstance().collection("/last-messages")
+                        .document(toId)
+                        .collection("contacts")
+                        .document(fromId)
+                        .set(contact);
+
+              }
+            }).addOnFailureListener(new OnFailureListener() {
+      @Override
+      public void onFailure(@NonNull Exception e) {
+        Log.e("Teste", e.getMessage(), e);
+      }
+    });
+  }
+
+  private void savingMessageFromId(final String fromId, final String toId, final Message message) {
+    db.collection("/conversations")
+            .document(fromId)
+            .collection(toId)
+            .add(message)
+            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+              @Override
+              public void onSuccess(DocumentReference documentReference) {
+                Log.d("Teste", documentReference.getId());
+
+                Contact contact = new Contact();
+                contact.setUuid(toId);
+                contact.setTimestamp(message.getTimestamp());
+                contact.setNome(me.getNome());
+                contact.setLastMessage(message.getText());
+
+                FirebaseFirestore.getInstance().collection("/last-messages")
+                        .document(fromId)
+                        .collection("contacts")
+                        .document(toId)
+                        .set(contact);
+              }
+            }).addOnFailureListener(new OnFailureListener() {
+      @Override
+      public void onFailure(@NonNull Exception e) {
+        Log.e("Teste", e.getMessage(), e);
+      }
+    });
   }
 
   private class MessageItem extends Item<GroupieViewHolder> {
 
     private final Message message;
 
-
     private MessageItem (Message message) {
       this.message = message;
     }
-
 
     @Override
     public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
       TextView txtMsg = viewHolder.itemView.findViewById(R.id.txt_message);
 
       txtMsg.setText(message.getText());
-
     }
 
     @Override

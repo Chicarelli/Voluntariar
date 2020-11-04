@@ -144,6 +144,15 @@ public class TelaEventoParticipante extends AppCompatActivity {
             .addOnSuccessListener(new OnSuccessListener<Void>() {
               @Override
               public void onSuccess(Void aVoid) {
+                Intent intent = new Intent(TelaEventoParticipante.this, telaDoEvento.class);
+                if(bitmap != null){
+                  ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                  bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                  byte[] imageInByte = stream.toByteArray();
+                  intent.putExtra("imagem", imageInByte);
+                  intent.putExtra("id", id);
+                 }
+                startActivity(intent);
                 finish();
               }
             })

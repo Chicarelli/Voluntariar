@@ -51,16 +51,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRESENTADO A LISTA DE EVENTOS DISPONÍVEIS PARA O USUÁRIO
 
-    //fazendo as instâcias do firebase
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-    //instancia do ListView da activity
-    private ListView mEventoListView;
-
-    //Instanciando classe Adapter e uma Lista da classe Eventos.
-    private EventoAdapter mEventoAdapter;
-    private ArrayList<Eventos> mEventosList;
 
     DrawerLayout drawerLayout;
     ImageView optionButton;
@@ -71,17 +63,13 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         setContentView(R.layout.activity_main);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-
         optionButton = findViewById(R.id.more_options_imgv);
-
         registerForContextMenu(optionButton);
     }
 
     public void moreOptions(View view){
         PopupMenu popup = new PopupMenu(MainActivity.this, view);
-
         popup.getMenuInflater().inflate(R.menu.mainmenu, popup.getMenu());
-
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -94,11 +82,9 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
 
                     default:
                         return true;
-
                 }
             }
         });
-
         popup.show();
     }
 
@@ -107,18 +93,14 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     }
 
     public static void openDrawer(DrawerLayout drawerLayout) {
-        //Open Drawer layout
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
     public void ClickLogo(View view){
-        //Close
         closeDrawer(drawerLayout);
     }
 
     public static void closeDrawer(DrawerLayout drawerLayout) {
-        //Closing drawerLayout
-
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
@@ -139,8 +121,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     }
 
     public void ClickHome(View view){
-        //Recreate
-
         recreate();
         closeDrawer(drawerLayout);
     }
@@ -153,32 +133,26 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
         builder.setTitle("Logout");
-
         builder.setMessage("Tem certeza que deseja sair?");
-
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finishAffinity();
-
                 System.exit(0);
             }
         });
-
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-
         builder.show();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         closeDrawer(drawerLayout);
     }
 
@@ -192,27 +166,18 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 List<Eventos> mEventosList = new ArrayList<>();
                 if (task.isSuccessful()) {
-
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        //instanciando Eventos, convertendo para objeto e passando para a classe.
                         Eventos evento = document.toObject(Eventos.class);
-
-
-                        //adicionando a instancia à lista
                         mEventosList.add(evento);
-
                     }
 
                     //instanciando o Adapter
                     final EventoAdapter mEventoAdapter = new EventoAdapter(MainActivity.this, mEventosList);
-                    //Setando o Adapter com os eventos.
                     mEventosListView.setAdapter(mEventoAdapter);
 
-                    //INICIAR A INTENT ENVIANDO OS DADOS DO ITEM CLICADO,
                     mEventosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                             Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
                             intent.putExtra("id", mEventoAdapter.getItem(position).getId());
                             startActivity(intent);
@@ -227,7 +192,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         });
     }
 
-    //Setando comportamento nas opções do MENU
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
@@ -244,7 +208,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     }
 
     protected void onStart() {
-
         super.onStart();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -253,7 +216,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
             startActivity(intent);
             finishAffinity();
         }
-
     }
 
     private void telaCriarEvento(){
@@ -261,7 +223,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         startActivity(intent);
     }
 
-    //METODO RESPONSÁVEL POR DESLOGAR O USUÁRIO, MANDAR PARA A ACITIVITY DE LOGIN E FINALIZAR ESTA.
     private void deslogar(){
         mAuth.signOut();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
