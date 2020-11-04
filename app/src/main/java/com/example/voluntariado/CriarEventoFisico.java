@@ -62,16 +62,13 @@ public class CriarEventoFisico extends AppCompatActivity {
     }
 
     protected void onStart() {
-
         super.onStart();
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finishAffinity();
         }
-
     }
 
     public void criarEvento(View view){

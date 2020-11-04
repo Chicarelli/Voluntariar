@@ -58,10 +58,11 @@ public class MeusEventos extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(MeusEventos.this));
         rv.setAdapter(adapter);
 
-        fetchEventos();
+
     }
 
     private void fetchEventos() {
+        adapter.clear();
         db.collection("eventos")
                 .whereEqualTo("proprietario", this.id)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -188,5 +189,11 @@ public class MeusEventos extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(MeusEventos.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchEventos();
     }
 }

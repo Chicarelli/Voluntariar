@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyProfileEditActivity"></activity>
+        <activity android:name=".SolicitacoesDeParticipantes"></activity>
+        <activity android:name=".MyProfileEditActivity" />
         <activity android:name=".MyProfileActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".TelaEventoParticipante" />

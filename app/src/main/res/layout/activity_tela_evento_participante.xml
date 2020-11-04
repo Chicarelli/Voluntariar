@@ -9,16 +9,20 @@
 
     <EditText
         android:id="@+id/editing_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Title"
         android:textSize="30sp"
         android:padding="5dp"
         android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="center"
         android:background="@drawable/background_caixa_editing_notfocusable"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/img_upload_foto"
+        android:gravity="center_horizontal" />
 
     <ImageView
         android:id="@+id/img_evento_participating"
@@ -27,7 +31,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toBottomOf="@id/editing_title"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
          android:layout_marginTop="15dp" />
@@ -55,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_evento_participating" />
+        app:layout_constraintTop_toBottomOf="@id/editing_title" />
 
     <EditText
         android:id="@+id/editing_endereco"
@@ -88,6 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1000"
+        android:minWidth="50dp"
         android:textSize="18sp"
         android:padding="5dp"
         android:background="@drawable/background_caixa_editing_notfocusable"
@@ -134,9 +139,10 @@
 
     <EditText
         android:id="@+id/editing_hora"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="12:00"
+        android:minWidth="50dp"
         android:padding="5dp"
         android:background="@drawable/background_caixa_editing_notfocusable"
         android:textSize="18sp"
@@ -158,14 +164,17 @@
         android:id="@+id/editing_descricao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_caixa_editing_notfocusable"
         android:ems="10"
         android:gravity="start|top"
-        android:background="@drawable/background_caixa_editing_notfocusable"
         android:inputType="textMultiLine"
+        android:maxHeight="170dp"
+        android:minHeight="80dp"
         android:padding="5dp"
-        android:maxHeight="150dp"
         android:text="Descrição aqui!! "
         android:textSize="18sp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="15dp"
         app:layout_constraintLeft_toLeftOf="@id/txtview_descricao_participating"
         app:layout_constraintTop_toBottomOf="@id/txtview_descricao_participating" />
 

@@ -28,6 +28,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.voluntariado.SolicitacoesDeParticipantes" />
         <activity android:name="com.example.voluntariado.MyProfileEditActivity" />
         <activity android:name="com.example.voluntariado.MyProfileActivity" />
         <activity android:name="com.example.voluntariado.MessageActivity" />
