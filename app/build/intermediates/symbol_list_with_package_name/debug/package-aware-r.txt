@@ -1553,6 +1553,7 @@ id adjust_width
 id alertTitle
 id all
 id always
+id aprovarParticipante
 id async
 id auto
 id backToMain
@@ -1779,6 +1780,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recyclerView_SolicitacoesDeParticipantes
 id recycler_chat
 id right
 id right_icon
@@ -1819,6 +1821,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id solicitacoes
 id spacer
 id split_action_bar
 id spread
@@ -1906,6 +1909,7 @@ id up
 id uploadFoto
 id useLogo
 id username
+id verificarParticipante
 id view_offset_helper
 id visible
 id wide
@@ -1985,6 +1989,7 @@ layout activity_meus_eventos
 layout activity_my_profile
 layout activity_my_profile_edit
 layout activity_perfil_membros
+layout activity_solicitacoes_de_participantes
 layout activity_tela_do_evento
 layout activity_tela_evento_participante
 layout activity_tela_participantes

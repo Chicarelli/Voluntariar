@@ -56,11 +56,10 @@ public class MeusEventos extends AppCompatActivity {
         adapter = new GroupAdapter();
         rv.setLayoutManager(new LinearLayoutManager(MeusEventos.this));
         rv.setAdapter(adapter);
-
-        fetchEventos();
     }
 
     private void fetchEventos() {
+        adapter.clear();
         db.collection("eventos")
                 .whereEqualTo("proprietario", this.id)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -89,7 +88,6 @@ public class MeusEventos extends AppCompatActivity {
 
         @Override
         public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
-
             TextView titulo = viewHolder.itemView.findViewById(R.id.meus_eventos_edt_titulo);
             TextView data = viewHolder.itemView.findViewById(R.id.meus_eventos_edt_data);
             TextView hora = viewHolder.itemView.findViewById(R.id.meus_eventos_edt_hora);
@@ -178,5 +176,11 @@ public class MeusEventos extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(MeusEventos.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchEventos();
     }
 }

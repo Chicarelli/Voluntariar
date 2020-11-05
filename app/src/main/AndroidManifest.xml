@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyProfileEditActivity"></activity>
+        <activity android:name=".AprovedMembers"></activity>
+        <activity android:name=".MyProfileEditActivity" />
         <activity android:name=".MyProfileActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".TelaEventoParticipante" />
         <activity android:name=".MeusEventos" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".PerfilMembros" />
-        <activity android:name=".ListaDeParticipantes" />
+        <activity android:name=".RequestParticipation" />
         <activity android:name=".telaDoEvento" />
         <activity android:name=".CriarEventoFisico" />
         <activity android:name=".CadastroActivity" />

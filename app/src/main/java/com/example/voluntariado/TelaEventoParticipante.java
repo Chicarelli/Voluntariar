@@ -80,7 +80,6 @@ public class TelaEventoParticipante extends AppCompatActivity {
     if(getIntent().hasExtra("id")){
       this.id = getIntent().getStringExtra("id");
     }
-
     recuperarEvento(); //Recuperando o evento pelo ID passado entre intents
     onFocus();
 
@@ -150,8 +149,8 @@ public class TelaEventoParticipante extends AppCompatActivity {
                   bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                   byte[] imageInByte = stream.toByteArray();
                   intent.putExtra("imagem", imageInByte);
-                  intent.putExtra("id", id);
-                 }
+                }
+                intent.putExtra("id", id);
                 startActivity(intent);
                 finish();
               }
@@ -289,7 +288,5 @@ public class TelaEventoParticipante extends AppCompatActivity {
       }
     });
   }
-
-  
 
 }

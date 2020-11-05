@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/excluirEvento"
-        android:title="Excluir" />
     <item android:id="@+id/participantes"
         android:title="Participantes"/>
+    <item android:id="@+id/solicitacoes"
+        android:title="Solicitações de Participantes"/>
+    <item android:id="@+id/excluirEvento"
+        android:title="Excluir" />
+
     
 </menu>

@@ -34,9 +34,6 @@ public class CriarEventoFisico extends AppCompatActivity {
     private FirebaseFirestore firestoreEvento = FirebaseFirestore.getInstance();
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference imagesRef = storage.getReference().child("images");
-    Bitmap bitmap;
-    Uri downloadUri;
-    private int PICK_IMAGE = 1234;
 
     private EditText txtTitulo;
     private EditText txtEndereco;
@@ -45,6 +42,9 @@ public class CriarEventoFisico extends AppCompatActivity {
     private EditText txtData;
     private EditText txtHora;
     private EditText txtDesc;
+    Bitmap bitmap;
+    Uri downloadUri;
+    private int PICK_IMAGE = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +63,13 @@ public class CriarEventoFisico extends AppCompatActivity {
 
     protected void onStart() {
         super.onStart();
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finishAffinity();
         }
-    } //Verifying authentication
+    }
 
     public void criarEvento(View view){
         String titulo = txtTitulo.getText().toString();
@@ -103,7 +102,6 @@ public class CriarEventoFisico extends AppCompatActivity {
 
     public void registrarEvento(String titulo, String endereco, String numero, final String data, String descricao, String complemento, String hora){
         String imagem = salvarFoto(titulo);
-
         final Map<String, Object> dataToSave = new HashMap<String, Object>();
         dataToSave.put("titulo", titulo);
         dataToSave.put("endereco", endereco);
@@ -117,10 +115,6 @@ public class CriarEventoFisico extends AppCompatActivity {
             dataToSave.put("imagem", imagem);
         }
 
-        savingDataToFirestore(dataToSave);
-    }
-
-    private void savingDataToFirestore(final Map<String, Object> dataToSave) {
         firestoreEvento.collection("eventos")
                 .add(dataToSave)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -176,10 +170,12 @@ public class CriarEventoFisico extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
     }
 
     protected String salvarFoto(String titulo){
+
         if(bitmap != null) {
             CriarEventoFisicoUtil criarEventoFisicoUtil = new CriarEventoFisicoUtil(mAuth.getUid(), titulo);
             String nameCreated = criarEventoFisicoUtil.getCreatedName();
@@ -202,9 +198,11 @@ public class CriarEventoFisico extends AppCompatActivity {
                 }
             });
 
+
             return nameCreated;
         }else {
             return "teste.jpeg";
         }
     }
+
 }

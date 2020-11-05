@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,12 +21,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,19 +34,13 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Timer;
 
 import static android.widget.Toast.LENGTH_SHORT;
-import static com.example.voluntariado.R.drawable.background;
-import static com.example.voluntariado.R.drawable.fundo_imagem;
 
 public class telaDoEvento extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -70,9 +60,6 @@ public class telaDoEvento extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView optionButton;
 
-    String imgPadrao;
-    //StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imgPadrao);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,16 +67,13 @@ public class telaDoEvento extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         optionButton = findViewById(R.id.more_options_imgv);
-        imgView = findViewById(R.id.imagemEvento);
 
         registerForContextMenu(optionButton);
 
         if(getIntent().hasExtra("id")){
             id = getIntent().getStringExtra("id");
             compararUsuario(id);
-
         }
-
     }
 
     public void moreOptions(View view){
@@ -106,6 +90,9 @@ public class telaDoEvento extends AppCompatActivity {
 
             case R.id.excluirEvento: excluirEvento();
             return true;
+            
+            case R.id.solicitacoes: solicitacoesDeParticipantes();
+            return true;
 
             default: return true;
           }
@@ -113,6 +100,12 @@ public class telaDoEvento extends AppCompatActivity {
       });
 
       popup.show();
+    }
+
+    private void solicitacoesDeParticipantes() {
+        Intent intent = new Intent(this, RequestParticipation.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
     }
 
     public void ClickMenu(View view){
@@ -123,33 +116,32 @@ public class telaDoEvento extends AppCompatActivity {
     MainActivity.redirectActivity(this, MessageActivity.class);
   }
 
-  private void openDrawer(DrawerLayout drawerLayout) {
-      drawerLayout.openDrawer(GravityCompat.START);
-  }
+    private void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
 
-  public void meuPerfil(View view){
-      MainActivity.redirectActivity(this, MyProfileActivity.class);
-  }
+    public void meuPerfil(View view){
+        MainActivity.redirectActivity(this, MyProfileActivity.class);
+    }
 
-  public void ClickLogo(View view){
-      closeDrawer(drawerLayout);
-  }
+    public void ClickLogo(View view){
+        closeDrawer(drawerLayout);
+    }
 
-  private void closeDrawer(DrawerLayout drawerLayout) {
-    MainActivity.closeDrawer(drawerLayout);
-  }
+    private void closeDrawer(DrawerLayout drawerLayout) {
+      MainActivity.closeDrawer(drawerLayout);
+    }
 
-  public void ClickHome(View view){
-      MainActivity.redirectActivity(this, MainActivity.class);
-  }
+    public void ClickHome(View view){
+        MainActivity.redirectActivity(this, MainActivity.class);
+    }
 
-  public void myEvents(View view){
-      MainActivity.redirectActivity(this, MeusEventos.class);
-  }
+    public void myEvents(View view){
+        MainActivity.redirectActivity(this, MeusEventos.class);
+    }
 
-  public void Logout(View view){
+    public void Logout(View view){
       AlertDialog.Builder builder = new AlertDialog.Builder(telaDoEvento.this);
-
       builder.setTitle("Logout");
 
       builder.setMessage("Tem certeza que deseja sair?");
@@ -173,81 +165,80 @@ public class telaDoEvento extends AppCompatActivity {
   }
 
   @Override
-  protected void onPause() {
-    super.onPause();
+    protected void onPause() {
+      super.onPause();
 
-    closeDrawer(drawerLayout);
-  }
-
-  private void settingElementsOnScreen(String id){
-        DocumentReference docRef = db.collection("eventos").document(id);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Eventos evento;
-                        evento = document.toObject(Eventos.class);
-                        setarElementos(evento);
-                    } else {
-                        Log.d("EXISTE?", "Não");
-                    }
-                } else {
-                    Log.d("OPS", "Falhou", task.getException());
-                }
-            }
-        });
+      closeDrawer(drawerLayout);
     }
 
-  private void setarElementos(Eventos evento) {
-      titulo = findViewById(R.id.tela_evento_titulo);
-      descricao = findViewById(R.id.tela_evento_descricao);
-      endereco = findViewById(R.id.tela_evento_endereco);
-      data = findViewById(R.id.tela_evento_data);
-      hora = findViewById(R.id.tela_evento_hora);
-      numero = findViewById(R.id.tela_evento_numero);
-
-      titulo.setText(evento.getTitulo());
-      descricao.setText(evento.getDescricao());
-      endereco.setText(evento.getEndereco());
-      data.setText(evento.getData());
-      hora.setText(evento.getHora());
-      imagem = evento.getImagem();
-      if(getIntent().hasExtra("imagem")){
-          Bundle bundle = getIntent().getExtras();
-          if(bundle != null){
-              try{
-                  byte[] imageInByte = bundle.getByteArray("imagem");
-                  Bitmap bmp = BitmapFactory.decodeByteArray(imageInByte, 0, imageInByte.length);
-                  imgView.setImageBitmap(bmp);
-              } catch(Exception e){}
-          }
-      } else {
-          setImage(imagem);
+    private void settingElementsOnScreen(String id){
+          DocumentReference docRef = db.collection("eventos").document(id);
+          docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+              @Override
+              public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                  if (task.isSuccessful()) {
+                      DocumentSnapshot document = task.getResult();
+                      if (document.exists()) {
+                          Eventos evento;
+                          evento = document.toObject(Eventos.class);
+                          setarElementos(evento);
+                          if(getIntent().hasExtra("imagem")){
+                            Bundle bundle = getIntent().getExtras();
+                            if(bundle != null){
+                              try{
+                                byte[] imageInByte = bundle.getByteArray("imagem");
+                                Bitmap bmp = BitmapFactory.decodeByteArray(imageInByte, 0, imageInByte.length);
+                                imgView.setImageBitmap(bmp);
+                              }catch(Exception e){}
+                            }
+                          }
+                      } else {
+                          Log.d("EXISTE?", "Não");
+                      }
+                  } else {
+                      Log.d("OPS", "Falhou", task.getException());
+                  }
+              }
+          });
       }
 
+    private void setarElementos(Eventos evento) {
+        titulo = findViewById(R.id.tela_evento_titulo);
+        descricao = findViewById(R.id.tela_evento_descricao);
+        endereco = findViewById(R.id.tela_evento_endereco);
+        data = findViewById(R.id.tela_evento_data);
+        hora = findViewById(R.id.tela_evento_hora);
+        numero = findViewById(R.id.tela_evento_numero);
+        Toast.makeText(telaDoEvento.this, evento.getImagem(), LENGTH_SHORT).show();
 
+        titulo.setText(evento.getTitulo());
+        descricao.setText(evento.getDescricao());
+        endereco.setText(evento.getEndereco());
+        data.setText(evento.getData());
+        hora.setText(evento.getHora());
+        imagem = evento.getImagem();
+        setImage(imagem);
+
+      }
+
+    private void setImage(String imagem) {
+      StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imagem);
+      imgView = findViewById(R.id.imagemEvento);
+      refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        @Override
+        public void onSuccess(Uri uri) {
+          Glide.with(telaDoEvento.this)
+                  .load(uri)
+                  .into(imgView);
+        }
+      }). addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(@NonNull Exception e) {
+        }
+      });
     }
 
-  private void setImage(String imagem) {
-    StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(imagem);
-    refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-      @Override
-      public void onSuccess(Uri uri) {
-        Glide.with(telaDoEvento.this)
-                .load(uri)
-                .into(imgView);
-      }
-    }). addOnFailureListener(new OnFailureListener() {
-      @Override
-      public void onFailure(@NonNull Exception e) {
-
-      }
-    });
-  }
-
-  private void compararUsuario(String id) {
+    private void compararUsuario(String id) {
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
         db.collection("eventos")
                 .whereEqualTo("id", id)
@@ -262,13 +253,10 @@ public class telaDoEvento extends AppCompatActivity {
                                String proprietario = eventos.getProprietario().toUpperCase().trim();
 
                                if (user.equals(proprietario)){
-                                   Toast.makeText(telaDoEvento.this, "Iguais", LENGTH_SHORT).show();
                                    botaoPouE.setText("Editar");
                                } else {
-                                   Toast.makeText(telaDoEvento.this, "Diferentes", Toast.LENGTH_LONG).show();
                                    testUserParticipation();
                                }
-
                            }
                        }else {
                            Toast.makeText(telaDoEvento.this, "erro", Toast.LENGTH_LONG).show();
@@ -290,40 +278,32 @@ public class telaDoEvento extends AppCompatActivity {
                         if (documentSnapshot.exists()) {
                             botaoPouE.setText("Deixar de Participar");
                         } else {
-                            botaoPouE.setText("Participar");
+                            botaoPouE.setText("Solicitar Participação");
                         }
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        botaoPouE.setText("Participar");
+                        botaoPouE.setText("Solicitar Participação");
                     }
                 });
    }
 
     public void botaoTelaEvento(View view){
-
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
-        if (botaoPouE.getText().equals("Participar")){
-            participatingMembers();//Participando no Evento
+        if (botaoPouE.getText().equals("Solicitar Participação")){
+            participatingMembers();
 
         } else if(botaoPouE.getText().equals("Editar")){
-
             Intent intent = new Intent(telaDoEvento.this, TelaEventoParticipante.class);
             intent.putExtra("id", this.id);
-            imgView.setImageBitmap(null);
             startActivity(intent);
-
-            //data.addTextChangedListener(MaskEditUtil.mask(data, MaskEditUtil.FORMAT_DATE));
-            //hora.addTextChangedListener(MaskEditUtil.mask(hora, MaskEditUtil.FORMAT_HOUR));
-
         }
         else if (botaoPouE.getText().equals("Deixar de Participar")) {
-            deletingParticipation(); //Remover usuário da participação do Evento
+            deletingParticipation();
         }
-
-        }
+    }
 
     public boolean onPrepareOptionsMenu(Menu menu){
         invalidateOptionsMenu();
@@ -353,13 +333,9 @@ public class telaDoEvento extends AppCompatActivity {
     }
 
     private void participantes(){
-
-
-        Intent intent = new Intent(this, ListaDeParticipantes.class);
-        intent.putExtra("id", id);
+        Intent intent = new Intent(telaDoEvento.this, AprovedMembers.class);
+        intent.putExtra("idevento", id);
         startActivity(intent);
-
-
     }
 
     private void deletingParticipation() {
@@ -371,8 +347,8 @@ public class telaDoEvento extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(telaDoEvento.this, "Deixou de participar", LENGTH_SHORT).show();
-                        botaoPouE.setText("Participar");
+                        //Toast.makeText(telaDoEvento.this, "Deixou de participar", LENGTH_SHORT).show();
+                        botaoPouE.setText("Solicitar Participação");
                     }
                 });
     }
@@ -410,24 +386,23 @@ public class telaDoEvento extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(telaDoEvento.this, "Participando", LENGTH_SHORT).show();
+                        //Toast.makeText(telaDoEvento.this, "Participando", LENGTH_SHORT).show();
                         botaoPouE.setText("Deixar de Participar");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(telaDoEvento.this, "Erro!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(telaDoEvento.this, "Erro: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
     }
 
-  @Override
-  protected void onResume() {
+   @Override
+    protected void onResume() {
     super.onResume();
     settingElementsOnScreen(id);
     }
-
 
 }
 

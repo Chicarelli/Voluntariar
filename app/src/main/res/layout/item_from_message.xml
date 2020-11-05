@@ -12,6 +12,7 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/caixa_de_texto"
         android:padding="10dp"
+        android:backgroundTint="#9CCFF8"
         android:text="Text"
         android:maxWidth="240dp"
         android:textSize="16sp"

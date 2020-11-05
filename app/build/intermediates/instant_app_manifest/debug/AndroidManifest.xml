@@ -28,6 +28,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.voluntariado.AprovedMembers" />
         <activity android:name="com.example.voluntariado.MyProfileEditActivity" />
         <activity android:name="com.example.voluntariado.MyProfileActivity" />
         <activity android:name="com.example.voluntariado.MessageActivity" />
@@ -35,7 +36,7 @@
         <activity android:name="com.example.voluntariado.MeusEventos" />
         <activity android:name="com.example.voluntariado.ChatActivity" />
         <activity android:name="com.example.voluntariado.PerfilMembros" />
-        <activity android:name="com.example.voluntariado.ListaDeParticipantes" />
+        <activity android:name="com.example.voluntariado.RequestParticipation" />
         <activity android:name="com.example.voluntariado.telaDoEvento" />
         <activity android:name="com.example.voluntariado.CriarEventoFisico" />
         <activity android:name="com.example.voluntariado.CadastroActivity" />
