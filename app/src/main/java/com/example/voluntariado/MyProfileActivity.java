@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -113,7 +114,7 @@ public class MyProfileActivity extends AppCompatActivity {
               public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User me = documentSnapshot.toObject(User.class);
                 userName.setText(me.getNome());
-                userIdade.setText("22" + " anos");
+                userIdade.setText(me.getDataNasc());
                 userEmail.setText(me.getEmail());
                 String image = me.getImage();
                 if(getIntent().hasExtra("imagem")){
@@ -136,6 +137,7 @@ public class MyProfileActivity extends AppCompatActivity {
               }
             });
   }
+
 
   private void setImage(String imagem) {
     if(imagem.trim().isEmpty()){

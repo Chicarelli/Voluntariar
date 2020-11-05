@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,20 +24,20 @@ public class User {
     private String nome;
     private String email;
     private String sexo;
-    //private Date DataNasc;
+    private String dataNasc;
     //private String idade;
   private String image;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public User() {    }
 
-    public User (String uuid, String nome, String email, String sexo, String image, Date DataNasc){
+    public User (String uuid, String nome, String email, String sexo, String image, String dataNasc){
       this.uuid = uuid;
       this.nome = nome;
       this.email = email;
       this.sexo = sexo;
       this.image = image;
-      //this.DataNasc = DataNasc;
+      this.dataNasc = dataNasc;
     }
 
   public String getImage() {
@@ -79,5 +80,11 @@ public class User {
     this.sexo = sexo;
   }
 
+  public String getDataNasc() {
+    return dataNasc;
+  }
 
+  public void setDataNasc(String dataNasc) {
+    this.dataNasc = dataNasc;
+  }
 }

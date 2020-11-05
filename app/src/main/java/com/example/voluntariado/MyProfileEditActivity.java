@@ -89,7 +89,7 @@ public class MyProfileEditActivity extends AppCompatActivity {
 
   private void settingDataOnScreen(User user) {
     nome.setText(user.getNome());
-    nascimento.setText("22061996");
+    nascimento.setText(user.getDataNasc());
     email.setText(user.getEmail());
     StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(id);
     refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -132,6 +132,7 @@ public class MyProfileEditActivity extends AppCompatActivity {
     }
     dataToEdit.put("nome", nome.getText().toString());
     dataToEdit.put("email", email.getText().toString());
+    dataToEdit.put("dataNasc", nascimento.getText().toString());
     editOnFirestore(dataToEdit);
   }
 

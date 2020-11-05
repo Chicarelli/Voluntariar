@@ -121,6 +121,7 @@ public class CadastroActivity extends AppCompatActivity {
         dataToSave.put("DataNasc", dataDeNascimento);
         dataToSave.put("sexo", "M");
         dataToSave.put("uuid", mAuth.getUid());
+        dataToSave.put("image", "");
 
         savingOnFirestore(dataToSave);
     }
