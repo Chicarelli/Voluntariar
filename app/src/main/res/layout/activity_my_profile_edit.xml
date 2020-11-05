@@ -101,7 +101,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="30dp"
-        android:onClick="save"
+        android:onClick="buttonToSavePressed"
         android:src="@drawable/ic_save_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

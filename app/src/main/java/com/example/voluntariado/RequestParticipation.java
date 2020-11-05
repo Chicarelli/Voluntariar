@@ -30,7 +30,6 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class RequestParticipation extends AppCompatActivity {
   FirebaseFirestore db = FirebaseFirestore.getInstance();
   String id;
-  String ios;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -105,12 +104,12 @@ public class RequestParticipation extends AppCompatActivity {
 
     Map<String, Object> aproved = new HashMap<String,Object>();
     aproved.put("Evento", id);
-    aproved.put("Membro", uidMembro);
+    aproved.put("uuid", uidMembro);
 
     db.collection("aprovedMembers")
             .document(id)
             .collection("participantes")
-            .document()
+            .document(uidMembro)
             .set(aproved)
             .addOnCompleteListener(new OnCompleteListener<Void>() {
               @Override

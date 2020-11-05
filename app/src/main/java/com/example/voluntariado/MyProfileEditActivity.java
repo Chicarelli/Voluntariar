@@ -22,7 +22,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -35,6 +37,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MyProfileEditActivity extends AppCompatActivity {
@@ -48,6 +51,7 @@ public class MyProfileEditActivity extends AppCompatActivity {
   EditText email;
   ImageView imageview;
 
+  String id;
   Bitmap bitmap;
   Uri downloadUri;
   private int PICK_IMAGE = 1234;
@@ -63,37 +67,31 @@ public class MyProfileEditActivity extends AppCompatActivity {
     email = findViewById(R.id.edt_profile_email);
 
     nascimento.addTextChangedListener(MaskEditUtil.mask(nascimento, MaskEditUtil.FORMAT_DATE));
-
-
+    getUuid();
+    searchingFirestoreForUser();
   }
 
-  private void settingData() {
-    
+  private void getUuid() {
+    id = mAuth.getUid();
+  }
+
+  private void searchingFirestoreForUser() {
     db.collection("users1")
-            .document(mAuth.getUid())
-            .get()
-            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            .document(id)
+            .addSnapshotListener(new EventListener<DocumentSnapshot>() {
               @Override
-              public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Timestamp timestamp = (Timestamp) documentSnapshot.get("DataNasc");
-                Date dataDeNascimento = timestamp.toDate();
-
-                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
-                nome.setText(documentSnapshot.get("nome").toString());
-                nascimento.setText(df.format(dataDeNascimento));
-                email.setText(documentSnapshot.get("email").toString());
-                String image = documentSnapshot.get("image").toString();
-
-                if(!image.equals("")){
-                  setImage(image);
-                }
+              public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+               User user = documentSnapshot.toObject(User.class);
+               settingDataOnScreen(user);
               }
             });
   }
 
-  private void setImage(String image) {
-    StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(image);
+  private void settingDataOnScreen(User user) {
+    nome.setText(user.getNome());
+    nascimento.setText("22061996");
+    email.setText(user.getEmail());
+    StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(id);
     refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
       @Override
       public void onSuccess(Uri uri) {
@@ -102,12 +100,10 @@ public class MyProfileEditActivity extends AppCompatActivity {
                 .into(imageview);
       }
     });
-
   }
 
   public void changePhoto(View view) {
     Intent gallery = new Intent();
-
     gallery.setType("image/*");
     gallery.setAction(Intent.ACTION_GET_CONTENT);
 
@@ -117,47 +113,37 @@ public class MyProfileEditActivity extends AppCompatActivity {
   @Override
   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
-
     if(requestCode == PICK_IMAGE && resultCode == RESULT_OK){
       Uri imageUri = data.getData();
       try{
         bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-        if(bitmap!=null){
-          Glide.with(MyProfileEditActivity.this)
-                  .load(bitmap)
-                  .into(imageview);
-        }
+        imageview.setImageBitmap(bitmap);
       } catch(IOException e){
         e.printStackTrace();
       }
     }
   }
 
-  public void save(View view) {
-    String profile_name = nome.getText().toString();
-    String profile_dataNascimento = nascimento.getText().toString();
-    String profile_email = email.getText().toString();
-    String imagem = salvarFoto(profile_name);
-
-    Map<String, Object> usuario = new HashMap<>();
-    usuario.put("nome", profile_name);
-    usuario.put("email", profile_email);
-    usuario.put("dataNasc", profile_dataNascimento);
-    if(imagem != null){
-      usuario.put("image", imagem);
+  public void buttonToSavePressed(View view) {
+    Map<String, Object> dataToEdit = new HashMap<>();
+    if (bitmap != null){
+      savingImageAndCreatingUri();
+      dataToEdit.put("image", id);
     }
-
-    toEdit(usuario);
+    dataToEdit.put("nome", nome.getText().toString());
+    dataToEdit.put("email", email.getText().toString());
+    editOnFirestore(dataToEdit);
   }
 
-  private void toEdit(Map<String, Object> usuario) {
-    db.collection("users1").document(mAuth.getUid())
-            .set(usuario, SetOptions.merge())
+  private void editOnFirestore(Map<String, Object> dataToEdit) {
+    db.collection("users1")
+            .document(id)
+            .update(dataToEdit)
             .addOnSuccessListener(new OnSuccessListener<Void>() {
               @Override
               public void onSuccess(Void aVoid) {
                 Intent intent = new Intent(MyProfileEditActivity.this, MyProfileActivity.class);
-                if (bitmap != null) {
+                if(bitmap != null){
                   ByteArrayOutputStream stream = new ByteArrayOutputStream();
                   bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                   byte[] imageInByte = stream.toByteArray();
@@ -166,56 +152,27 @@ public class MyProfileEditActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
               }
-            }).addOnFailureListener(new OnFailureListener() {
-      @Override
-      public void onFailure(@NonNull Exception e) {
-        Toast.makeText(MyProfileEditActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-      }
-    });
+            });
   }
 
-  private String salvarFoto(String profile_name) {
-    String namecreated = makeUrl(profile_name);
-
-    if (bitmap != null){
+  private void savingImageAndCreatingUri() {
+    if(bitmap != null) {
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-    byte[] dados = baos.toByteArray();
+      bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+      byte[] dados = baos.toByteArray();
 
-    final UploadTask uploadTask = imagesRef.child(namecreated).putBytes(dados);
-    uploadTask.addOnFailureListener(new OnFailureListener() {
-      @Override
-      public void onFailure(@NonNull Exception e) {
+      final UploadTask uploadTask = imagesRef.child(id).putBytes(dados);
+      uploadTask.addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(@NonNull Exception e) {
 
-      }
-    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-      @Override
-      public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-        downloadUri = taskSnapshot.getUploadSessionUri();
-      }
-    });
-  }
-      return namecreated;
+        }
+      }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+        @Override
+        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+          downloadUri = taskSnapshot.getUploadSessionUri();
+        }
+      });
     }
-
-  private String makeUrl(String profile_name) {
-    if(bitmap != null){
-      User user = new User();
-      user.setUuid(mAuth.getUid());
-      user.setNome(profile_name);
-      String namecreated = user.getUuid() + user.getNome();
-      return namecreated;
-  } else {
-      return null;
-    }
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    if (bitmap != null) {
-      bitmap = null;
-    }
-    settingData();
   }
 }

@@ -6,7 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,23 +69,33 @@ public class AprovedMembers extends AppCompatActivity {
                         if(queryDocumentSnapshots != null){
                             for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                                 User user = doc.toObject(User.class);
-                                adapter.add(new UserItems(user));
+                                searchingUserWithUuid(user.getUuid());
                             }
                         }
                     }
                 });
-        Toast.makeText(this, idEvento, Toast.LENGTH_SHORT).show();
     }
 
-    private void pegarId() {
+  private void searchingUserWithUuid(String uuid) {
+      db.collection("users1")
+              .document(uuid)
+              .get()
+              .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                  User user = task.getResult().toObject(User.class);
+                  adapter.add(new UserItems(user));
+                }
+              });
+  }
+
+  private void pegarId() {
         if(getIntent().hasExtra("idevento")) {
             idEvento = getIntent().getStringExtra("idevento");
         }
     }
-}
 
-
- class UserItems extends Item<GroupieViewHolder> {
+ private class UserItems extends Item<GroupieViewHolder> {
 
     private final User user;
 
@@ -90,15 +104,61 @@ public class AprovedMembers extends AppCompatActivity {
     }
 
     @Override
-    public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
+    public void bind(@NonNull final GroupieViewHolder viewHolder, final int position) {
         TextView nomeParticipante = viewHolder.itemView.findViewById(R.id.username);
 
-        nomeParticipante.setText(user.getUuid());
+        nomeParticipante.setText(user.getNome());
 
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            PopupMenu popupMenu = new PopupMenu(AprovedMembers.this, v);
+            popupMenu.getMenuInflater().inflate(R.menu.options_on_participantes, popupMenu.getMenu());
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+              @Override
+              public boolean onMenuItemClick(MenuItem item) {
+                switch(item.getItemId()){
+                  case R.id.verificarMembro: verifyMember(user.getUuid());
+                  return true;
+
+                  case R.id.excluirMembro: removeMember(user.getUuid(), idEvento, adapter, getItem(position));
+                  return true;
+
+                  default: return true;
+                }
+              }
+            });
+            popupMenu.show();
+          }
+        });
     }
 
     @Override
     public int getLayout() {
         return R.layout.item_contacts_messages;
     }
+}
+
+  private void removeMember(String uuid, String idEvento, final GroupAdapter adapter, final Item position) {
+      db.collection("aprovedMembers")
+              .document(idEvento)
+              .collection("participantes")
+              .document(uuid)
+              .delete()
+              .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                  Toast.makeText(AprovedMembers.this, "Participante Deletado", Toast.LENGTH_SHORT).show();
+                  adapter.remove(position);
+                  adapter.notifyDataSetChanged();
+                }
+              });
+  }
+
+  private void verifyMember(String uuid) {
+      Intent intent = new Intent(AprovedMembers.this, PerfilMembros.class);
+      intent.putExtra("id", uuid);
+      startActivity(intent);
+  }
 }

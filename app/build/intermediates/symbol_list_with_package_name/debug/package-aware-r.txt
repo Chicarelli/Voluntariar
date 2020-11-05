@@ -1654,6 +1654,7 @@ id enterAlwaysCollapsed
 id evento_titulo
 id eventosList
 id excluirEvento
+id excluirMembro
 id excluirParticipante
 id exitUntilCollapsed
 id expand_activities_button
@@ -1909,6 +1910,7 @@ id up
 id uploadFoto
 id useLogo
 id username
+id verificarMembro
 id verificarParticipante
 id view_offset_helper
 id visible
@@ -2084,6 +2086,7 @@ layout text_view_without_line_height
 menu excluirmenu
 menu listadeparticipantes
 menu mainmenu
+menu options_on_participantes
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description

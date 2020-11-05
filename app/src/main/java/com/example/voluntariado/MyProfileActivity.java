@@ -68,7 +68,6 @@ public class MyProfileActivity extends AppCompatActivity {
     RecyclerView rv = findViewById(R.id.rv_myProfile);
     rv.setLayoutManager(new LinearLayoutManager(this));
 
-
     adapter = new GroupAdapter();
     rv.setAdapter(adapter);
     getUserId();
