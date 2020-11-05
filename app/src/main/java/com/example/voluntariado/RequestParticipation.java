@@ -30,6 +30,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class RequestParticipation extends AppCompatActivity {
   FirebaseFirestore db = FirebaseFirestore.getInstance();
   String id;
+  String ios;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
