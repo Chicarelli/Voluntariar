@@ -3,7 +3,6 @@ package com.example.voluntariado;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-
 abstract class MaskEditUtil {
 
     public static final String FORMAT_CPF = "###.###.###-##";

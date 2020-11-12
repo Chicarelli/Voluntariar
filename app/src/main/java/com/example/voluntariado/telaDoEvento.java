@@ -1,6 +1,7 @@
 package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -31,7 +32,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -56,6 +59,7 @@ public class telaDoEvento extends AppCompatActivity {
     String id;
     String imagem;
     ImageView imgView;
+    Boolean userIsParticipante;
 
     DrawerLayout drawerLayout;
     ImageView optionButton;
@@ -68,18 +72,22 @@ public class telaDoEvento extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         optionButton = findViewById(R.id.more_options_imgv);
 
-        registerForContextMenu(optionButton);
-
         if(getIntent().hasExtra("id")){
             id = getIntent().getStringExtra("id");
             compararUsuario(id);
         }
+        registerForContextMenu(optionButton);
+
     }
 
     public void moreOptions(View view){
       PopupMenu popup = new PopupMenu(telaDoEvento.this, view);
 
+      if(userIsParticipante){
+        popup.getMenuInflater().inflate(R.menu.participantemenu, popup.getMenu());
+      } else {
       popup.getMenuInflater().inflate(R.menu.excluirmenu, popup.getMenu());
+      }
 
       popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
         @Override
@@ -94,6 +102,9 @@ public class telaDoEvento extends AppCompatActivity {
             case R.id.solicitacoes: solicitacoesDeParticipantes();
             return true;
 
+            case R.id.verProprietario: pegarIdProprietario();
+            return true;
+
             default: return true;
           }
         }
@@ -102,7 +113,25 @@ public class telaDoEvento extends AppCompatActivity {
       popup.show();
     }
 
-    private void solicitacoesDeParticipantes() {
+  private void contactarProprietario(String uidProprietario) {
+      Intent intent = new Intent(telaDoEvento.this, PerfilMembros.class);
+      intent.putExtra("id", uidProprietario);
+      startActivity(intent);
+  }
+
+  private void pegarIdProprietario() {
+      db.collection("eventos")
+              .document(id)
+              .get()
+              .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                  contactarProprietario(documentSnapshot.get("proprietario").toString());
+                }
+              });
+  }
+
+  private void solicitacoesDeParticipantes() {
         Intent intent = new Intent(this, RequestParticipation.class);
         intent.putExtra("id", id);
         startActivity(intent);
@@ -209,7 +238,6 @@ public class telaDoEvento extends AppCompatActivity {
         data = findViewById(R.id.tela_evento_data);
         hora = findViewById(R.id.tela_evento_hora);
         numero = findViewById(R.id.tela_evento_numero);
-        Toast.makeText(telaDoEvento.this, evento.getImagem(), LENGTH_SHORT).show();
 
         titulo.setText(evento.getTitulo());
         descricao.setText(evento.getDescricao());
@@ -254,8 +282,10 @@ public class telaDoEvento extends AppCompatActivity {
 
                                if (user.equals(proprietario)){
                                    botaoPouE.setText("Editar");
+                                   userIsParticipante = false;
                                } else {
                                    testUserParticipation();
+                                   userIsParticipante = true;
                                }
                            }
                        }else {

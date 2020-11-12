@@ -16,6 +16,7 @@
         android:layout_marginTop="50dp"
         android:text="Título"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,6 +44,7 @@
         android:layout_marginTop="5dp"
         android:text="Endereço"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTitulo" />
 
@@ -62,6 +64,28 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
+        android:id="@+id/txtViewCities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Cidade"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/editEndereco"
+        app:layout_constraintTop_toBottomOf="@id/editEndereco" />
+
+    <Spinner
+        android:id="@+id/spinnerCities"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/caixa_de_texto"
+        app:layout_constraintBottom_toBottomOf="@id/editNumero"
+        app:layout_constraintLeft_toLeftOf="@id/editEndereco"
+        app:layout_constraintRight_toLeftOf="@id/editNumero"
+        app:layout_constraintTop_toTopOf="@id/editNumero" />
+
+    <TextView
         android:id="@+id/textView9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -70,8 +94,9 @@
         android:layout_marginTop="5dp"
         android:text="Complemento"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEndereco" />
+        app:layout_constraintTop_toBottomOf="@id/spinnerCities" />
 
     <EditText
         android:id="@+id/editComplemento"
@@ -96,6 +121,7 @@
         android:layout_marginTop="5dp"
         android:text="Número"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/editComplemento"
@@ -125,6 +151,7 @@
         android:layout_marginTop="5dp"
         android:text="Data"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editComplemento" />
 
@@ -149,6 +176,7 @@
         android:layout_marginTop="5dp"
         android:text="Hora"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/editData"
         app:layout_constraintTop_toBottomOf="@+id/editNumero" />
 
@@ -190,6 +218,7 @@
         android:layout_marginTop="10dp"
         android:text="Descricao"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/uploadFoto" />
 
@@ -220,9 +249,10 @@
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/botao_login"
-        android:textColor="#FFFFFF"
         android:onClick="criarEvento"
         android:text="Criar Evento"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editDesc" />

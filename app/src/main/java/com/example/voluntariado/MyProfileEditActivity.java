@@ -91,7 +91,7 @@ public class MyProfileEditActivity extends AppCompatActivity {
     nome.setText(user.getNome());
     nascimento.setText(user.getDataNasc());
     email.setText(user.getEmail());
-    StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(id);
+    StorageReference refStorage = storage.getReferenceFromUrl("gs://voluntariar-50f20.appspot.com/images").child(mAuth.getCurrentUser().getUid());
     refStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
       @Override
       public void onSuccess(Uri uri) {

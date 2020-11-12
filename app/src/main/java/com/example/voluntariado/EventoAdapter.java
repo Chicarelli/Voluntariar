@@ -42,9 +42,11 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
         //setando os elementos da view com os documentos que pega na classe evento.
         titulotxt.setText(evento.getTitulo());
         //proprietariotxt.setText(evento.getProprietario());
-        servicotxt.setText(evento.getTitulo());
+        servicotxt.setText(evento.getData() + "  -  " + evento.getHora());
 
-        db.collection("users1")
+        proprietariotxt.setText(evento.getEndereco());
+
+        /*db.collection("users1")
                 .whereEqualTo("uuid", evento.getProprietario())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -59,7 +61,7 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
                             Log.d("TAG", "Deu ruim");
                         }
                     }
-                });
+                });*/
 
         return convertView;
 

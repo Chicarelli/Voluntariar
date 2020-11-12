@@ -49,6 +49,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array cities_array
 array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
@@ -1438,6 +1439,7 @@ drawable ic_keyboard_arrow_left_black_24dp
 drawable ic_keyboard_arrow_right_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_location
 drawable ic_logo
 drawable ic_logout
 drawable ic_menu_arrow_down_black_24dp
@@ -1824,6 +1826,8 @@ id snap
 id snapMargins
 id solicitacoes
 id spacer
+id spinnerCities
+id spinnerMain
 id split_action_bar
 id spread
 id spread_inside
@@ -1897,6 +1901,7 @@ id transition_transform
 id txtData
 id txtEmail
 id txtNome
+id txtViewCities
 id txt_message
 id txtview_complemento_participating
 id txtview_descricao_participating
@@ -1910,6 +1915,7 @@ id up
 id uploadFoto
 id useLogo
 id username
+id verProprietario
 id verificarMembro
 id verificarParticipante
 id view_offset_helper
@@ -2087,6 +2093,7 @@ menu excluirmenu
 menu listadeparticipantes
 menu mainmenu
 menu options_on_participantes
+menu participantemenu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description

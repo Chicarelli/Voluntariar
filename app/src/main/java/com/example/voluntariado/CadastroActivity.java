@@ -113,12 +113,11 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     public void salvarfirestore(String email, String nome, String dataNascimento) throws ParseException { //
-        Date dataDeNascimento = mudandoData(dataNascimento);
 
         Map<String, Object>dataToSave = new HashMap<String, Object>();
         dataToSave.put("email", email);
         dataToSave.put("nome", nome);
-        dataToSave.put("DataNasc", dataDeNascimento);
+        dataToSave.put("dataNasc", dataNascimento);
         dataToSave.put("sexo", "M");
         dataToSave.put("uuid", mAuth.getUid());
         dataToSave.put("image", "");
@@ -166,10 +165,4 @@ public class CadastroActivity extends AppCompatActivity {
         }
     }
 
-    //METODO PARA RETORNAR O STRING DATA EM UM DATE DATA.
-    public Date mudandoData(String dataNasc) throws ParseException {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date dataFormatada = formato.parse(dataNasc);
-        return dataFormatada;
-    }
 }

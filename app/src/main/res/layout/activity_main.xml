@@ -8,17 +8,17 @@
     tools:context=".MainActivity">
 
 
-
-
     <ListView
         android:id="@+id/eventosList"
-        android:layout_width="409dp"
-        android:layout_marginTop="55dp"
-        android:layout_height="729dp"
+        android:layout_width="0dp"
+        android:layout_marginTop="105dp"
+        android:layout_height="0dp"
         android:divider="@null"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,6 +29,27 @@
         <include
             layout="@layout/main_toolbar"
             android:id="@+id/toolbar_main"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="Cidade: "
+                />
+            <Spinner
+                android:id="@+id/spinnerMain"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="0dp" />
+        </LinearLayout>
 
     </LinearLayout>
 

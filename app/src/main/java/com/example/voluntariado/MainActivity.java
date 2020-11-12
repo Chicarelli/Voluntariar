@@ -23,10 +23,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnDismissListener;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,15 +58,32 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
 
     DrawerLayout drawerLayout;
     ImageView optionButton;
+    Spinner spinner;
+    String citySelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        verificar();
+
         drawerLayout = findViewById(R.id.drawer_layout);
         optionButton = findViewById(R.id.more_options_imgv);
         registerForContextMenu(optionButton);
+
+        spinner = findViewById(R.id.spinnerMain);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cities_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
+    private void verificar() {
+        if(mAuth.getCurrentUser() == null){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void moreOptions(View view){
@@ -159,9 +178,11 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     @Override
     protected void onResume() {
         super.onResume();
-
         final ListView mEventosListView = findViewById(R.id.eventosList);
-        db.collection("eventos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("eventos")
+                .orderBy("timestamp")
+                .whereEqualTo("cidade", "Taubaté")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 List<Eventos> mEventosList = new ArrayList<>();
@@ -188,6 +209,18 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
                     Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
                     Log.d("TAG", task.toString());
                 }
+            }
+        });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                citySelected = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }

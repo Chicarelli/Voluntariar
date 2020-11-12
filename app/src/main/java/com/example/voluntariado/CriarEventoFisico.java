@@ -9,11 +9,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -25,6 +29,9 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,9 +49,11 @@ public class CriarEventoFisico extends AppCompatActivity {
     private EditText txtData;
     private EditText txtHora;
     private EditText txtDesc;
+    String citySelected;
     Bitmap bitmap;
     Uri downloadUri;
     private int PICK_IMAGE = 1234;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +68,29 @@ public class CriarEventoFisico extends AppCompatActivity {
         txtDesc = findViewById(R.id.editDesc);
         txtData.addTextChangedListener(MaskEditUtil.mask(txtData, MaskEditUtil.FORMAT_DATE));
         txtHora.addTextChangedListener(MaskEditUtil.mask(txtHora, MaskEditUtil.FORMAT_HOUR));
+
+        spinner = findViewById(R.id.spinnerCities);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cities_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                citySelected = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     protected void onStart() {
@@ -101,7 +133,6 @@ public class CriarEventoFisico extends AppCompatActivity {
     }
 
     public void registrarEvento(String titulo, String endereco, String numero, final String data, String descricao, String complemento, String hora){
-        String imagem = salvarFoto(titulo);
         final Map<String, Object> dataToSave = new HashMap<String, Object>();
         dataToSave.put("titulo", titulo);
         dataToSave.put("endereco", endereco);
@@ -111,16 +142,21 @@ public class CriarEventoFisico extends AppCompatActivity {
         dataToSave.put("descricao", descricao);
         dataToSave.put("hora", hora);
         dataToSave.put("proprietario", mAuth.getUid());
-        if (imagem != null){
-            dataToSave.put("imagem", imagem);
-        }
-
+        dataToSave.put("cidade", citySelected);
+        Timestamp dateInTimestamp = transformingDataInTimestamp(data);
+        dataToSave.put("timestamp", dateInTimestamp);
         firestoreEvento.collection("eventos")
                 .add(dataToSave)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         dataToSave.put("id", documentReference.getId());
+                        if(bitmap != null) {
+                            dataToSave.put("imagem", documentReference.getId());
+                            salvarFoto(documentReference.getId());
+                        } else {
+                            dataToSave.put("imagem", "teste.jpeg");
+                        }
                         firestoreEvento.collection("eventos").document(documentReference.getId()).set(dataToSave)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -143,6 +179,18 @@ public class CriarEventoFisico extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    private Timestamp transformingDataInTimestamp(String data) {
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataFormatada = null;
+        try {
+            dataFormatada = formato.parse(data);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Timestamp ts = new Timestamp (dataFormatada);
+    return ts;
     }
 
     public void telaLista(){
@@ -174,17 +222,14 @@ public class CriarEventoFisico extends AppCompatActivity {
         }
     }
 
-    protected String salvarFoto(String titulo){
-
+    protected void salvarFoto(String titulo){
         if(bitmap != null) {
-            CriarEventoFisicoUtil criarEventoFisicoUtil = new CriarEventoFisicoUtil(mAuth.getUid(), titulo);
-            String nameCreated = criarEventoFisicoUtil.getCreatedName();
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] dados = baos.toByteArray();
 
-            final UploadTask uploadTask = imagesRef.child(nameCreated).putBytes(dados);
+            final UploadTask uploadTask = imagesRef.child(titulo).putBytes(dados);
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
@@ -197,11 +242,6 @@ public class CriarEventoFisico extends AppCompatActivity {
                     downloadUri = taskSnapshot.getUploadSessionUri();
                 }
             });
-
-
-            return nameCreated;
-        }else {
-            return "teste.jpeg";
         }
     }
 

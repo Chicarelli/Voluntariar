@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities_array">
+        <item>Taubaté</item>
+        <item>Caçapava</item>
+        <item>Tremembé</item>
+        <item>São José dos Campos</item>
+        <item>Pindamonhangaba</item>
+        <item>Lorena</item>
+    </string-array>
+</resources>
