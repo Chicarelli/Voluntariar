@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +30,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.GroupieViewHolder;
@@ -45,7 +50,7 @@ public class ChatActivity extends AppCompatActivity {
   RecyclerView rv;
   FirebaseFirestore db = FirebaseFirestore.getInstance();
   private User me;
-
+  private ImageView moreOptions;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -69,6 +74,50 @@ public class ChatActivity extends AppCompatActivity {
       }
     });
     definindoUsuario();
+  }
+
+  public void moreOptionsOnUser(View view){
+    //Setar PopUpMenu para MoreOPtions..
+    PopupMenu popup = new PopupMenu(ChatActivity.this, view);
+
+    popup.getMenuInflater().inflate(R.menu.menu_on_chat_activity, popup.getMenu());
+
+    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+      @Override
+      public boolean onMenuItemClick(MenuItem item) {
+        switch(item.getItemId()){
+          case R.id.checkPerfil: checkPerfil();
+          return true;
+
+          case R.id.deleteConversation: deleteConversation();
+          return true;
+
+          case R.id.denunciar: denunciar();
+          return true;
+
+          default: return true;
+        }
+      }
+    });
+    popup.show();
+  }
+
+  private void denunciar() {
+    Toast.makeText(this, "Denunciar clicked", Toast.LENGTH_SHORT).show();
+  }
+
+  private void deleteConversation() {
+    String fromId = me.getUuid();
+    String toId = idMembro;
+
+    //DELETAR CONVERSA AQUI
+    }
+
+  private void checkPerfil() {
+    Intent intent = new Intent(ChatActivity.this, PerfilMembros.class);
+    intent.putExtra("id", idMembro);
+    startActivity(intent);
+    finish();
   }
 
   private void definindoUsuario() {

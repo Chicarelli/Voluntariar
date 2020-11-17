@@ -181,6 +181,7 @@ public class MeusEventos extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        adapter.clear();
         fetchEventos();
     }
 }

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Título"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -78,7 +78,7 @@
         android:id="@+id/spinnerCities"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/caixa_de_texto"
         app:layout_constraintBottom_toBottomOf="@id/editNumero"
         app:layout_constraintLeft_toLeftOf="@id/editEndereco"
@@ -100,15 +100,16 @@
 
     <EditText
         android:id="@+id/editComplemento"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:background="@drawable/caixa_de_texto"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -173,12 +174,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
         android:text="Hora"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/editData"
-        app:layout_constraintTop_toBottomOf="@+id/editNumero" />
+        app:layout_constraintTop_toTopOf="@id/textView11" />
 
     <EditText
         android:id="@+id/editHora"
@@ -208,6 +208,29 @@
         app:layout_constraintTop_toBottomOf="@id/editData"
         app:layout_constraintVertical_bias="0.2" />
 
+    <TextView
+        android:id="@+id/txtViewFotoCarregada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Foto carregada com sucesso"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/uploadFoto"
+        app:layout_constraintLeft_toRightOf="@id/uploadFoto"
+        app:layout_constraintTop_toTopOf="@id/uploadFoto" />
+
+    <ImageView
+        android:id="@+id/imageViewFotoCarregada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/ic_foto_carregada"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/txtViewFotoCarregada"
+        app:layout_constraintLeft_toRightOf="@id/txtViewFotoCarregada"
+        app:layout_constraintTop_toTopOf="@id/txtViewFotoCarregada" />
 
     <TextView
         android:id="@+id/textView13"

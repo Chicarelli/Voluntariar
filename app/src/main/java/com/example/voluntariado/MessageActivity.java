@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -88,7 +90,16 @@ public class MessageActivity extends AppCompatActivity {
       final TextView txtuser = viewHolder.itemView.findViewById(R.id.username);
       TextView lastMessage = viewHolder.itemView.findViewById(R.id.last_message);
 
-      txtuser.setText(contact.getNome());
+      FirebaseFirestore.getInstance().collection("users1")
+              .document(contact.getUuid())
+              .get()
+              .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                  txtuser.setText(documentSnapshot.get("nome").toString());
+                }
+              });
+
       lastMessage.setText(contact.getLastMessage());
       final String username = contact.getUuid();
 
@@ -104,11 +115,13 @@ public class MessageActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public int getLayout() {
       return R.layout.item_contacts_messages;
     }
   }
+
 
   @Override
   protected void onResume() {

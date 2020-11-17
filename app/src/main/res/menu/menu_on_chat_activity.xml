@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/checkPerfil"
+            android:title="Ver Perfil"/>
+
+    <item android:id="@+id/deleteConversation"
+        android:title="Apagar Conversa"/>
+
+    <item android:id="@+id/denunciar"
+        android:title="Denunciar Membro"/>
+
+</menu>

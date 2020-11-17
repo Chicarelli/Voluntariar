@@ -1433,6 +1433,7 @@ drawable ic_clear_black_24dp
 drawable ic_dashboard
 drawable ic_data_evento
 drawable ic_edit_black_24dp
+drawable ic_foto_carregada
 drawable ic_home
 drawable ic_info
 drawable ic_keyboard_arrow_left_black_24dp
@@ -1585,6 +1586,7 @@ id center_vertical
 id chains
 id chatActivity_main
 id chat_username_title
+id checkPerfil
 id checkbox
 id checked
 id chip
@@ -1610,6 +1612,8 @@ id data
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
+id deleteConversation
+id denunciar
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1654,7 +1658,6 @@ id endereco
 id enterAlways
 id enterAlwaysCollapsed
 id evento_titulo
-id eventosList
 id excluirEvento
 id excluirMembro
 id excluirParticipante
@@ -1687,6 +1690,7 @@ id idade_perfil_membros
 id ifRoom
 id image
 id imageView3
+id imageViewFotoCarregada
 id imagemEvento
 id imagemProprietario
 id imagemServico
@@ -1790,6 +1794,7 @@ id right_icon
 id right_side
 id rounded
 id rv_contacts
+id rv_mainList
 id rv_meus_eventos_lista
 id rv_myProfile
 id save_non_transition_alpha
@@ -1902,6 +1907,7 @@ id txtData
 id txtEmail
 id txtNome
 id txtViewCities
+id txtViewFotoCarregada
 id txt_message
 id txtview_complemento_participating
 id txtview_descricao_participating
@@ -2092,6 +2098,7 @@ layout text_view_without_line_height
 menu excluirmenu
 menu listadeparticipantes
 menu mainmenu
+menu menu_on_chat_activity
 menu options_on_participantes
 menu participantemenu
 mipmap ic_launcher

@@ -1,6 +1,7 @@
 package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -10,10 +11,13 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaDrm;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -38,12 +42,20 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.internal.$Gson$Types;
+import com.xwray.groupie.GroupAdapter;
+import com.xwray.groupie.GroupieViewHolder;
+import com.xwray.groupie.Item;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -61,6 +73,8 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     Spinner spinner;
     String citySelected;
 
+    private GroupAdapter adapterRv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +90,12 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cities_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        RecyclerView rv = findViewById(R.id.rv_mainList);
+        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this ));
+
+        adapterRv = new GroupAdapter();
+        rv.setAdapter(adapterRv);
     }
 
     private void verificar() {
@@ -178,44 +198,12 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     @Override
     protected void onResume() {
         super.onResume();
-        final ListView mEventosListView = findViewById(R.id.eventosList);
-        db.collection("eventos")
-                .orderBy("timestamp")
-                .whereEqualTo("cidade", "Taubaté")
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                List<Eventos> mEventosList = new ArrayList<>();
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Eventos evento = document.toObject(Eventos.class);
-                        mEventosList.add(evento);
-                    }
-
-                    //instanciando o Adapter
-                    final EventoAdapter mEventoAdapter = new EventoAdapter(MainActivity.this, mEventosList);
-                    mEventosListView.setAdapter(mEventoAdapter);
-
-                    mEventosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
-                            intent.putExtra("id", mEventoAdapter.getItem(position).getId());
-                            startActivity(intent);
-
-                        }
-                    });
-                } else {
-                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
-                    Log.d("TAG", task.toString());
-                }
-            }
-        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 citySelected = parent.getItemAtPosition(position).toString();
+                fetchList(citySelected);
             }
 
             @Override
@@ -223,6 +211,59 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
 
             }
         });
+    }
+
+    private void fetchList(String citySelected) {
+        adapterRv.clear();
+        db.collection("eventos")
+                .whereEqualTo("cidade", citySelected)
+                .orderBy("timestamp")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                        List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
+                        if(documentChanges != null){
+                            for (DocumentChange doc: documentChanges) {
+                                Eventos evento = doc.getDocument().toObject(Eventos.class);
+                                adapterRv.add(new EventoItem(evento));
+                            }
+                        }
+                    }
+                });
+    }
+
+    private class EventoItem extends Item<GroupieViewHolder> {
+
+        private final Eventos eventos;
+
+        private EventoItem (Eventos eventos) {
+            this.eventos = eventos;
+        }
+
+        @Override
+        public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
+            TextView titulo = viewHolder.itemView.findViewById(R.id.evento_titulo);
+            TextView rua = viewHolder.itemView.findViewById(R.id.item_nome_proprietario);
+            TextView data = viewHolder.itemView.findViewById(R.id.item_tipo_servico);
+
+            titulo.setText(eventos.getTitulo());
+            data.setText(eventos.getData());
+            rua.setText(eventos.getEndereco());
+
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
+                    intent.putExtra("id", eventos.getId());
+                    startActivity(intent);
+                }
+            });
+        }
+
+        @Override
+        public int getLayout() {
+            return R.layout.item_eventos;
+        }
     }
 
     @Override

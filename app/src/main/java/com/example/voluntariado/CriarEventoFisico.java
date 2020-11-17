@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -49,6 +51,8 @@ public class CriarEventoFisico extends AppCompatActivity {
     private EditText txtData;
     private EditText txtHora;
     private EditText txtDesc;
+    private TextView fotoCarregadaTexto;
+    private ImageView fotoCarregadaImage;
     String citySelected;
     Bitmap bitmap;
     Uri downloadUri;
@@ -66,6 +70,8 @@ public class CriarEventoFisico extends AppCompatActivity {
         txtData = findViewById(R.id.editData);
         txtHora = findViewById(R.id.editHora);
         txtDesc = findViewById(R.id.editDesc);
+        fotoCarregadaImage = findViewById(R.id.imageViewFotoCarregada);
+        fotoCarregadaTexto = findViewById(R.id.txtViewFotoCarregada);
         txtData.addTextChangedListener(MaskEditUtil.mask(txtData, MaskEditUtil.FORMAT_DATE));
         txtHora.addTextChangedListener(MaskEditUtil.mask(txtHora, MaskEditUtil.FORMAT_HOUR));
 
@@ -203,7 +209,6 @@ public class CriarEventoFisico extends AppCompatActivity {
         Intent gallery = new Intent();
         gallery.setType("image/*");
         gallery.setAction(Intent.ACTION_GET_CONTENT);
-
         startActivityForResult(Intent.createChooser(gallery, "Selecione"), PICK_IMAGE );
     }
 
@@ -213,12 +218,19 @@ public class CriarEventoFisico extends AppCompatActivity {
             Uri imageUri = data.getData();
             try{
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                Toast.makeText(CriarEventoFisico.this, imageUri.toString(), Toast.LENGTH_SHORT).show();
+                settingElementesVisible(bitmap);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+        }
+    }
+
+    private void settingElementesVisible(Bitmap bitmap) {
+        if(bitmap != null){
+            fotoCarregadaTexto.setVisibility(1);
+            fotoCarregadaImage.setVisibility(1);
         }
     }
 
