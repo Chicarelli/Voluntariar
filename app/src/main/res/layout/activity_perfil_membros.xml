@@ -6,103 +6,107 @@
     android:layout_height="match_parent"
     tools:context=".PerfilMembros">
 
-    <TextView
-        android:id="@+id/nome_perfil_membros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imagePerfil"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
         android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_meu_perfil"
         android:layout_marginTop="10dp"
-        android:padding="2dp"
-        android:text="Nome: "
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/edtNome_perfil_membros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Nome Completo da Pessoa Aqui"
-        android:padding="2dp"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@id/nome_perfil_membros"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintLeft_toRightOf="@id/nome_perfil_membros"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/nome_perfil_membros" />
-
-    <TextView
-        android:id="@+id/idade_perfil_membros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="Idade: "
-        android:textSize="17sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:hint="Nome do usuário"
+        android:maxLines="1"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintLeft_toLeftOf="@id/nome_perfil_membros"
-        app:layout_constraintRight_toRightOf="@id/nome_perfil_membros"
-        app:layout_constraintTop_toBottomOf="@id/nome_perfil_membros"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toRightOf="@id/imagePerfil"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imagePerfil" />
 
     <TextView
         android:id="@+id/edtIdade_perfil_membros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Idade"
-        android:padding="2dp"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@id/idade_perfil_membros"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintLeft_toLeftOf="@id/edtNome_perfil_membros"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/idade_perfil_membros" />
-
-    <TextView
-        android:id="@+id/email_perfil_membros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="E-mail: "
-        android:textSize="17sp"
+        android:layout_marginTop="20dp"
+        android:hint="Data de nascimento"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintLeft_toLeftOf="@id/idade_perfil_membros"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idade_perfil_membros"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintLeft_toLeftOf="@id/edtNome_perfil_membros"
+        app:layout_constraintTop_toBottomOf="@id/edtNome_perfil_membros" />
 
     <TextView
         android:id="@+id/edtEmail_perfil_membros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Email da Pessoa aqui"
-        android:padding="2dp"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@id/email_perfil_membros"
-        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="1"
+        android:text="Email do usuário"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="@id/edtIdade_perfil_membros"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/email_perfil_membros" />
+        app:layout_constraintTop_toBottomOf="@id/edtIdade_perfil_membros" />
 
     <Button
         android:id="@+id/botaoConversar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Conversar"
-        android:textSize="12sp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="3dp"
+        android:backgroundTint="#5197D5"
         android:onClick="sendMessage"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintLeft_toLeftOf="@id/email_perfil_membros"
-        app:layout_constraintTop_toBottomOf="@id/email_perfil_membros"
-        app:layout_constraintVertical_bias="0" />
+        android:paddingLeft="10dp"
+        android:paddingTop="0dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="0dp"
+        android:text="Enviar Mensagem"
+        android:textAllCaps="false"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/denunciarParticipante"
+        app:layout_constraintTop_toBottomOf="@id/imagePerfil" />
+
+    <Button
+        android:id="@+id/denunciarParticipante"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#CD4646"
+        android:paddingLeft="10dp"
+        android:paddingTop="0dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="0dp"
+        android:text="Denunciar"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        app:layout_constraintLeft_toRightOf="@id/botaoConversar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/botaoConversar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_perfilMembros"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/botaoConversar"
+        app:layout_constraintVertical_bias="0"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

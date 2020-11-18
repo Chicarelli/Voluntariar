@@ -1614,6 +1614,7 @@ id decor_content_parent
 id default_activity_button
 id deleteConversation
 id denunciar
+id denunciarParticipante
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1651,7 +1652,6 @@ id edt_chat_Conversa
 id edt_profile_data
 id edt_profile_email
 id edt_profile_nome
-id email_perfil_membros
 id end
 id end_padder
 id endereco
@@ -1686,9 +1686,9 @@ id homeAsUp
 id icon
 id icon_group
 id icon_only
-id idade_perfil_membros
 id ifRoom
 id image
+id imagePerfil
 id imageView3
 id imageViewFotoCarregada
 id imagemEvento
@@ -1763,7 +1763,6 @@ id nav_controller_view_tag
 id navigation_header_container
 id never
 id noScroll
-id nome_perfil_membros
 id none
 id normal
 id notification_background
@@ -1797,6 +1796,7 @@ id rv_contacts
 id rv_mainList
 id rv_meus_eventos_lista
 id rv_myProfile
+id rv_perfilMembros
 id save_non_transition_alpha
 id save_overlay_view
 id scale
