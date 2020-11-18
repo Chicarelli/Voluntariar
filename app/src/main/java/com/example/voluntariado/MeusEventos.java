@@ -60,21 +60,40 @@ public class MeusEventos extends AppCompatActivity {
 
     private void fetchEventos() {
         adapter.clear();
-        db.collection("eventos")
-                .whereEqualTo("proprietario", this.id)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
-                //Toast.makeText(MeusEventos.this, documentChanges.toString(), Toast.LENGTH_SHORT).show();
-                if (documentChanges != null) {
-                    for (DocumentChange doc : documentChanges) {
-                           Eventos evento = doc.getDocument().toObject(Eventos.class);
-                            adapter.add(new EventoItem(evento));
+
+        db.collection("participating")
+                .whereEqualTo("idParticipatingMember", FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
+                        if(documentChanges != null){
+                            for (DocumentChange doc: documentChanges) {
+                                fetchRealEvento(doc.getDocument().get("eventoID"));
+                            }
+                        }
                     }
-                }
-            }
-        });
+
+                    private void fetchRealEvento(Object eventoID) {
+                        db.collection("eventos")
+                                .whereEqualTo("id", eventoID)
+                                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                                        List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
+                                        //Toast.makeText(MeusEventos.this, documentChanges.toString(), Toast.LENGTH_SHORT).show();
+                                        if (documentChanges != null) {
+                                            for (DocumentChange doc : documentChanges) {
+                                                Eventos evento = doc.getDocument().toObject(Eventos.class);
+                                                adapter.add(new EventoItem(evento));
+                                            }
+                                        }
+                                    }
+                                });
+                    }
+                });
+
     }
 
 
