@@ -123,9 +123,8 @@
         android:text="Número"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/editNumero"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editComplemento"
         app:layout_constraintTop_toBottomOf="@+id/editEndereco" />
 
     <EditText
@@ -140,7 +139,6 @@
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editComplemento"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
