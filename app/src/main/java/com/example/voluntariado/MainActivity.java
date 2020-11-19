@@ -40,6 +40,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
@@ -58,7 +59,10 @@ import com.xwray.groupie.Item;
 import org.w3c.dom.Text;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -207,6 +211,7 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 citySelected = parent.getItemAtPosition(position).toString();
+                adapterRv.clear();
                 fetchList(citySelected);
             }
 
@@ -218,7 +223,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     }
 
     private void fetchList(String citySelected) {
-        adapterRv.clear();
         db.collection("eventos")
                 .whereEqualTo("cidade", citySelected)
                 .orderBy("timestamp")
@@ -228,16 +232,34 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
                         List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
                         if(documentChanges != null){
                             for (DocumentChange doc: documentChanges) {
-                                Eventos evento = doc.getDocument().toObject(Eventos.class);
-                                adapterRv.add(new EventoItem(evento));
+
+                                //Fazendo comparação da hora para listar apenas eventos que ainda irão acontecer:
+                                Date date = new Date(System.currentTimeMillis());
+                                Date dataFormatada = dateFormatting(doc.getDocument().get("data").toString());
+
+                                if(date.before(dataFormatada) || date.getDate()==dataFormatada.getDate()) {
+                                    Eventos evento = doc.getDocument().toObject(Eventos.class);
+                                    adapterRv.add(new EventoItem(evento));
+                                    noEvento.setVisibility(View.INVISIBLE);
+                                }
                             }
                         }
                         if(queryDocumentSnapshots.getDocumentChanges().isEmpty()){
                             noEvento.setVisibility(View.VISIBLE);
-                            rv.setVisibility(View.INVISIBLE);
                         }
                     }
                 });
+    }
+
+    private Date dateFormatting(String data) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataFormatada = null;
+        try{
+            dataFormatada = formato.parse(data);
+        } catch(ParseException err){
+            err.printStackTrace();;
+        }
+        return dataFormatada;
     }
 
     private class EventoItem extends Item<GroupieViewHolder> {

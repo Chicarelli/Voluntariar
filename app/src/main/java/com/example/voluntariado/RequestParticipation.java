@@ -51,6 +51,8 @@ public class RequestParticipation extends AppCompatActivity {
     mParticipacaoListView = findViewById(R.id.participantesListView);
 
     db.collection("participating")
+            .document(id)
+            .collection("solicitacoes")
             .whereEqualTo("eventoID", id)
             .get()
             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -135,7 +137,10 @@ public class RequestParticipation extends AppCompatActivity {
   }
 
   private void excluirParticipante(String uidMember, final ParticipantesAdapter mParticipacaoAdapter, final int position) {
-    db.collection("participating").document(uidMember+id)
+    db.collection("participating")
+            .document(id)
+            .collection("solicitacoes")
+            .document(uidMember+id)
             .delete()
             .addOnSuccessListener(new OnSuccessListener<Void>() {
               @Override

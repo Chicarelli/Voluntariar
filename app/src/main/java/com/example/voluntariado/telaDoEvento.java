@@ -1,7 +1,6 @@
 package com.example.voluntariado;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -32,9 +31,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -284,7 +281,7 @@ public class telaDoEvento extends AppCompatActivity {
                                    botaoPouE.setText("Editar");
                                    userIsParticipante = false;
                                } else {
-                                   testUserParticipation();
+                                   testUserSolicitation();
                                    userIsParticipante = true;
                                }
                            }
@@ -295,11 +292,38 @@ public class telaDoEvento extends AppCompatActivity {
                 });
     }
 
-    private void testUserParticipation() {
+    private void testUserSolicitation() {
         String currentUser = mAuth.getUid();
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
 
         db.collection("participating").document(currentUser+id)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                        if (documentSnapshot.exists()) {
+                            botaoPouE.setText("Cancelar Solicitação");
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //botaoPouE.setText("Solicitar Participação");
+                    }
+                });
+        testUserParticipation();
+   }
+
+    private void testUserParticipation() {
+        String currentUser = mAuth.getUid();
+        botaoPouE = findViewById(R.id.botaoParticiparEditar);
+
+        db.collection("aprovedMembers")
+                .document(id)
+                .collection("participantes")
+                .document(currentUser)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -318,7 +342,7 @@ public class telaDoEvento extends AppCompatActivity {
                         botaoPouE.setText("Solicitar Participação");
                     }
                 });
-   }
+    }
 
     public void botaoTelaEvento(View view){
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
@@ -333,6 +357,27 @@ public class telaDoEvento extends AppCompatActivity {
         else if (botaoPouE.getText().equals("Deixar de Participar")) {
             deletingParticipation();
         }
+        else if(botaoPouE.getText().equals("Cancelar Solicitação")){
+            deletingSolicitation();
+        }
+    }
+
+    private void deletingSolicitation() {
+        String currentUser = mAuth.getUid();
+        botaoPouE = findViewById(R.id.botaoParticiparEditar);
+
+        db.collection("participating")
+                .document(id)
+                .collection("solicitacoes")
+                .document(currentUser+id)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Toast.makeText(telaDoEvento.this, "Deixou de participar", LENGTH_SHORT).show();
+                        botaoPouE.setText("Solicitar Participação");
+                    }
+                });
     }
 
     public boolean onPrepareOptionsMenu(Menu menu){
@@ -372,7 +417,10 @@ public class telaDoEvento extends AppCompatActivity {
         String currentUser = mAuth.getUid();
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
 
-        db.collection("participating").document(currentUser+id)
+        db.collection("aprovedMembers")
+                .document(id)
+                .collection("participantes")
+                .document(currentUser)
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -391,10 +439,7 @@ public class telaDoEvento extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(telaDoEvento.this, "Evento Deletado", LENGTH_SHORT).show();
-                            Intent intent = new Intent(telaDoEvento.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -404,6 +449,29 @@ public class telaDoEvento extends AppCompatActivity {
                         }
                     });
         }
+
+        db.collection("aprovedMembers")
+                .document(id)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //sucesso
+                    }
+                });
+
+        db.collection("participating")
+                .document(id)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(telaDoEvento.this, "Evento Deletado", LENGTH_SHORT).show();
+                        Intent intent = new Intent(telaDoEvento.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
     }
 
     private void participatingMembers() {
@@ -413,13 +481,16 @@ public class telaDoEvento extends AppCompatActivity {
         Map<String, Object> participate = new HashMap<>();
         participate.put("eventoID", id);
         participate.put("idParticipatingMember", currentUser);
-        db.collection("participating").document(currentUser + id)
+        db.collection("participating")
+                .document(id)
+                .collection("solicitacoes")
+                .document(currentUser+id)
                 .set(participate)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast.makeText(telaDoEvento.this, "Participando", LENGTH_SHORT).show();
-                        botaoPouE.setText("Deixar de Participar");
+                        botaoPouE.setText("Cancelar Solicitação");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
