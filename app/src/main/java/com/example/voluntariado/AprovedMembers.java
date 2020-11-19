@@ -36,13 +36,17 @@ public class AprovedMembers extends AppCompatActivity {
 
     String idEvento;
     private GroupAdapter adapter;
+    TextView noSolicitation;
+    RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicitacoes_de_participantes);
 
-        RecyclerView rv = findViewById(R.id.recyclerView_SolicitacoesDeParticipantes);
+        rv = findViewById(R.id.recyclerView_SolicitacoesDeParticipantes);
+        noSolicitation = findViewById(R.id.noSolicitation);
+
         adapter = new GroupAdapter();
         rv.setLayoutManager(new LinearLayoutManager(AprovedMembers.this));
         rv.setAdapter(adapter);
@@ -71,6 +75,10 @@ public class AprovedMembers extends AppCompatActivity {
                                 User user = doc.toObject(User.class);
                                 searchingUserWithUuid(user.getUuid());
                             }
+                        }
+                        if(queryDocumentSnapshots.isEmpty()){
+                            rv.setVisibility(View.INVISIBLE);
+                            noSolicitation.setVisibility(View.VISIBLE);
                         }
                     }
                 });
@@ -161,4 +169,8 @@ public class AprovedMembers extends AppCompatActivity {
       intent.putExtra("id", uuid);
       startActivity(intent);
   }
+
+    public void backToMain(View view){
+        finish();
+    }
 }

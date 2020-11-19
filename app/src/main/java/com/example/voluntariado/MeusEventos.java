@@ -42,6 +42,8 @@ public class MeusEventos extends AppCompatActivity {
     //private Eventos mi;
 
     DrawerLayout dl;
+    RecyclerView rv;
+    TextView noEvent;
 
     private GroupAdapter adapter;
 
@@ -51,7 +53,8 @@ public class MeusEventos extends AppCompatActivity {
         setContentView(R.layout.activity_meus_eventos);
 
         this.dl = findViewById(R.id.drawer_layout);
-        RecyclerView rv = findViewById(R.id.rv_meus_eventos_lista);
+         rv = findViewById(R.id.rv_meus_eventos_lista);
+         noEvent = findViewById(R.id.noEvent);
 
         adapter = new GroupAdapter();
         rv.setLayoutManager(new LinearLayoutManager(MeusEventos.this));
@@ -72,6 +75,10 @@ public class MeusEventos extends AppCompatActivity {
                             for (DocumentChange doc: documentChanges) {
                                 fetchRealEvento(doc.getDocument().get("eventoID"));
                             }
+                        }
+                        if(documentChanges.isEmpty()){
+                            rv.setVisibility(View.INVISIBLE);
+                            noEvent.setVisibility(View.VISIBLE);
                         }
                     }
 

@@ -392,6 +392,8 @@ public class telaDoEvento extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(telaDoEvento.this, "Evento Deletado", LENGTH_SHORT).show();
+                            Intent intent = new Intent(telaDoEvento.this, MainActivity.class);
+                            startActivity(intent);
                             finish();
                         }
                     })
@@ -434,6 +436,13 @@ public class telaDoEvento extends AppCompatActivity {
     settingElementsOnScreen(id);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(telaDoEvento.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
 
 

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,11 +31,15 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class RequestParticipation extends AppCompatActivity {
   FirebaseFirestore db = FirebaseFirestore.getInstance();
   String id;
+  private ListView mParticipacaoListView;
+  TextView noSolicitation;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_lista_de_participantes);
+
+    noSolicitation = findViewById(R.id.noSolicitation);
 
     if (getIntent().hasExtra("id")) {
       id = getIntent().getStringExtra("id");
@@ -43,7 +48,7 @@ public class RequestParticipation extends AppCompatActivity {
   }
 
   public void fetchList(){
-    final ListView mParticipacaoListView = findViewById(R.id.participantesListView);
+    mParticipacaoListView = findViewById(R.id.participantesListView);
 
     db.collection("participating")
             .whereEqualTo("eventoID", id)
@@ -60,6 +65,9 @@ public class RequestParticipation extends AppCompatActivity {
 
                     Toast.makeText(RequestParticipation.this, participacaoEvento.getIdParticipatingMember(), LENGTH_SHORT).show();
                   }
+                }
+                if(task.getResult().isEmpty()){
+                  noSolicitation.setVisibility(View.VISIBLE);
                 }
                 final ParticipantesAdapter mParticipacaoAdapter = new ParticipantesAdapter(RequestParticipation.this, mParticipantesList);
                 mParticipacaoListView.setAdapter(mParticipacaoAdapter);
@@ -142,6 +150,10 @@ public class RequestParticipation extends AppCompatActivity {
         Toast.makeText(RequestParticipation.this, "Falhou!", LENGTH_SHORT).show();
       }
     });
+  }
+
+  public void backToMain(View view){
+    finish();
   }
 }
 

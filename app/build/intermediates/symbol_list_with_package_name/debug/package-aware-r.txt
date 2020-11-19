@@ -1762,7 +1762,9 @@ id my_profile_name
 id nav_controller_view_tag
 id navigation_header_container
 id never
+id noEvent
 id noScroll
+id noSolicitation
 id none
 id normal
 id notification_background
@@ -1887,6 +1889,7 @@ id textinput_error
 id textinput_helper_text
 id texto_antes_criarConta
 id textview_first
+id textview_no_evento
 id textview_second
 id time
 id title
@@ -1914,6 +1917,7 @@ id txtview_descricao_participating
 id txtview_endereco_participating
 id txtview_hora_participating
 id txtview_numero_participating
+id txtview_theres_no_event
 id unchecked
 id uniform
 id unlabeled
@@ -2032,6 +2036,7 @@ layout item_contacts_messages
 layout item_eventos
 layout item_from_message
 layout item_meus_eventos
+layout item_no_event
 layout item_to_message
 layout lista_participantes
 layout main_nav_drawer

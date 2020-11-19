@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     Spinner spinner;
     String citySelected;
 
+    TextView noEvento;
+    RecyclerView rv;
+
     private GroupAdapter adapterRv;
 
     @Override
@@ -91,7 +94,8 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        RecyclerView rv = findViewById(R.id.rv_mainList);
+        noEvento = findViewById(R.id.textview_no_evento);
+        rv = findViewById(R.id.rv_mainList);
         rv.setLayoutManager(new LinearLayoutManager(MainActivity.this ));
 
         adapterRv = new GroupAdapter();
@@ -228,6 +232,10 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
                                 adapterRv.add(new EventoItem(evento));
                             }
                         }
+                        if(queryDocumentSnapshots.getDocumentChanges().isEmpty()){
+                            noEvento.setVisibility(View.VISIBLE);
+                            rv.setVisibility(View.INVISIBLE);
+                        }
                     }
                 });
     }
@@ -236,33 +244,35 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
 
         private final Eventos eventos;
 
+
         private EventoItem (Eventos eventos) {
             this.eventos = eventos;
         }
 
         @Override
         public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
-            TextView titulo = viewHolder.itemView.findViewById(R.id.evento_titulo);
-            TextView rua = viewHolder.itemView.findViewById(R.id.item_nome_proprietario);
-            TextView data = viewHolder.itemView.findViewById(R.id.item_tipo_servico);
+                TextView titulo = viewHolder.itemView.findViewById(R.id.evento_titulo);
+                TextView rua = viewHolder.itemView.findViewById(R.id.item_nome_proprietario);
+                TextView data = viewHolder.itemView.findViewById(R.id.item_tipo_servico);
 
-            titulo.setText(eventos.getTitulo());
-            data.setText(eventos.getData());
-            rua.setText(eventos.getEndereco());
+                titulo.setText(eventos.getTitulo());
+                data.setText(eventos.getData());
+                rua.setText(eventos.getEndereco());
 
-            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
-                    intent.putExtra("id", eventos.getId());
-                    startActivity(intent);
-                }
-            });
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, telaDoEvento.class);
+                        intent.putExtra("id", eventos.getId());
+                        startActivity(intent);
+                        finish();
+                    }
+                });
         }
 
         @Override
         public int getLayout() {
-            return R.layout.item_eventos;
+                return R.layout.item_eventos;
         }
     }
 
@@ -303,4 +313,6 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
         startActivity(intent);
         finishAffinity();
     }
+
+
 }
