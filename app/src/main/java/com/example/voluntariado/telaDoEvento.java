@@ -38,6 +38,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.widget.Toast.LENGTH_SHORT;
@@ -296,24 +297,28 @@ public class telaDoEvento extends AppCompatActivity {
         String currentUser = mAuth.getUid();
         botaoPouE = findViewById(R.id.botaoParticiparEditar);
 
-        db.collection("participating").document(currentUser+id)
+        db.collection("participating")
+                .document(id)
+                .collection("solicitacoes")
+                .document(currentUser+id)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         if (documentSnapshot.exists()) {
                             botaoPouE.setText("Cancelar Solicitação");
-                        }
+                        } else testUserParticipation();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(telaDoEvento.this, e.getMessage(), LENGTH_SHORT).show();
                         //botaoPouE.setText("Solicitar Participação");
+                        testUserParticipation();
                     }
                 });
-        testUserParticipation();
+
    }
 
     private void testUserParticipation() {
@@ -375,9 +380,30 @@ public class telaDoEvento extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast.makeText(telaDoEvento.this, "Deixou de participar", LENGTH_SHORT).show();
-                        botaoPouE.setText("Solicitar Participação");
+                       botaoPouE.setText("Solicitar Participação");
                     }
                 });
+
+        db.collection("memberSolicitations")
+                .document(mAuth.getCurrentUser().getUid())
+                .collection("eventosSolicitantes")
+                .whereEqualTo("eventoID", id)
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                List<DocumentSnapshot> documents = task.getResult().getDocuments();
+                if (!documents.isEmpty()){
+                    String uidEvento = documents.get(0).getId();
+                    Toast.makeText(telaDoEvento.this, uidEvento, LENGTH_SHORT).show();
+                    db.collection("memberSolicitations")
+                            .document(mAuth.getCurrentUser().getUid())
+                            .collection("eventosSolicitantes")
+                            .document(uidEvento)
+                            .delete();
+                }
+            }
+        });
+
     }
 
     public boolean onPrepareOptionsMenu(Menu menu){
@@ -429,6 +455,28 @@ public class telaDoEvento extends AppCompatActivity {
                         botaoPouE.setText("Solicitar Participação");
                     }
                 });
+
+        db.collection("memberAprovados")
+                    .document(mAuth.getCurrentUser().getUid())
+                    .collection("eventosAprovados")
+                .whereEqualTo("eventoID", id)
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    List<DocumentSnapshot> documents = task.getResult().getDocuments();
+                    if (!documents.isEmpty()){
+                        String uidEvento = documents.get(0).getId();
+                        Toast.makeText(telaDoEvento.this, uidEvento, LENGTH_SHORT).show();
+                        db.collection("memberAprovados")
+                                .document(mAuth.getCurrentUser().getUid())
+                                .collection("eventosAprovados")
+                                .document(uidEvento)
+                                .delete();
+                    }
+                }
+        });
+
+
     }
 
     private void excluirEvento() {
@@ -499,9 +547,31 @@ public class telaDoEvento extends AppCompatActivity {
                         Toast.makeText(telaDoEvento.this, "Erro: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
+
+        //Adicionar nno banco de dados a solicitação.
+        addOnCollectionPending();
+
     }
 
-   @Override
+    private void addOnCollectionPending() {
+        Map<String, Object> pendings = new HashMap<>();
+        pendings.put("eventoID", id);
+        pendings.put("uidMember", mAuth.getCurrentUser().getUid());
+
+        db.collection("memberSolicitations")
+                .document(mAuth.getCurrentUser().getUid())
+                .collection("eventosSolicitantes")
+                .document()
+                .set(pendings)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //
+                    }
+                });
+    }
+
+    @Override
     protected void onResume() {
     super.onResume();
     settingElementsOnScreen(id);

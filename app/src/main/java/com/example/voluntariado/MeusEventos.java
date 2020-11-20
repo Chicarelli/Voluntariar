@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.GroupieViewHolder;
 import com.xwray.groupie.Item;
+
+import org.w3c.dom.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,46 +65,73 @@ public class MeusEventos extends AppCompatActivity {
         rv.setAdapter(adapter);
     }
 
+    public void moreOptions(View view){
+        PopupMenu popupMenu = new PopupMenu(MeusEventos.this, view);
+
+        popupMenu.getMenuInflater().inflate(R.menu.menu_on_meus_eventos, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.pendingSolicitations: pendingSolicitations();
+                    return true;
+
+                    default: return true;
+                }
+            }
+        });
+
+        popupMenu.show();
+    }
+
+    private void pendingSolicitations() {
+        //PEGAR OS EVENTOS QUE ESTÁ COMO SOLICITAÇÃO PENNDENTE
+       /* adapter.clear();
+
+        db.collection("aprovedMembers")
+                .whereEqualTo("")*/
+    }
+
     private void fetchEventos() {
         adapter.clear();
-
-        db.collection("participating")
-                .whereEqualTo("idParticipatingMember", FirebaseAuth.getInstance().getCurrentUser().getUid())
+        db.collection("memberAprovados")
+                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .collection("eventosAprovados")
+                .whereEqualTo("uidMember", FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
-                        if(documentChanges != null){
-                            for (DocumentChange doc: documentChanges) {
-                                fetchRealEvento(doc.getDocument().get("eventoID"));
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        List<DocumentSnapshot> documentSnapshots = task.getResult().getDocuments();
+                        if(!documentSnapshots.isEmpty()){
+                            for (DocumentSnapshot doc: documentSnapshots) {
+                                fetchEventos(doc.get("eventoID").toString());
                             }
                         }
-                        if(documentChanges.isEmpty()){
-                            rv.setVisibility(View.INVISIBLE);
-                            noEvent.setVisibility(View.VISIBLE);
-                        }
-                    }
-
-                    private void fetchRealEvento(Object eventoID) {
-                        db.collection("eventos")
-                                .whereEqualTo("id", eventoID)
-                                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                                    @Override
-                                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                                        List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
-                                        //Toast.makeText(MeusEventos.this, documentChanges.toString(), Toast.LENGTH_SHORT).show();
-                                        if (documentChanges != null) {
-                                            for (DocumentChange doc : documentChanges) {
-                                                Eventos evento = doc.getDocument().toObject(Eventos.class);
-                                                adapter.add(new EventoItem(evento));
-                                            }
-                                        }
-                                    }
-                                });
                     }
                 });
 
+    }
+
+    private void fetchEventos(String eventoID) {
+        //Toast.makeText(this, eventoID, Toast.LENGTH_SHORT).show();
+        db.collection("eventos")
+                .whereEqualTo("id", eventoID)
+                .orderBy("timestamp")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        List<DocumentSnapshot> documentSnapshots = task.getResult().getDocuments();
+                        if(!documentSnapshots.isEmpty()){
+                            for (DocumentSnapshot doc: documentSnapshots) {
+                                Eventos evento = doc.toObject(Eventos.class);
+                                adapter.add(new EventoItem(evento));
+                            }
+                        }
+                    }
+                });
     }
 
 

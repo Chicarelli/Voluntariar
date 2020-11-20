@@ -16,12 +16,12 @@
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_more.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable_voluntariar_de_vez.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\drawable\\voluntariar_de_vez.png"
-    },
-    {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable_voluntariar_de_vez.png.flat",
+        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\drawable\\voluntariar_de_vez.png"
     },
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_save_black.xml.flat",
@@ -48,28 +48,28 @@
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\drawable\\background_contacts_list.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_criar_evento_fisico.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\layout\\activity_criar_evento_fisico.xml"
-    },
-    {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_tc_menu.png.flat",
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\tc_menu.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_data_evento.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_data_evento.png"
+        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_criar_evento_fisico.xml.flat",
+        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\layout\\activity_criar_evento_fisico.xml"
     },
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable_botaoselecionado.xml.flat",
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\drawable\\botaoselecionado.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_info.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_info.png"
+        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_data_evento.png.flat",
+        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_data_evento.png"
     },
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_info.png.flat",
+        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_info.png"
     },
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_voltar.xml.flat",
@@ -132,12 +132,12 @@
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_messages.png"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_logout.png.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_logout.png"
-    },
-    {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_logout.png.flat",
+        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_logout.png"
     },
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_dashboard.png.flat",
@@ -200,12 +200,12 @@
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\drawable\\botao_login_selecionado.xml"
     },
     {
-        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable_caixa_de_texto.xml.flat",
-        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\drawable\\caixa_de_texto.xml"
-    },
-    {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_save_black.png.flat",
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_save_black.png"
+    },
+    {
+        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable_caixa_de_texto.xml.flat",
+        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\drawable\\caixa_de_texto.xml"
     },
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_data_evento.png.flat",
@@ -526,6 +526,10 @@
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_lista_de_participantes.xml.flat",
         "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\layout\\activity_lista_de_participantes.xml"
+    },
+    {
+        "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_on_meus_eventos.xml.flat",
+        "source": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\src\\main\\res\\menu\\menu_on_meus_eventos.xml"
     },
     {
         "merged": "C:\\Users\\rafae\\AndroidStudioProjects\\Voluntariado\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_messages.png.flat",

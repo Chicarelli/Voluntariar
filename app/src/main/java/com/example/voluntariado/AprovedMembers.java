@@ -30,6 +30,8 @@ import com.xwray.groupie.Item;
 
 import java.util.List;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 public class AprovedMembers extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -148,7 +150,7 @@ public class AprovedMembers extends AppCompatActivity {
     }
 }
 
-  private void removeMember(String uuid, String idEvento, final GroupAdapter adapter, final Item position) {
+  private void removeMember(final String uuid, String idEvento, final GroupAdapter adapter, final Item position) {
       db.collection("aprovedMembers")
               .document(idEvento)
               .collection("participantes")
@@ -162,6 +164,25 @@ public class AprovedMembers extends AppCompatActivity {
                   adapter.notifyDataSetChanged();
                 }
               });
+
+      db.collection("memberAprovados")
+              .document(uuid)
+              .collection("eventosAprovados")
+              .whereEqualTo("eventoID", idEvento)
+              .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+          @Override
+          public void onComplete(@NonNull Task<QuerySnapshot> task) {
+              List<DocumentSnapshot> documents = task.getResult().getDocuments();
+              if (!documents.isEmpty()){
+                  String uidEvento = documents.get(0).getId();;
+                  db.collection("memberAprovados")
+                          .document(uuid)
+                          .collection("eventosAprovados")
+                          .document(uidEvento)
+                          .delete();
+              }
+          }
+      });
   }
 
   private void verifyMember(String uuid) {

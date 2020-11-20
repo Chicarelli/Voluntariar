@@ -1783,6 +1783,7 @@ id participantesList
 id participantesListView
 id password_toggle
 id peekHeight
+id pendingSolicitations
 id percent
 id pin
 id progress_circular
@@ -2104,6 +2105,7 @@ menu excluirmenu
 menu listadeparticipantes
 menu mainmenu
 menu menu_on_chat_activity
+menu menu_on_meus_eventos
 menu options_on_participantes
 menu participantemenu
 mipmap ic_launcher

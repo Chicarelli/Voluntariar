@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -128,6 +129,49 @@ public class RequestParticipation extends AppCompatActivity {
                 excluirParticipante(uidMembro, mParticipacaoAdapter, position);
               }
             });
+
+    Map<String, Object> pendings = new HashMap<>();
+    pendings.put("eventoID", id);
+    pendings.put("uidMember", uidMembro);
+
+    db.collection("memberAprovados")
+            .document(uidMembro)
+            .collection("eventosAprovados")
+            .document()
+            .set(pendings)
+            .addOnSuccessListener(new OnSuccessListener<Void>() {
+              @Override
+              public void onSuccess(Void aVoid) {
+                //
+              }
+            });
+
+    db.collection("participating")
+            .document(id)
+            .collection("solicitacoes")
+            .document(uidMembro+id)
+            .delete();
+
+    db.collection("memberSolicitations")
+            .document(uidMembro)
+            .collection("eventosSolicitantes")
+            .whereEqualTo("eventoID", id)
+            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+      @Override
+      public void onComplete(@NonNull Task<QuerySnapshot> task) {
+        List<DocumentSnapshot> documents = task.getResult().getDocuments();
+        if (!documents.isEmpty()){
+          String uidEvento = documents.get(0).getId();
+          //Toast.makeText(telaDoEvento.this, uidEvento, LENGTH_SHORT).show();
+          db.collection("memberSolicitations")
+                  .document(uidMembro)
+                  .collection("eventosSolicitantes")
+                  .document(uidEvento)
+                  .delete();
+        }
+      }
+    });
+
   }
 
   public void verificarParticipante(String id){
