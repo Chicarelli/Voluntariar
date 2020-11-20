@@ -223,29 +223,30 @@ public class MainActivity extends AppCompatActivity {  //ACITIVTY QUE SERÁ APRE
     }
 
     private void fetchList(String citySelected) {
-        db.collection("eventos")
+             db.collection("eventos")
                 .whereEqualTo("cidade", citySelected)
                 .orderBy("timestamp")
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                        List<DocumentChange> documentChanges = queryDocumentSnapshots.getDocumentChanges();
-                        if(documentChanges != null){
-                            for (DocumentChange doc: documentChanges) {
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            List<DocumentSnapshot> documentSnapshots = task.getResult().getDocuments();
+                            if(documentSnapshots != null){
+                                for (DocumentSnapshot doc: documentSnapshots) {
+                                    Date date = new Date(System.currentTimeMillis());
+                                    Date dataFormatada = dateFormatting(doc.get("data").toString());
 
-                                //Fazendo comparação da hora para listar apenas eventos que ainda irão acontecer:
-                                Date date = new Date(System.currentTimeMillis());
-                                Date dataFormatada = dateFormatting(doc.getDocument().get("data").toString());
-
-                                if(date.before(dataFormatada) || date.getDate()==dataFormatada.getDate()) {
-                                    Eventos evento = doc.getDocument().toObject(Eventos.class);
-                                    adapterRv.add(new EventoItem(evento));
-                                    noEvento.setVisibility(View.INVISIBLE);
+                                    if(date.before(dataFormatada) || date.getDate()==dataFormatada.getDate()) {
+                                        Eventos evento = doc.toObject(Eventos.class);
+                                        adapterRv.add(new EventoItem(evento));
+                                        noEvento.setVisibility(View.INVISIBLE);
+                                    }
                                 }
                             }
-                        }
-                        if(queryDocumentSnapshots.getDocumentChanges().isEmpty()){
-                            noEvento.setVisibility(View.VISIBLE);
+                            if(documentSnapshots.isEmpty()){
+                                noEvento.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
                 });
