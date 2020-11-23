@@ -32,12 +32,12 @@
         "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_save.png"
     },
     {
-        "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_info.png.flat",
-        "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_info.png"
-    },
-    {
         "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
         "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_info.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_info.png"
     },
     {
         "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_save_black.png.flat",
@@ -124,16 +124,16 @@
         "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_save_black.png"
     },
     {
-        "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_proprietario.png.flat",
-        "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_proprietario.png"
+        "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\font_allerta.xml.flat",
+        "source": "C:\\Android Projetos\\Voluntariar2\\app\\src\\main\\res\\font\\allerta.xml"
     },
     {
         "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_upload_foto.xml.flat",
         "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_upload_foto.xml"
     },
     {
-        "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\font_allerta.xml.flat",
-        "source": "C:\\Android Projetos\\Voluntariar2\\app\\src\\main\\res\\font\\allerta.xml"
+        "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_proprietario.png.flat",
+        "source": "C:\\Android Projetos\\Voluntariar2\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_proprietario.png"
     },
     {
         "merged": "C:\\Android Projetos\\Voluntariar2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_meus_eventos.xml.flat",
