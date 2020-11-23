@@ -34,6 +34,13 @@
         <activity android:name="com.example.voluntariado.MessageActivity" />
         <activity android:name="com.example.voluntariado.TelaEventoParticipante" />
         <activity android:name="com.example.voluntariado.MeusEventos" />
+        <activity
+            android:name="com.example.voluntariado.SolicitacoesPendentes"
+            android:parentActivityName="com.example.voluntariado.MeusEventos" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MeusEventos" />
+        </activity>
         <activity android:name="com.example.voluntariado.ChatActivity" />
         <activity android:name="com.example.voluntariado.PerfilMembros" />
         <activity android:name="com.example.voluntariado.RequestParticipation" />

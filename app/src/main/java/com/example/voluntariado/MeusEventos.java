@@ -86,11 +86,8 @@ public class MeusEventos extends AppCompatActivity {
     }
 
     private void pendingSolicitations() {
-        //PEGAR OS EVENTOS QUE ESTÁ COMO SOLICITAÇÃO PENNDENTE
-       /* adapter.clear();
-
-        db.collection("aprovedMembers")
-                .whereEqualTo("")*/
+       Intent intent = new Intent(MeusEventos.this, SolicitacoesPendentes.class);
+       startActivity(intent);
     }
 
     private void fetchEventos() {

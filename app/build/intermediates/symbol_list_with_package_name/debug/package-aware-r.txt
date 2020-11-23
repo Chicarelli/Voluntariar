@@ -1800,6 +1800,7 @@ id rv_mainList
 id rv_meus_eventos_lista
 id rv_myProfile
 id rv_perfilMembros
+id rv_solicitacoes
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -2009,6 +2010,7 @@ layout activity_my_profile
 layout activity_my_profile_edit
 layout activity_perfil_membros
 layout activity_solicitacoes_de_participantes
+layout activity_solicitacoes_pendentes
 layout activity_tela_do_evento
 layout activity_tela_evento_participante
 layout activity_tela_participantes
